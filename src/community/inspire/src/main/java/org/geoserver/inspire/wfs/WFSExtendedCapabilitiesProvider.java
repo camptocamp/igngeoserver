@@ -5,8 +5,6 @@ import static org.geoserver.inspire.InspireMetadata.SERVICE_METADATA_URL;
 
 import java.io.IOException;
 
-import org.geoserver.ows.URLMangler.URLType;
-import org.geoserver.ows.util.ResponseUtils;
 import org.geoserver.wfs.GetCapabilities;
 import org.geoserver.wfs.WFSInfo;
 import org.geoserver.wfs.request.GetCapabilitiesRequest;
@@ -17,12 +15,16 @@ import org.xml.sax.helpers.NamespaceSupport;
 public class WFSExtendedCapabilitiesProvider implements org.geoserver.wfs.WFSExtendedCapabilitiesProvider {
 
     private static final String COMMON_NAMESPACE = "http://inspire.ec.europa.eu/schemas/common/1.0";
+    public static final String DLS_NAMESPACE = "http://inspire.ec.europa.eu/schemas/inspire_dls/1.0";
 
 	/**
      * IGN : Do we still need to host this xsd ?
      */
     public String[] getSchemaLocations(String schemaBaseURL) {
-        return new String[] { COMMON_NAMESPACE, "http://inspire.ec.europa.eu/schemas/common/1.0/common.xsd" };
+        return new String[] { 
+        		COMMON_NAMESPACE, "http://inspire.ec.europa.eu/schemas/common/1.0/common.xsd",
+        		DLS_NAMESPACE, "http://inspire.ec.europa.eu/schemas/inspire_dls/1.0/inspire_dls.xsd"
+        };
     }
 
     public void registerNamespaces(NamespaceSupport namespaces) {
@@ -36,6 +38,9 @@ public class WFSExtendedCapabilitiesProvider implements org.geoserver.wfs.WFSExt
         // IGN : We add another xmlns for inspire_common
         namespaces
                 .declarePrefix("inspire_common", COMMON_NAMESPACE);
+        // IGN : We add another xmlns for inspire_dls
+        namespaces
+        .declarePrefix("inspire_dls", DLS_NAMESPACE);
     }
 
     public void encode(Translator tx, WFSInfo wfs, GetCapabilitiesRequest request)
@@ -49,6 +54,7 @@ public class WFSExtendedCapabilitiesProvider implements org.geoserver.wfs.WFSExt
 
         // IGN : INSPIRE SCENARIO 1
         tx.start("ows:ExtendedCapabilities");
+        tx.start("inspire_dls:ExtendedCapabilities");
 
         // Metadata URL
         tx.start("inspire_common:MetadataUrl",
@@ -89,6 +95,7 @@ public class WFSExtendedCapabilitiesProvider implements org.geoserver.wfs.WFSExt
         tx.end("inspire_common:Language");
         tx.end("inspire_common:ResponseLanguage");
 
+        tx.end("inspire_dls:ExtendedCapabilities");
         tx.end("ows:ExtendedCapabilities");
 
     }
