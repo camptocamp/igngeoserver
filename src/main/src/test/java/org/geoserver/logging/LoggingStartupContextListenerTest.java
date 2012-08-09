@@ -31,7 +31,7 @@ public class LoggingStartupContextListenerTest extends TestCase {
         context.setInitParameter("GEOSERVER_LOG_LOCATION", new File(tmp, "foo.log").getAbsolutePath());
 
         Logger logger = Logger.getRootLogger();
-        assertNull(logger.getAppender("geoserverlogfile"));
+        assertNull("Expected geoserverlogfile to be null.  But was: "+logger.getAppender("geoserverlogfile"), logger.getAppender("geoserverlogfile"));
 
         String rel = System.getProperty(LoggingUtils.RELINQUISH_LOG4J_CONTROL);
         System.setProperty(LoggingUtils.RELINQUISH_LOG4J_CONTROL, "false");
@@ -39,7 +39,7 @@ public class LoggingStartupContextListenerTest extends TestCase {
             new LoggingStartupContextListener().contextInitialized(new ServletContextEvent(context));
         }
         finally {
-            System.setProperty(LoggingUtils.RELINQUISH_LOG4J_CONTROL, "rel");
+            System.setProperty(LoggingUtils.RELINQUISH_LOG4J_CONTROL, rel);
         }
 
         Appender appender = logger.getAppender("geoserverlogfile"); 
