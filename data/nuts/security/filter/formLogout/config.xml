@@ -1,0 +1,5 @@
+<org.geoserver.security.config.LogoutFilterConfig>
+  <id>1b2e0cbc:1390a9607d9:-7ff3</id>
+  <name>formLogout</name>
+  <className>org.geoserver.security.filter.GeoServerLogoutFilter</className>
+</org.geoserver.security.config.LogoutFilterConfig>
