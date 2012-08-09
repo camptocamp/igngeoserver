@@ -1,58 +1,31 @@
-package org.geoserver.inspire.wms;
+package org.geoserver.inspire.wfs;
 
 import static org.geoserver.inspire.InspireMetadata.LANGUAGE;
 import static org.geoserver.inspire.InspireMetadata.SERVICE_METADATA_URL;
 
 import java.io.IOException;
-import java.util.Collections;
-import java.util.List;
 
 import org.geoserver.ows.URLMangler.URLType;
 import org.geoserver.ows.util.ResponseUtils;
-import org.geoserver.wms.ExtendedCapabilitiesProvider;
-import org.geoserver.wms.GetCapabilitiesRequest;
-import org.geoserver.wms.WMS;
-import org.geoserver.wms.WMSInfo;
-import org.geotools.util.Version;
+import org.geoserver.wfs.GetCapabilities;
+import org.geoserver.wfs.WFSInfo;
+import org.geoserver.wfs.request.GetCapabilitiesRequest;
 import org.xml.sax.Attributes;
 import org.xml.sax.helpers.AttributesImpl;
 import org.xml.sax.helpers.NamespaceSupport;
 
-public class WMSExtendedCapabilitiesProvider implements ExtendedCapabilitiesProvider {
+public class WFSExtendedCapabilitiesProvider implements org.geoserver.wfs.WFSExtendedCapabilitiesProvider {
 
-    /**
-     * IGN : inspire_vs namespace as defined in the "INSPIRE View Service Technical Guidance
-     * 3.0/Annex C/Example of Extended Capabilities Response Scenario 1"
-     */
-    public static final String NAMESPACE = "http://inspire.ec.europa.eu/schemas/inspire_vs/1.0";
+    private static final String COMMON_NAMESPACE = "http://inspire.ec.europa.eu/schemas/common/1.0";
 
-    /**
+	/**
      * IGN : Do we still need to host this xsd ?
      */
     public String[] getSchemaLocations(String schemaBaseURL) {
-        String schemaLocation = ResponseUtils.buildURL(schemaBaseURL, "www/inspire/inspire_vs.xsd",
-                null, URLType.RESOURCE);
-        return new String[] { NAMESPACE, schemaLocation };
-    }
-
-    /**
-     * @return empty list, INSPIRE profile for WMS 1.1.1 not supported.
-     * @see org.geoserver.wms.ExtendedCapabilitiesProvider#getVendorSpecificCapabilitiesRoots()
-     */
-    public List<String> getVendorSpecificCapabilitiesRoots(GetCapabilitiesRequest request) {
-        return Collections.emptyList();
-    }
-
-    /**
-     * @return empty list, INSPIRE profile for WMS 1.1.1 not supported.
-     * @see org.geoserver.wms.ExtendedCapabilitiesProvider#getVendorSpecificCapabilitiesChildDecls()
-     */
-    public List<String> getVendorSpecificCapabilitiesChildDecls(GetCapabilitiesRequest request) {
-        return Collections.emptyList();
+        return new String[] { COMMON_NAMESPACE, "http://inspire.ec.europa.eu/schemas/common/1.0/common.xsd" };
     }
 
     public void registerNamespaces(NamespaceSupport namespaces) {
-        namespaces.declarePrefix("inspire_vs", NAMESPACE);
         namespaces.declarePrefix("gml", "http://schemas.opengis.net/gml");
         namespaces
                 .declarePrefix("gmd", "http://schemas.opengis.net/iso/19139/20060504/gmd/gmd.xsd");
@@ -62,50 +35,51 @@ public class WMSExtendedCapabilitiesProvider implements ExtendedCapabilitiesProv
                 .declarePrefix("srv", "http://schemas.opengis.net/iso/19139/20060504/srv/srv.xsd");
         // IGN : We add another xmlns for inspire_common
         namespaces
-                .declarePrefix("inspire_common", "http://inspire.ec.europa.eu/schemas/common/1.0");
+                .declarePrefix("inspire_common", COMMON_NAMESPACE);
     }
 
-    public void encode(Translator tx, WMSInfo wms, GetCapabilitiesRequest request)
+    public void encode(Translator tx, WFSInfo wfs, GetCapabilitiesRequest request)
             throws IOException {
-        Version requestVersion = WMS.version(request.getVersion());
+        String version = GetCapabilities.version(request);
 
-        // if this is not a wms 1.3.0 request
-        if (!WMS.VERSION_1_3_0.equals(requestVersion)) {
+        // can't add to a pre 1.1.0 version
+        if ("1.0.0".equals(version)) {
             return;
         }
 
         // IGN : INSPIRE SCENARIO 1
-        tx.start("inspire_vs:ExtendedCapabilities");
+        tx.start("ows:ExtendedCapabilities");
 
         // Metadata URL
         tx.start("inspire_common:MetadataUrl",
                 atts("xsi:type", "inspire_common:resourceLocatorType"));
-        String metadataURL = (String) wms.getMetadata().get(SERVICE_METADATA_URL.key);
+        String metadataURL = (String) wfs.getMetadata().get(SERVICE_METADATA_URL.key);
         tx.start("inspire_common:URL");
         if (metadataURL != null) {
             tx.chars(metadataURL);
         }
         tx.end("inspire_common:URL");
         tx.start("inspire_common:MediaType");
-        tx.chars("application/vnd.iso.19139+xml");
+        tx.chars("application/vnd.ogc.csw.GetRecordByIdResponse_xml");
         tx.end("inspire_common:MediaType");
         tx.end("inspire_common:MetadataUrl");
 
         // SupportedLanguages
         tx.start("inspire_common:SupportedLanguages",
                 atts("xsi:type", "inspire_common:supportedLanguagesType"));
-        String language = (String) wms.getMetadata().get(LANGUAGE.key);
+        String language = (String) wfs.getMetadata().get(LANGUAGE.key);
         language = language != null ? language : "eng";
         tx.start("inspire_common:DefaultLanguage");
         tx.start("inspire_common:Language");
         tx.chars(language);
         tx.end("inspire_common:Language");
         tx.end("inspire_common:DefaultLanguage");
-        tx.start("inspire_common:SupportedLanguage");
-        tx.start("inspire_common:Language");
-        tx.chars(language);
-        tx.end("inspire_common:Language");
-        tx.end("inspire_common:SupportedLanguage");
+// TODO when more than one language
+//        tx.start("inspire_common:SupportedLanguage");
+//        tx.start("inspire_common:Language");
+//        tx.chars(language);
+//        tx.end("inspire_common:Language");
+//        tx.end("inspire_common:SupportedLanguage");
         tx.end("inspire_common:SupportedLanguages");
 
         // ResponseLanguage
@@ -115,7 +89,7 @@ public class WMSExtendedCapabilitiesProvider implements ExtendedCapabilitiesProv
         tx.end("inspire_common:Language");
         tx.end("inspire_common:ResponseLanguage");
 
-        tx.end("inspire_vs:ExtendedCapabilities");
+        tx.end("ows:ExtendedCapabilities");
 
     }
 

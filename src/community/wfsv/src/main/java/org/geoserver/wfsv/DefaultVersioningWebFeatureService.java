@@ -30,6 +30,7 @@ import org.geoserver.wfs.GetCapabilities;
 import org.geoserver.wfs.GetFeature;
 import org.geoserver.wfs.LockFeature;
 import org.geoserver.wfs.WFSException;
+import org.geoserver.wfs.WFSExtensions;
 import org.geoserver.wfs.WFSInfo;
 import org.geoserver.wfs.request.DescribeFeatureTypeRequest;
 import org.geoserver.wfs.request.FeatureCollectionResponse;
@@ -116,7 +117,7 @@ public class DefaultVersioningWebFeatureService
      */
     public TransformerBase getCapabilities(GetCapabilitiesType request)
         throws WFSException {
-        return new GetCapabilities(wfs, catalog).run(GetCapabilitiesRequest.adapt(request));
+        return new GetCapabilities(wfs, catalog, WFSExtensions.findExtendedCapabilitiesProviders(context)).run(GetCapabilitiesRequest.adapt(request));
     }
 
     /**
