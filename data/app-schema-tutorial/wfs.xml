@@ -33,18 +33,25 @@ data.</abstrct>
   <verbose>false</verbose>
   <gml>
     <entry>
-      <org.geoserver.wfs.WFSInfo_-Version>V_11</org.geoserver.wfs.WFSInfo_-Version>
-      <org.geoserver.wfs.GMLInfoImpl>
-        <srsNameStyle>URN</srsNameStyle>
-        <overrideGMLAttributes>false</overrideGMLAttributes>
-      </org.geoserver.wfs.GMLInfoImpl>
-    </entry>
-    <entry>
-      <org.geoserver.wfs.WFSInfo_-Version>V_10</org.geoserver.wfs.WFSInfo_-Version>
-      <org.geoserver.wfs.GMLInfoImpl>
+      <version>V_10</version>
+      <gml>
         <srsNameStyle>XML</srsNameStyle>
         <overrideGMLAttributes>false</overrideGMLAttributes>
-      </org.geoserver.wfs.GMLInfoImpl>
+      </gml>
+    </entry>
+    <entry>
+      <version>V_11</version>
+      <gml>
+        <srsNameStyle>URN</srsNameStyle>
+        <overrideGMLAttributes>false</overrideGMLAttributes>
+      </gml>
+    </entry>
+    <entry>
+      <version>V_20</version>
+      <gml>
+        <srsNameStyle>URN2</srsNameStyle>
+        <overrideGMLAttributes>false</overrideGMLAttributes>
+      </gml>
     </entry>
   </gml>
   <serviceLevel>BASIC</serviceLevel>

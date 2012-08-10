@@ -1,5 +1,5 @@
 <userGroupService>
-  <id>1b2e0cbc:1390a9607d9:-7ffd</id>
+  <id>-98e9dd7:1390b1440ac:-7ff9</id>
   <name>default</name>
   <className>org.geoserver.security.xml.XMLUserGroupService</className>
   <fileName>users.xml</fileName>
