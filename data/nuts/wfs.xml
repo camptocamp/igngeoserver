@@ -16,18 +16,14 @@
   <citeCompliant>false</citeCompliant>
   <schemaBaseURL>http://schemas.opengis.net</schemaBaseURL>
   <verbose>false</verbose>
+  <metadata>
+    <entry key="SHAPE-ZIP_DEFAULT_PRJ_IS_ESRI">false</entry>
+  </metadata>
   <gml>
     <entry>
       <version>V_11</version>
       <gml>
         <srsNameStyle>URN</srsNameStyle>
-        <overrideGMLAttributes>false</overrideGMLAttributes>
-      </gml>
-    </entry>
-    <entry>
-      <version>V_20</version>
-      <gml>
-        <srsNameStyle>URN2</srsNameStyle>
         <overrideGMLAttributes>false</overrideGMLAttributes>
       </gml>
     </entry>
@@ -38,10 +34,17 @@
         <overrideGMLAttributes>true</overrideGMLAttributes>
       </gml>
     </entry>
+    <entry>
+      <version>V_20</version>
+      <gml>
+        <srsNameStyle>URN2</srsNameStyle>
+        <overrideGMLAttributes>false</overrideGMLAttributes>
+      </gml>
+    </entry>
   </gml>
   <serviceLevel>COMPLETE</serviceLevel>
   <maxFeatures>2147483647</maxFeatures>
-  <featureBounding>true</featureBounding>
-  <canonicalSchemaLocation>false</canonicalSchemaLocation>
-  <encodeFeatureMember>false</encodeFeatureMember>
+  <featureBounding>false</featureBounding>
+  <canonicalSchemaLocation>true</canonicalSchemaLocation>
+  <encodeFeatureMember>true</encodeFeatureMember>
 </wfs>

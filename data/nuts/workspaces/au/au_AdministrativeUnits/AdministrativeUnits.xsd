@@ -2,7 +2,7 @@
   <import namespace="urn:x-inspire:specification:gmlas:StatisticalUnits:0.0" schemaLocation="StatisticalUnits.xsd"/>
   <import namespace="urn:x-inspire:specification:gmlas:BaseTypes:3.2" schemaLocation="BaseTypes.xsd"/>
   <import namespace="urn:x-inspire:specification:gmlas:GeographicalNames:3.0" schemaLocation="GeographicalNames.xsd"/>
-  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <import namespace="http://www.isotc211.org/2005/gmd" schemaLocation="http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd"/>
   <!--XML Schema document created by ShapeChange-->
   <element name="ResidenceOfAuthority" substitutionGroup="gml:AbstractObject" type="au:ResidenceOfAuthorityType">
@@ -46,7 +46,7 @@ Unit of administration where a Member State has and/or exercises jurisdictional 
     <complexContent>
       <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element name="geometry" type="gml:MultiSurfacePropertyType">
+          <element name="geometry" type="gml:GeometryPropertyType">
             <annotation>
               <documentation>-- Definition --&#13;
 Geometric representation of spatial area covered by this administrative unit.</documentation>

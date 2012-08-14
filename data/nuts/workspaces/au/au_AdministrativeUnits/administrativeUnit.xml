@@ -9,8 +9,12 @@
         </Namespace>
         <Namespace>
             <prefix>gml</prefix>
-            <uri>http://www.opengis.net/gml/3.2</uri>
+            <uri>http://www.opengis.net/gml</uri>
         </Namespace>
+        <Namespace>
+            <prefix>xlink</prefix>
+                <uri>http://www.w3.org/1999/xlink</uri>
+            </Namespace>
         <Namespace>
             <prefix>base</prefix>
             <uri>urn:x-inspire:specification:gmlas:BaseTypes:3.2</uri>
@@ -96,7 +100,7 @@
                 <AttributeMapping>
                     <targetAttribute>au:geometry</targetAttribute>
                     <idExpression>
-                        <OCQL>strConcat('geometry.', getId())</OCQL>
+                        <OCQL>strConcat('geometryJes.', getId())</OCQL>
                     </idExpression>
                     <sourceExpression>
                         <OCQL>geometry</OCQL>
