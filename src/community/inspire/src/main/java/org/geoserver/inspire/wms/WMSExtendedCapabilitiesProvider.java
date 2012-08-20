@@ -1,7 +1,7 @@
 package org.geoserver.inspire.wms;
 
-import static org.geoserver.inspire.wms.InspireMetadata.LANGUAGE;
-import static org.geoserver.inspire.wms.InspireMetadata.SERVICE_METADATA_URL;
+import static org.geoserver.inspire.InspireMetadata.LANGUAGE;
+import static org.geoserver.inspire.InspireMetadata.SERVICE_METADATA_URL;
 
 import java.io.IOException;
 import java.util.Collections;

@@ -2,6 +2,7 @@ package org.geoserver.inspire.wms;
 
 import static org.geoserver.inspire.wms.WMSExtendedCapabilitiesProvider.NAMESPACE;
 
+import org.geoserver.inspire.InspireMetadata;
 import org.geoserver.test.GeoServerTestSupport;
 import org.geoserver.wms.WMSInfo;
 import org.w3c.dom.Document;

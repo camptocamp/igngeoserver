@@ -6,7 +6,7 @@ import static org.easymock.EasyMock.replay;
 
 import org.geoserver.security.WrapperPolicy;
 import org.geoserver.security.decorators.SecuredObjects;
-import org.geoserver.util.SecurityUtils;
+import org.geoserver.security.SecurityUtils;
 import org.geotools.data.DataUtilities;
 import org.geotools.data.VersioningDataStore;
 import org.geotools.data.VersioningFeatureStore;
