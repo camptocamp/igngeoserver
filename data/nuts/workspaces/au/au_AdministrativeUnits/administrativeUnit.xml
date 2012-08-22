@@ -210,9 +210,9 @@
 				</AttributeMapping>
 				<AttributeMapping>
 					<targetAttribute>au:inspireId</targetAttribute>
-					<idExpression>
+					<sourceExpression>
 						<OCQL>inspireid</OCQL>
-					</idExpression>
+					</sourceExpression>
 				</AttributeMapping>
 				<AttributeMapping>
 					<targetAttribute>au:nationalLevel</targetAttribute>
@@ -221,11 +221,26 @@
 					</sourceExpression>
 				</AttributeMapping>
 				<AttributeMapping>
+                    <targetAttribute>au:country/gmd:Country</targetAttribute>
+                    <sourceExpression>
+                        <OCQL>country</OCQL>
+                    </sourceExpression>
+                    <ClientProperty>
+                        <name>codeList</name>
+                        <value>'#Country'</value>
+                    </ClientProperty> 
+<!-- TODO Need a why to calculate the codelistvalue.  a table or external properties files
+                    <ClientProperty>
+                        <name>codeListValue</name>
+                        <OCQL>countrycode</OCQL>
+                    </ClientProperty> -->
+                </AttributeMapping>
+				<AttributeMapping>
 					<targetAttribute>au:admunit</targetAttribute>
 					<sourceExpression>
 						<OCQL>admunit</OCQL>
 						<linkElement>au:AdministrativeUnit</linkElement>
-						<linkField>au:AdministrativeUnit</linkField>
+						<linkField>au:nationalCode</linkField>
 					</sourceExpression>
 				</AttributeMapping>
 			</attributeMappings>
