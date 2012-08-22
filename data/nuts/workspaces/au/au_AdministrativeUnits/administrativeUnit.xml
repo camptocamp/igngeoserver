@@ -113,10 +113,10 @@
                     </sourceExpression>
                 </AttributeMapping>
                 <AttributeMapping>
-                    <targetAttribute>au:inspireId</targetAttribute>
-                    <idExpression>
+                    <targetAttribute>au:inspireId/base:Identifier/base:localId</targetAttribute>
+                    <sourceExpression>
                         <OCQL>inspireid</OCQL>
-                    </idExpression>
+                    </sourceExpression>
                 </AttributeMapping>
                 <AttributeMapping>
                     <targetAttribute>au:nationalLevel</targetAttribute>
@@ -134,7 +134,6 @@
                         <value>'#FR'</value>
                     </ClientProperty> 
                 </AttributeMapping>
-<!--    TODO gmd:Country is causing problems with the parser-->
             <AttributeMapping>
                     <targetAttribute>au:country/gmd:Country</targetAttribute>
                     <sourceExpression>
