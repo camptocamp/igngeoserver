@@ -76,6 +76,10 @@
                   <name>Estimated extends</name>
                   <value>true</value>
               </Parameter>
+              <Parameter>
+			    <name>Expose primary keys</name>
+			    <value>true</value>
+			</Parameter>
             </parameters>
         </DataStore>
     </sourceDataStores>
@@ -97,7 +101,7 @@
                         <OCQL>getId()</OCQL>
                     </idExpression>
                 </AttributeMapping>
-                <AttributeMapping>
+                <!-- <AttributeMapping>
                     <targetAttribute>au:geometry</targetAttribute>
                     <idExpression>
                         <OCQL>strConcat('au_geometry.', getId())</OCQL>
@@ -105,7 +109,7 @@
                     <sourceExpression>
                         <OCQL>geometry</OCQL>
                     </sourceExpression>
-                </AttributeMapping>
+                </AttributeMapping> -->
                 <AttributeMapping>
                     <targetAttribute>au:nationalCode</targetAttribute>
                     <sourceExpression>
@@ -150,7 +154,7 @@
                     </ClientProperty> -->
                 </AttributeMapping>
                 <AttributeMapping>
-                    <targetAttribute>au:name</targetAttribute>
+                    <targetAttribute>au:name/gn:GeographicalName/gn:spelling/gn:SpellingOfName/gn:text</targetAttribute>
                     <sourceExpression>
                         <OCQL>name</OCQL>
                     </sourceExpression>
@@ -190,7 +194,7 @@
 			<sourceDataStore>ign_postgis_datastore</sourceDataStore>
 			<sourceType>administrativeboundary</sourceType>
 			<targetElement>au:AdministrativeBoundary</targetElement>
-			<groupBy />
+			
 			<attributeMappings>
 				<AttributeMapping>
 					<targetAttribute>au:AdministrativeBoundary</targetAttribute>
@@ -208,15 +212,9 @@
 					</sourceExpression>
 				</AttributeMapping>
 				<AttributeMapping>
-					<targetAttribute>au:inspireId</targetAttribute>
+					<targetAttribute>au:inspireId/base:Identifier/base:localId</targetAttribute>
 					<sourceExpression>
 						<OCQL>inspireid</OCQL>
-					</sourceExpression>
-				</AttributeMapping>
-				<AttributeMapping>
-					<targetAttribute>au:nationalLevel</targetAttribute>
-					<sourceExpression>
-						<OCQL>nationallevel</OCQL>
 					</sourceExpression>
 				</AttributeMapping>
 				<AttributeMapping>
@@ -235,11 +233,41 @@
                     </ClientProperty> -->
                 </AttributeMapping>
 				<AttributeMapping>
-					<targetAttribute>au:admunit</targetAttribute>
+					<targetAttribute>au:nationalLevel</targetAttribute>
+					<sourceExpression>
+						<OCQL>nationallevel</OCQL>
+					</sourceExpression>
+				</AttributeMapping>
+				<AttributeMapping>
+					<targetAttribute>au:legalStatus</targetAttribute>
+					<sourceExpression>
+						<OCQL>legalstatus</OCQL>
+					</sourceExpression>
+				</AttributeMapping>
+				<AttributeMapping>
+					<targetAttribute>au:technicalStatus</targetAttribute>
+					<sourceExpression>
+						<OCQL>technicalstatus</OCQL>
+					</sourceExpression>
+				</AttributeMapping>
+				<AttributeMapping>
+					<targetAttribute>au:beginLifespanVersion</targetAttribute>
+					<sourceExpression>
+						<OCQL>beginlifespanversion</OCQL>
+					</sourceExpression>
+				</AttributeMapping>
+				<AttributeMapping>
+					<targetAttribute>au:endLifespanVersion</targetAttribute>
+					<sourceExpression>
+						<OCQL>endlifespanversion</OCQL>
+					</sourceExpression>
+				</AttributeMapping>
+				<AttributeMapping>
+					<targetAttribute>au:admUnit</targetAttribute>
 					<sourceExpression>
 						<OCQL>admunit</OCQL>
 						<linkElement>au:AdministrativeUnit</linkElement>
-						<linkField>au:nationalCode</linkField>
+						<linkField>FEATURE_LINK</linkField>
 					</sourceExpression>
 				</AttributeMapping>
 			</attributeMappings>
