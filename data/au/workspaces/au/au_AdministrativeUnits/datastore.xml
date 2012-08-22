@@ -1,0 +1,13 @@
+<dataStore>
+    <id>au_AdministrativeUnit_datastore</id>
+    <name>au_AdministrativeUnit</name>
+    <enabled>true</enabled>
+    <workspace>
+        <id>au_workspace</id>
+    </workspace>
+    <connectionParameters>
+        <entry key="namespace">urn:x-inspire:specification:gmlas:AdministrativeUnits:3.0</entry>
+        <entry key="url">file:workspaces/au/au_AdministrativeUnits/AdministrativeUnit.xml</entry>
+        <entry key="dbtype">app-schema</entry>
+    </connectionParameters>
+</dataStore>

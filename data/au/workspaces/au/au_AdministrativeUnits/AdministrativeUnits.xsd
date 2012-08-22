@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema"  
+  xmlns:au="urn:x-inspire:specification:gmlas:AdministrativeUnits:3.0"
+  targetNamespace="urn:x-inspire:specification:gmlas:AdministrativeUnits:3.0"
+  xmlns:gml="http://www.opengis.net/gml/3.2" 
+  xmlns:gn="urn:x-inspire:specification:gmlas:GeographicalNames:3.0"
+  xmlns:gmd="http://www.isotc211.org/2005/gmd"
+  elementFormDefault="qualified" 
+  version="3.0">
+
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <import namespace="http://www.isotc211.org/2005/gmd" schemaLocation="http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd"/>
+  <import namespace="urn:x-inspire:specification:gmlas:GeographicalNames:3.0" schemaLocation="GeographicalNames.xsd"/>
+  
+  <element name="AdministrativeUnit" substitutionGroup="gml:AbstractFeature" type="au:AdministrativeUnitType">
+    <annotation>
+      <documentation>-- Definition --&#13;
+Unit of administration where a Member State has and/or exercises jurisdictional rights, for local, regional and national governance.&#13;
+</documentation>
+    </annotation>
+  </element>
+  <complexType name="AdministrativeUnitType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="geometry" type="gml:GeometryPropertyType" />
+          <element name="nationalCode" type="string" />
+          <element name="inspireId" type="string" />
+          <element name="nationalLevel" type="gml:CodeType" />
+          <element maxOccurs="unbounded" name="nationalLevelName" nillable="true" type="gmd:LocalisedCharacterString_PropertyType" />
+          <element name="country" type="gmd:Country_PropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+</schema>
