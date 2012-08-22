@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://www.geotools.org/app-schema"
   xmlns:as="http://www.geotools.org/app-schema" xmlns:ogc="http://www.opengis.net/ogc"
-  xmlns:gml="http://www.opengis.net/gml">
+  xmlns:gml="http://www.opengis.net/gml/3.2">
 
   <import namespace="http://www.opengis.net/ogc" schemaLocation="http://schemas.opengis.net/filter/1.1.0/expr.xsd" />
-  <import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.1.1/base/feature.xsd" />
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.1.1/base/feature.xsd" />
 
   <element name="AppSchemaDataAccess" type="as:AppSchemaDataAccessType">
     <annotation>

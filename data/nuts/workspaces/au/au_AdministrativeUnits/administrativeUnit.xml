@@ -9,7 +9,7 @@
         </Namespace>
         <Namespace>
             <prefix>gml</prefix>
-            <uri>http://www.opengis.net/gml</uri>
+            <uri>http://www.opengis.net/gml/3.2</uri>
         </Namespace>
         <Namespace>
             <prefix>xlink</prefix>
@@ -100,7 +100,7 @@
                 <AttributeMapping>
                     <targetAttribute>au:geometry</targetAttribute>
                     <idExpression>
-                        <OCQL>strConcat('geometryJes.', getId())</OCQL>
+                        <OCQL>strConcat('au_geometry.', getId())</OCQL>
                     </idExpression>
                     <sourceExpression>
                         <OCQL>geometry</OCQL>
@@ -130,7 +130,7 @@
                         <OCQL>nationallevelname</OCQL>
                     </sourceExpression>
                 </AttributeMapping>
-<!--    TODO gmd:Country is causing problems with the parser
+<!--    TODO gmd:Country is causing problems with the parser-->
             <AttributeMapping>
                     <targetAttribute>au:country/gmd:Country</targetAttribute>
                     <sourceExpression>
@@ -139,13 +139,13 @@
                     <ClientProperty>
                         <name>codeList</name>
                         <value>'#Country'</value>
-                    </ClientProperty> -->
+                    </ClientProperty> 
 <!-- TODO Need a why to calculate the codelistvalue.  a table or external properties files
                     <ClientProperty>
                         <name>codeListValue</name>
                         <OCQL>countrycode</OCQL>
                     </ClientProperty> -->
-                <!-- </AttributeMapping> -->
+                </AttributeMapping>
                 <AttributeMapping>
                     <targetAttribute>au:name</targetAttribute>
                     <sourceExpression>
