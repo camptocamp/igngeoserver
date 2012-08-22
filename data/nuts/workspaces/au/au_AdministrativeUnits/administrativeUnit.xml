@@ -125,10 +125,14 @@
                     </sourceExpression>
                 </AttributeMapping>
                 <AttributeMapping>
-                    <targetAttribute>au:nationalLevelName</targetAttribute>
+                    <targetAttribute>au:nationalLevelName/gmd:LocalisedCharacterString</targetAttribute>
                     <sourceExpression>
                         <OCQL>nationallevelname</OCQL>
                     </sourceExpression>
+                    <ClientProperty>
+                        <name>locale</name>
+                        <value>'#FR'</value>
+                    </ClientProperty> 
                 </AttributeMapping>
 <!--    TODO gmd:Country is causing problems with the parser-->
             <AttributeMapping>
