@@ -33,9 +33,9 @@ data.</abstrct>
   <verbose>false</verbose>
   <gml>
     <entry>
-      <version>V_10</version>
+      <version>V_20</version>
       <gml>
-        <srsNameStyle>XML</srsNameStyle>
+        <srsNameStyle>URN2</srsNameStyle>
         <overrideGMLAttributes>false</overrideGMLAttributes>
       </gml>
     </entry>
@@ -47,9 +47,9 @@ data.</abstrct>
       </gml>
     </entry>
     <entry>
-      <version>V_20</version>
+      <version>V_10</version>
       <gml>
-        <srsNameStyle>URN2</srsNameStyle>
+        <srsNameStyle>XML</srsNameStyle>
         <overrideGMLAttributes>false</overrideGMLAttributes>
       </gml>
     </entry>

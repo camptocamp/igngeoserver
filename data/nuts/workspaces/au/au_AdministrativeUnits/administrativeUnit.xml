@@ -100,7 +100,7 @@
                 <AttributeMapping>
                     <targetAttribute>au:geometry</targetAttribute>
                     <idExpression>
-                        <OCQL>strConcat('au_geometry.', getId())</OCQL>
+                        <OCQL>strConcat('unit_geometry.', getId())</OCQL>
                     </idExpression>
                     <sourceExpression>
                         <OCQL>geometry</OCQL>
@@ -109,7 +109,7 @@
                 <AttributeMapping>
                     <targetAttribute>au:nationalCode</targetAttribute>
                     <sourceExpression>
-                        <OCQL>nationalcode</OCQL>
+                        <OCQL>strTrim(nationalcode)</OCQL>
                     </sourceExpression>
                 </AttributeMapping>
                 <AttributeMapping>
@@ -201,7 +201,7 @@
 				<AttributeMapping>
 					<targetAttribute>au:geometry</targetAttribute>
 					<idExpression>
-						<OCQL>strConcat('geometryJes.', getId())</OCQL>
+						<OCQL>strConcat('boundary_geometry.', getId())</OCQL>
 					</idExpression>
 					<sourceExpression>
 						<OCQL>geometry</OCQL>
@@ -237,7 +237,7 @@
 				<AttributeMapping>
 					<targetAttribute>au:admunit</targetAttribute>
 					<sourceExpression>
-						<OCQL>admunit</OCQL>
+						<OCQL>strTrim(admunit)</OCQL>
 						<linkElement>au:AdministrativeUnit</linkElement>
 						<linkField>au:nationalCode</linkField>
 					</sourceExpression>
