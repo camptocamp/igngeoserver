@@ -185,8 +185,50 @@
                         <OCQL>nuts</OCQL>
                     </sourceExpression>
                 </AttributeMapping> -->
-
-            </attributeMappings>
-        </FeatureTypeMapping>
-    </typeMappings>
+			</attributeMappings>
+		</FeatureTypeMapping>
+		<FeatureTypeMapping>
+			<sourceDataStore>ign_postgis_datastore</sourceDataStore>
+			<sourceType>administrativeboundary</sourceType>
+			<targetElement>au:AdministrativeBoundary</targetElement>
+			<groupBy />
+			<attributeMappings>
+				<AttributeMapping>
+					<targetAttribute>au:AdministrativeBoundary</targetAttribute>
+					<idExpression>
+						<OCQL>getId()</OCQL>
+					</idExpression>
+				</AttributeMapping>
+				<AttributeMapping>
+					<targetAttribute>au:geometry</targetAttribute>
+					<idExpression>
+						<OCQL>strConcat('geometryJes.', getId())</OCQL>
+					</idExpression>
+					<sourceExpression>
+						<OCQL>geometry</OCQL>
+					</sourceExpression>
+				</AttributeMapping>
+				<AttributeMapping>
+					<targetAttribute>au:inspireId</targetAttribute>
+					<idExpression>
+						<OCQL>inspireid</OCQL>
+					</idExpression>
+				</AttributeMapping>
+				<AttributeMapping>
+					<targetAttribute>au:nationalLevel</targetAttribute>
+					<sourceExpression>
+						<OCQL>nationallevel</OCQL>
+					</sourceExpression>
+				</AttributeMapping>
+				<AttributeMapping>
+					<targetAttribute>au:admunit</targetAttribute>
+					<sourceExpression>
+						<OCQL>admunit</OCQL>
+						<linkElement>au:AdministrativeUnit</linkElement>
+						<linkField>au:AdministrativeUnit</linkField>
+					</sourceExpression>
+				</AttributeMapping>
+			</attributeMappings>
+		</FeatureTypeMapping>
+	</typeMappings>
 </as:AppSchemaDataAccess>
