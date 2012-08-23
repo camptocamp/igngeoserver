@@ -141,17 +141,16 @@
             <AttributeMapping>
                     <targetAttribute>au:country/gmd:Country</targetAttribute>
                     <sourceExpression>
-                        <OCQL>country</OCQL>
+                        <OCQL>strTrim(country)</OCQL>
                     </sourceExpression>
                     <ClientProperty>
                         <name>codeList</name>
-                        <value>'#Country'</value>
+                        <value>'http://www.isotc211.org/2005/resources/codeList.xml#Country'</value>
                     </ClientProperty> 
-<!-- TODO Need a why to calculate the codelistvalue.  a table or external properties files
                     <ClientProperty>
                         <name>codeListValue</name>
-                        <OCQL>countrycode</OCQL>
-                    </ClientProperty> -->
+                        <value>strTrim(country)</value>
+                    </ClientProperty> 
                 </AttributeMapping>
                 <AttributeMapping>
                     <targetAttribute>au:name</targetAttribute>
@@ -166,28 +165,38 @@
                         <OCQL>residenceOfAuthority</OCQL>
                     </sourceExpression>
                 </AttributeMapping> -->
-<!-- TODO  A Date time going to figure this out later
                 <AttributeMapping>
                     <targetAttribute>au:beginLifespanVersion</targetAttribute>
                     <sourceExpression>
                         <OCQL>beginlifespanversion</OCQL>
                     </sourceExpression>
-                </AttributeMapping> -->
-<!-- TODO  A Date time going to figure this out later
+                </AttributeMapping>
                 <AttributeMapping>
                     <targetAttribute>au:endLifespanVersion</targetAttribute>
                     <sourceExpression>
                         <OCQL>endlifespanversion</OCQL>
                     </sourceExpression>
-                </AttributeMapping> -->
+                </AttributeMapping>
 <!-- TODO  Data does not have any nuts values all are empty
-           Also it is supposed to be a reference
                 <AttributeMapping>
                     <targetAttribute>au:NUTS</targetAttribute>
                     <sourceExpression>
                         <OCQL>nuts</OCQL>
                     </sourceExpression>
                 </AttributeMapping> -->
+				<AttributeMapping>
+					<targetAttribute>au:boundary</targetAttribute>
+					<sourceExpression>
+						<OCQL>strTrim(boundary)</OCQL>
+						<linkElement>au:AdministrativeBoundary</linkElement>
+						<linkField>au:inspireId/base:Identifier/base:localId</linkField>
+					</sourceExpression>
+					<isMultiple>true</isMultiple>
+					<ClientProperty>
+						<name>xlink:href</name>
+						<value>strConcat('urn:x-inspire:specification:gmlas:AdministrativeBoundary:3.0:', strTrim(inspireid))</value>
+					</ClientProperty>
+				</AttributeMapping>
 			</attributeMappings>
 		</FeatureTypeMapping>
 		<FeatureTypeMapping>
