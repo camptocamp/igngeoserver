@@ -76,13 +76,14 @@
                   <name>Estimated extends</name>
                   <value>true</value>
               </Parameter>
-              <Parameter>
-			    <name>Expose primary keys</name>
-			    <value>true</value>
-			</Parameter>
             </parameters>
         </DataStore>
     </sourceDataStores>
+    <includedTypes>
+    	<Include>
+    		SpellingOfName.xml
+    	</Include>
+    </includedTypes>
     <targetTypes>
         <FeatureType>
             <schemaUri>AdministrativeUnits.xsd</schemaUri>
@@ -98,28 +99,28 @@
                 <AttributeMapping>
                     <targetAttribute>au:AdministrativeUnit</targetAttribute>
                     <idExpression>
-                        <OCQL>getId()</OCQL>
+                        <OCQL>strTrim(inspireid)</OCQL>
                     </idExpression>
                 </AttributeMapping>
-                <!-- <AttributeMapping>
+                <AttributeMapping>
                     <targetAttribute>au:geometry</targetAttribute>
                     <idExpression>
-                        <OCQL>strConcat('au_geometry.', getId())</OCQL>
+                        <OCQL>strConcat('unit_geometry.', strTrim(inspireid))</OCQL>
                     </idExpression>
                     <sourceExpression>
                         <OCQL>geometry</OCQL>
                     </sourceExpression>
-                </AttributeMapping> -->
+                </AttributeMapping>
                 <AttributeMapping>
                     <targetAttribute>au:nationalCode</targetAttribute>
                     <sourceExpression>
-                        <OCQL>nationalcode</OCQL>
+                        <OCQL>strTrim(nationalcode)</OCQL>
                     </sourceExpression>
                 </AttributeMapping>
                 <AttributeMapping>
                     <targetAttribute>au:inspireId/base:Identifier/base:localId</targetAttribute>
                     <sourceExpression>
-                        <OCQL>inspireid</OCQL>
+                        <OCQL>strTrim(inspireid)</OCQL>
                     </sourceExpression>
                 </AttributeMapping>
                 <AttributeMapping>
@@ -141,22 +142,23 @@
             <AttributeMapping>
                     <targetAttribute>au:country/gmd:Country</targetAttribute>
                     <sourceExpression>
-                        <OCQL>country</OCQL>
+                        <OCQL>strTrim(country)</OCQL>
                     </sourceExpression>
                     <ClientProperty>
                         <name>codeList</name>
-                        <value>'#Country'</value>
+                        <value>'http://www.isotc211.org/2005/resources/codeList.xml#Country'</value>
                     </ClientProperty> 
-<!-- TODO Need a why to calculate the codelistvalue.  a table or external properties files
                     <ClientProperty>
                         <name>codeListValue</name>
-                        <OCQL>countrycode</OCQL>
-                    </ClientProperty> -->
+                        <value>strTrim(country)</value>
+                    </ClientProperty> 
                 </AttributeMapping>
                 <AttributeMapping>
-                    <targetAttribute>au:name/gn:GeographicalName/gn:spelling/gn:SpellingOfName/gn:text</targetAttribute>
+                    <targetAttribute>au:name/gn:GeographicalName/gn:spelling</targetAttribute>
                     <sourceExpression>
-                        <OCQL>name</OCQL>
+                        <OCQL>strTrim(name)</OCQL>
+                        <linkElement>gn:SpellingOfName</linkElement>
+                        <linkField>FEATURE_LINK</linkField>
                     </sourceExpression>
                 </AttributeMapping>
 <!-- TODO  This is a complex type leaving it until later
@@ -166,28 +168,38 @@
                         <OCQL>residenceOfAuthority</OCQL>
                     </sourceExpression>
                 </AttributeMapping> -->
-<!-- TODO  A Date time going to figure this out later
                 <AttributeMapping>
                     <targetAttribute>au:beginLifespanVersion</targetAttribute>
                     <sourceExpression>
                         <OCQL>beginlifespanversion</OCQL>
                     </sourceExpression>
-                </AttributeMapping> -->
-<!-- TODO  A Date time going to figure this out later
+                </AttributeMapping>
                 <AttributeMapping>
                     <targetAttribute>au:endLifespanVersion</targetAttribute>
                     <sourceExpression>
                         <OCQL>endlifespanversion</OCQL>
                     </sourceExpression>
-                </AttributeMapping> -->
+                </AttributeMapping>
 <!-- TODO  Data does not have any nuts values all are empty
-           Also it is supposed to be a reference
                 <AttributeMapping>
                     <targetAttribute>au:NUTS</targetAttribute>
                     <sourceExpression>
                         <OCQL>nuts</OCQL>
                     </sourceExpression>
                 </AttributeMapping> -->
+				<AttributeMapping>
+					<targetAttribute>au:boundary</targetAttribute>
+					<sourceExpression>
+						<OCQL>strTrim(boundary)</OCQL>
+						<linkElement>au:AdministrativeBoundary</linkElement>
+						<linkField>au:inspireId/base:Identifier/base:localId</linkField>
+					</sourceExpression>
+					<isMultiple>true</isMultiple>
+					<ClientProperty>
+						<name>xlink:href</name>
+						<value>strConcat('urn:x-inspire:specification:gmlas:AdministrativeBoundary:3.0:', strTrim(inspireid))</value>
+					</ClientProperty>
+				</AttributeMapping>
 			</attributeMappings>
 		</FeatureTypeMapping>
 		<FeatureTypeMapping>
@@ -199,23 +211,23 @@
 				<AttributeMapping>
 					<targetAttribute>au:AdministrativeBoundary</targetAttribute>
 					<idExpression>
-						<OCQL>getId()</OCQL>
+						<OCQL>strTrim(inspireid)</OCQL>
 					</idExpression>
 				</AttributeMapping>
 				<AttributeMapping>
 					<targetAttribute>au:geometry</targetAttribute>
 					<idExpression>
-						<OCQL>strConcat('geometryJes.', getId())</OCQL>
+						<OCQL>strConcat('boundary_geometry.', strTrim(inspireid))</OCQL>
 					</idExpression>
 					<sourceExpression>
 						<OCQL>geometry</OCQL>
 					</sourceExpression>
 				</AttributeMapping>
 				<AttributeMapping>
-					<targetAttribute>au:inspireId/base:Identifier/base:localId</targetAttribute>
-					<sourceExpression>
-						<OCQL>inspireid</OCQL>
-					</sourceExpression>
+                    <targetAttribute>au:inspireId/base:Identifier/base:localId</targetAttribute>
+                    <sourceExpression>
+                        <OCQL>strTrim(inspireid)</OCQL>
+                    </sourceExpression>
 				</AttributeMapping>
 				<AttributeMapping>
                     <targetAttribute>au:country/gmd:Country</targetAttribute>
@@ -265,10 +277,15 @@
 				<AttributeMapping>
 					<targetAttribute>au:admUnit</targetAttribute>
 					<sourceExpression>
-						<OCQL>admunit</OCQL>
+						<OCQL>strTrim(admunit)</OCQL>
 						<linkElement>au:AdministrativeUnit</linkElement>
-						<linkField>FEATURE_LINK</linkField>
+						<linkField>au:inspireId/base:Identifier/base:localId</linkField>
 					</sourceExpression>
+					<isMultiple>true</isMultiple>
+					<ClientProperty>
+						<name>xlink:href</name>
+						<value>strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnits:3.0:', strTrim(inspireid))</value>
+					</ClientProperty>
 				</AttributeMapping>
 			</attributeMappings>
 		</FeatureTypeMapping>
