@@ -9,7 +9,7 @@
   <connectionParameters>
     <entry key="Connection timeout">20</entry>
     <entry key="port">5432</entry>
-    <entry key="passwd">crypt1:gzGkyRsivlqL4MacF4PwsA==</entry>
+    <entry key="passwd">crypt1:/yp+oNYXtblGltmSJ8Tg7w==</entry>
     <entry key="dbtype">postgis</entry>
     <entry key="host">localhost</entry>
     <entry key="validate connections">true</entry>
@@ -19,9 +19,9 @@
     <entry key="namespace">urn:x-inspire:specification:gmlas:AdministrativeUnits:3.0</entry>
     <entry key="schema">public</entry>
     <entry key="Loose bbox">true</entry>
-    <entry key="Expose primary keys">false</entry>
-    <entry key="fetch size">1000</entry>
+    <entry key="Expose primary keys">true</entry>
     <entry key="Max open prepared statements">50</entry>
+    <entry key="fetch size">1000</entry>
     <entry key="preparedStatements">false</entry>
     <entry key="Estimated extends">true</entry>
     <entry key="user">ign</entry>

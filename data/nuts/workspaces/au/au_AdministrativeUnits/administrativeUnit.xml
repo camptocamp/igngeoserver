@@ -76,6 +76,10 @@
                   <name>Estimated extends</name>
                   <value>true</value>
               </Parameter>
+              <Parameter>
+                  <name>Expose primary keys</name>
+                  <value>true</value>
+              </Parameter>
             </parameters>
         </DataStore>
     </sourceDataStores>
@@ -94,13 +98,13 @@
                 <AttributeMapping>
                     <targetAttribute>au:AdministrativeUnit</targetAttribute>
                     <idExpression>
-                        <OCQL>getId()</OCQL>
+                        <OCQL>strTrim(inspireid)</OCQL>
                     </idExpression>
                 </AttributeMapping>
                 <AttributeMapping>
                     <targetAttribute>au:geometry</targetAttribute>
                     <idExpression>
-                        <OCQL>strConcat('unit_geometry.', getId())</OCQL>
+                        <OCQL>strConcat('unit_geometry.', strTrim(inspireid))</OCQL>
                     </idExpression>
                     <sourceExpression>
                         <OCQL>geometry</OCQL>
@@ -115,7 +119,7 @@
                 <AttributeMapping>
                     <targetAttribute>au:inspireId/base:Identifier/base:localId</targetAttribute>
                     <sourceExpression>
-                        <OCQL>inspireid</OCQL>
+                        <OCQL>strTrim(inspireid)</OCQL>
                     </sourceExpression>
                 </AttributeMapping>
                 <AttributeMapping>
@@ -195,23 +199,23 @@
 				<AttributeMapping>
 					<targetAttribute>au:AdministrativeBoundary</targetAttribute>
 					<idExpression>
-						<OCQL>getId()</OCQL>
+						<OCQL>strTrim(inspireid)</OCQL>
 					</idExpression>
 				</AttributeMapping>
 				<AttributeMapping>
 					<targetAttribute>au:geometry</targetAttribute>
 					<idExpression>
-						<OCQL>strConcat('boundary_geometry.', getId())</OCQL>
+						<OCQL>strConcat('boundary_geometry.', strTrim(inspireid))</OCQL>
 					</idExpression>
 					<sourceExpression>
 						<OCQL>geometry</OCQL>
 					</sourceExpression>
 				</AttributeMapping>
 				<AttributeMapping>
-					<targetAttribute>au:inspireId</targetAttribute>
-					<sourceExpression>
-						<OCQL>inspireid</OCQL>
-					</sourceExpression>
+                    <targetAttribute>au:inspireId/base:Identifier/base:localId</targetAttribute>
+                    <sourceExpression>
+                        <OCQL>strTrim(inspireid)</OCQL>
+                    </sourceExpression>
 				</AttributeMapping>
 				<AttributeMapping>
 					<targetAttribute>au:nationalLevel</targetAttribute>
@@ -235,13 +239,27 @@
                     </ClientProperty> -->
                 </AttributeMapping>
 				<AttributeMapping>
+					<targetAttribute>au:admUnit</targetAttribute>
+					<sourceExpression>
+						<OCQL>strTrim(admunit)</OCQL>
+						<linkElement>au:AdministrativeUnit</linkElement>
+						<linkField>au:inspireId/base:Identifier/base:localId</linkField>
+					</sourceExpression>
+					<isMultiple>true</isMultiple>
+					<ClientProperty>
+						<name>xlink:href</name>
+						<value>strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnits:3.0:', strTrim(inspireid))</value>
+					</ClientProperty>
+				</AttributeMapping>
+                <!-- 
+				<AttributeMapping>
 					<targetAttribute>au:admunit</targetAttribute>
 					<sourceExpression>
 						<OCQL>strTrim(admunit)</OCQL>
 						<linkElement>au:AdministrativeUnit</linkElement>
 						<linkField>au:nationalCode</linkField>
 					</sourceExpression>
-				</AttributeMapping>
+				</AttributeMapping> -->
 			</attributeMappings>
 		</FeatureTypeMapping>
 	</typeMappings>
