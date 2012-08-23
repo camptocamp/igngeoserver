@@ -76,6 +76,10 @@
                   <name>Estimated extends</name>
                   <value>true</value>
               </Parameter>
+              <Parameter>
+                  <name>Expose primary keys</name>
+                  <value>true</value>
+              </Parameter>
             </parameters>
         </DataStore>
     </sourceDataStores>
