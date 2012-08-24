@@ -1,7 +1,7 @@
 <GeoServerTileLayer>
   <id>LayerInfoImpl--38693ac9:1390bc2da21:-7fd3</id>
   <enabled>true</enabled>
-  <name>au:administrativeunit</name>
+  <name>au:simple_administrativeunit</name>
   <mimeFormats>
     <string>image/png</string>
     <string>image/jpeg</string>

@@ -1,0 +1,5 @@
+<namespace>
+    <id>gsmlgu_namespace</id>
+    <prefix>gsmlgu</prefix>
+    <uri>http://xmlns.geosciml.org/GeologicUnit/3.0</uri>
+</namespace>
