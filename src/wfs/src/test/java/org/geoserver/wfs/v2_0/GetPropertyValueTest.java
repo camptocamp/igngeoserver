@@ -32,7 +32,8 @@ public class GetPropertyValueTest extends WFS20TestSupport {
         XMLAssert.assertXpathEvaluatesTo("3", "count(//wfs:member/sf:pointProperty/gml:Point)", dom);
     }
 
-    public void testResolveException() throws Exception {
+    //Resolve parameter is accepted now -- this test should be removed all together.
+    /*public void testResolveException() throws Exception {
         String xml = 
             "<wfs:GetPropertyValue service='WFS' version='2.0.0' "
                 + "xmlns:sf='" + MockData.SF_URI + "'    "
@@ -58,5 +59,5 @@ public class GetPropertyValueTest extends WFS20TestSupport {
         assertEquals("ows:ExceptionReport", dom.getDocumentElement().getNodeName());
         XMLAssert.assertXpathEvaluatesTo("InvalidParameterValue", "//ows:Exception/@exceptionCode", dom);
         XMLAssert.assertXpathEvaluatesTo("resolve", "//ows:Exception/@locator", dom);
-    }
+    }*/
 }
