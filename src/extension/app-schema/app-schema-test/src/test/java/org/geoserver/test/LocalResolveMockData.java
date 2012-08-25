@@ -24,6 +24,7 @@ public class LocalResolveMockData extends AbstractAppSchemaMockData {
     @Override
     public void addContent() {
 
+    	putNamespace("wfs", "http://www.opengis.net/wfs/2.0");
     	putNamespace("gml", "http://www.opengis.net/gml/3.2");
     	putNamespace(GSML_PREFIX, "urn:cgi:xmlns:CGI:GeoSciML-Core:3.0.0");
     	
