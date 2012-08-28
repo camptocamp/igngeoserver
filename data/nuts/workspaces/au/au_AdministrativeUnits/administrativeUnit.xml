@@ -85,7 +85,7 @@
     </sourceDataStores>
     <includedTypes>
     	<Include>
-    		SpellingOfName.xml
+    		GeographicalName.xml
     	</Include>
     </includedTypes>
     <targetTypes>
@@ -106,7 +106,7 @@
                         <OCQL>strTrim(inspireid)</OCQL>
                     </idExpression>
                 </AttributeMapping>
-                <AttributeMapping>
+                <!-- <AttributeMapping>
                     <targetAttribute>au:geometry</targetAttribute>
                     <idExpression>
                         <OCQL>strConcat('unit_geometry.', strTrim(inspireid))</OCQL>
@@ -114,7 +114,7 @@
                     <sourceExpression>
                         <OCQL>geometry</OCQL>
                     </sourceExpression>
-                </AttributeMapping>
+                </AttributeMapping> -->
                 <AttributeMapping>
                     <targetAttribute>au:nationalCode</targetAttribute>
                     <sourceExpression>
@@ -158,10 +158,10 @@
                     </ClientProperty> 
                 </AttributeMapping>
                 <AttributeMapping>
-                    <targetAttribute>au:name/gn:GeographicalName/gn:spelling</targetAttribute>
+                    <targetAttribute>au:name</targetAttribute>
                     <sourceExpression>
                         <OCQL>strTrim(name)</OCQL>
-                        <linkElement>gn:SpellingOfName</linkElement>
+                        <linkElement>gn:GeographicalName</linkElement>
                         <linkField>FEATURE_LINK</linkField>
                     </sourceExpression>
                 </AttributeMapping>
@@ -191,6 +191,58 @@
                         <OCQL>nuts</OCQL>
                     </sourceExpression>
                 </AttributeMapping> -->
+                <AttributeMapping>
+					<targetAttribute>au:lowerLevelUnit</targetAttribute>
+					<sourceExpression>
+						<OCQL>strTrim(lowerlevelunit)</OCQL>
+						<linkElement>au:AdministrativeUnit</linkElement>
+						<linkField>au:inspireId/base:Identifier/base:localId</linkField>
+					</sourceExpression>
+					<isMultiple>true</isMultiple>
+					<ClientProperty>
+						<name>xlink:href</name>
+						<value>strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', strTrim(inspireid))</value>
+					</ClientProperty>
+				</AttributeMapping>
+                <AttributeMapping>
+					<targetAttribute>au:upperLevelUnit</targetAttribute>
+					<sourceExpression>
+						<OCQL>strTrim(upperlevelunit)</OCQL>
+						<linkElement>au:AdministrativeUnit</linkElement>
+						<linkField>au:inspireId/base:Identifier/base:localId</linkField>
+					</sourceExpression>
+					<isMultiple>true</isMultiple>
+					<ClientProperty>
+						<name>xlink:href</name>
+						<value>strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', strTrim(inspireid))</value>
+					</ClientProperty>
+				</AttributeMapping>
+                <AttributeMapping>
+					<targetAttribute>au:administeredBy</targetAttribute>
+					<sourceExpression>
+						<OCQL>strTrim(administeredby)</OCQL>
+						<linkElement>au:AdministrativeUnit</linkElement>
+						<linkField>au:inspireId/base:Identifier/base:localId</linkField>
+					</sourceExpression>
+					<isMultiple>true</isMultiple>
+					<ClientProperty>
+						<name>xlink:href</name>
+						<value>strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', strTrim(inspireid))</value>
+					</ClientProperty>
+				</AttributeMapping>
+				<AttributeMapping>
+					<targetAttribute>au:coAdminister</targetAttribute>
+					<sourceExpression>
+						<OCQL>strTrim(coadminister)</OCQL>
+						<linkElement>au:AdministrativeUnit</linkElement>
+						<linkField>au:inspireId/base:Identifier/base:localId</linkField>
+					</sourceExpression>
+					<isMultiple>true</isMultiple>
+					<ClientProperty>
+						<name>xlink:href</name>
+						<value>strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', strTrim(inspireid))</value>
+					</ClientProperty>
+				</AttributeMapping>
 				<AttributeMapping>
 					<targetAttribute>au:boundary</targetAttribute>
 					<sourceExpression>
