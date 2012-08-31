@@ -88,8 +88,8 @@
 	<typeMappings>
 		<FeatureTypeMapping>
 			<sourceDataStore>ign_postgis_datastore</sourceDataStore>
-			<sourceType>spellingofname</sourceType>
-			<targetElement>gn:SpellingOfName</targetElement>
+			<sourceType>pronunciationofname</sourceType>
+			<targetElement>gn:PronunciationOfName</targetElement>
 			<groupBy />
 			<attributeMappings>
 				<AttributeMapping>
@@ -99,31 +99,25 @@
 					</sourceExpression>
 				</AttributeMapping>
 				<AttributeMapping>
-					<targetAttribute>gn:text</targetAttribute>
-					<sourceExpression>
-						<OCQL>text</OCQL>
-					</sourceExpression>
-				</AttributeMapping>
-				<AttributeMapping>
-					<targetAttribute>gn:script</targetAttribute>
+					<targetAttribute>gn:pronunciationSoundLink</targetAttribute>
 					<encodeIfEmpty>true</encodeIfEmpty>
 					<sourceExpression>
-						<OCQL>script</OCQL>
+						<OCQL>pronunciationsoundlink</OCQL>
 					</sourceExpression>
 					<ClientProperty>
 						<name>nilReason</name>
-						<value>if_then_else(isNull(script), 'unknown', '')</value>
+						<value>if_then_else(isNull(pronunciationsoundlink), 'unknown', '')</value>
 					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
-					<targetAttribute>gn:transliterationScheme</targetAttribute>
+					<targetAttribute>gn:pronunciationIPA</targetAttribute>
 					<encodeIfEmpty>true</encodeIfEmpty>
 					<sourceExpression>
-						<OCQL>transliterationscheme</OCQL>
+						<OCQL>pronunciationipa</OCQL>
 					</sourceExpression>
 					<ClientProperty>
 						<name>nilReason</name>
-						<value>if_then_else(isNull(transliterationscheme), 'unknown', '')</value>
+						<value>if_then_else(isNull(pronunciationipa), 'unknown', '')</value>
 					</ClientProperty>
 				</AttributeMapping>
 			</attributeMappings>

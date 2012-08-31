@@ -82,7 +82,10 @@
 	</sourceDataStores>
 	<includedTypes>
 		<Include>
-			SpellingOfName.xml
+			SpellingOfName.xml			
+		</Include>
+		<Include>
+			PronunciationOfName.xml			
 		</Include>
 	</includedTypes>
 	<targetTypes>
@@ -104,37 +107,62 @@
 					</sourceExpression>
 				</AttributeMapping>
 				<AttributeMapping>
+					<encodeIfEmpty>true</encodeIfEmpty>
 					<targetAttribute>gn:language</targetAttribute>
 					<sourceExpression>
 						<OCQL>language</OCQL>
 					</sourceExpression>
+					<ClientProperty>
+						<name>nilReason</name>
+						<value>if_then_else(isNull(language), 'unknown', '')</value>
+					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
 					<targetAttribute>gn:nativeness</targetAttribute>
+					<encodeIfEmpty>true</encodeIfEmpty>
 					<sourceExpression>
 						<OCQL>nativeness</OCQL>
 					</sourceExpression>
+					<ClientProperty>
+						<name>nilReason</name>
+						<value>if_then_else(isNull(language), 'unknown', '')</value>
+					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
 					<targetAttribute>gn:nameStatus</targetAttribute>
+					<encodeIfEmpty>true</encodeIfEmpty>
 					<sourceExpression>
 						<OCQL>namestatus</OCQL>
 					</sourceExpression>
+					<ClientProperty>
+						<name>nilReason</name>
+						<value>if_then_else(isNull(namestatus), 'unknown', '')</value>
+					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
 					<targetAttribute>gn:sourceOfName</targetAttribute>
+					<encodeIfEmpty>true</encodeIfEmpty>
 					<sourceExpression>
 						<OCQL>sourceofname</OCQL>
 					</sourceExpression>
+					<ClientProperty>
+						<name>nilReason</name>
+						<value>if_then_else(isNull(sourceofname), 'unknown', '')</value>
+					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
 					<targetAttribute>gn:pronunciation</targetAttribute>
+					<encodeIfEmpty>true</encodeIfEmpty>
 					<sourceExpression>
 						<OCQL>pronunciation</OCQL>
+						<linkElement>gn:PronunciationOfName</linkElement>
+						<linkField>FEATURE_LINK</linkField>
 					</sourceExpression>
 				</AttributeMapping>
 				<AttributeMapping>
 					<targetAttribute>gn:spelling</targetAttribute>
+					<encodeIfEmpty>true</encodeIfEmpty>
+					<isMultiple>true</isMultiple>
 					<sourceExpression>
 						<OCQL>strTrim(spelling)</OCQL>
 						<linkElement>gn:SpellingOfName</linkElement>
@@ -143,15 +171,28 @@
 				</AttributeMapping>
 				<AttributeMapping>
 					<targetAttribute>gn:grammaticalGender</targetAttribute>
+					<isMultiple>true</isMultiple>
 					<sourceExpression>
 						<OCQL>grammaticalgender</OCQL>
 					</sourceExpression>
+					<encodeIfEmpty>true</encodeIfEmpty>
+					<ClientProperty>
+						<name>nilReason</name>
+						<value>if_then_else(isNull(grammaticalgender), 'unknown', '')</value>
+					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
 					<targetAttribute>gn:grammaticalNumber</targetAttribute>
+					<isMultiple>true</isMultiple>
+					<encodeIfEmpty>true</encodeIfEmpty>
 					<sourceExpression>
 						<OCQL>grammaticalnumber</OCQL>
 					</sourceExpression>
+					<ClientProperty>
+						<name>nilReason</name>
+						<value>if_then_else(isNull(grammaticalnumber), 'unknown', '')</value>
+					</ClientProperty>
+					
 				</AttributeMapping>
 			</attributeMappings>
 		</FeatureTypeMapping>
