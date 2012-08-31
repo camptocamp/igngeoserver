@@ -4,4 +4,5 @@ target
 .project
 *.class
 *.pyc
-
+data/nuts/gwc
+data/nuts/logs/geoserver.log
