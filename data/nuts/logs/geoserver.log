@@ -1,0 +1,1562 @@
+2012-08-31 11:20:03,923 DEBUG [org.geoserver.logging] - Logging output to file '/home/fgravin/dev/ign/igngeoserver/data/nuts/logs/geoserver.log'
+2012-08-31 11:20:03,924 DEBUG [org.geoserver.logging] - FINISHED CONFIGURING GEOSERVER LOGGING -------------------------
+2012-08-31 11:20:04,750 WARN [org.springframework.beans.factory.config.CustomEditorConfigurer] - Passing PropertyEditor instances into CustomEditorConfigurer is deprecated: use PropertyEditorRegistrars or PropertyEditor class names instead. Offending key [org.geotools.util.Version; offending editor instance: org.geoserver.platform.util.VersionPropertyEditor@746dbfb0
+2012-08-31 11:20:04,778 DEBUG [org.vfny.geoserver.global] - Found Java environment variable GEOSERVER_DATA_DIR to be unset
+2012-08-31 11:20:04,778 DEBUG [org.vfny.geoserver.global] - Found Servlet context parameter GEOSERVER_DATA_DIR to be unset
+2012-08-31 11:20:04,982 DEBUG [org.vfny.geoserver.global] - Found Java environment variable GEOSERVER_DATA_DIR to be unset
+2012-08-31 11:20:04,983 DEBUG [org.vfny.geoserver.global] - Found Servlet context parameter GEOSERVER_DATA_DIR to be unset
+2012-08-31 11:20:04,983 ERROR [org.vfny.geoserver.global] - 
+----------------------------------
+- GEOSERVER_DATA_DIR: /home/fgravin/dev/ign/igngeoserver/data/nuts
+----------------------------------
+2012-08-31 11:20:05,149 INFO [org.geoserver] - GeoServer configuration lock is enabled
+2012-08-31 11:20:05,218 INFO [org.geoserver] - Loaded style 'raster'
+2012-08-31 11:20:05,219 INFO [org.geoserver] - Loaded style 'line'
+2012-08-31 11:20:05,220 INFO [org.geoserver] - Loaded style 'polygon'
+2012-08-31 11:20:05,222 INFO [org.geoserver] - Loaded style 'point'
+2012-08-31 11:20:05,223 INFO [org.geoserver] - Loaded default workspace au
+2012-08-31 11:20:05,227 INFO [org.geoserver] - Loaded workspace 'gmd'
+2012-08-31 11:20:05,229 INFO [org.geoserver] - Loaded workspace 'au'
+2012-08-31 11:20:05,230 INFO [org.geoserver] - Loaded workspace 'base'
+2012-08-31 11:20:05,231 INFO [org.geoserver] - Loaded workspace 'gsml'
+2012-08-31 11:20:05,231 INFO [org.geoserver] - Loaded workspace 'gsmlgu'
+2012-08-31 11:20:05,232 INFO [org.geoserver] - Loaded workspace 'stat'
+2012-08-31 11:20:05,233 INFO [org.geoserver] - Loaded workspace 'gn'
+2012-08-31 11:20:05,235 INFO [org.geoserver] - Loaded workspace 'gml'
+2012-08-31 11:20:05,667 INFO [org.geoserver] - Loaded store 'au_AdministrativeUnit', enabled
+2012-08-31 11:20:05,672 INFO [org.geoserver] - Loaded data store 'au_AdministrativeUnit'
+2012-08-31 11:20:10,075 WARN [org.geotools.jdbc] - No primary key or unique index found for spellingofname.
+2012-08-31 11:20:10,213 WARN [org.geotools.jdbc] - No primary key or unique index found for pronunciationofname.
+2012-08-31 11:20:10,250 WARN [org.geotools.jdbc] - No primary key or unique index found for geographicalname.
+2012-08-31 11:20:10,304 WARN [org.geotools.jdbc] - No primary key or unique index found for administrativeunit.
+2012-08-31 11:20:10,675 WARN [org.geotools.jdbc] - No primary key or unique index found for administrativeboundary.
+2012-08-31 11:20:10,700 INFO [org.geoserver] - Loaded feature type 'AdministrativeBoundary', enabled
+2012-08-31 11:20:10,706 INFO [org.geoserver] - Loaded feature type 'au_AdministrativeUnit'
+2012-08-31 11:20:10,717 INFO [org.geoserver] - Loaded layer 'AdministrativeBoundary'
+2012-08-31 11:20:10,721 INFO [org.geoserver] - Loaded feature type 'AdministrativeUnit', enabled
+2012-08-31 11:20:10,721 INFO [org.geoserver] - Loaded feature type 'au_AdministrativeUnit'
+2012-08-31 11:20:10,722 INFO [org.geoserver] - Loaded layer 'AdministrativeUnit'
+2012-08-31 11:20:10,815 INFO [org.geoserver] - Loaded store 'test_au', enabled
+2012-08-31 11:20:10,815 INFO [org.geoserver] - Loaded data store 'test_au'
+2012-08-31 11:20:10,829 INFO [org.geoserver] - Loaded feature type 'simple_administrativeunit', enabled
+2012-08-31 11:20:10,830 INFO [org.geoserver] - Loaded feature type 'test_au'
+2012-08-31 11:20:10,831 INFO [org.geoserver] - Loaded layer 'simple_administrativeunit'
+2012-08-31 11:20:10,838 INFO [org.geoserver] - Loaded store 'gsml_MappedFeature', enabled
+2012-08-31 11:20:10,839 INFO [org.geoserver] - Loaded data store 'gsml_MappedFeature'
+2012-08-31 11:20:10,971 WARN [org.geotools.data.complex] - http://www.opengis.net/gml/3.2:AngleType has no super type
+2012-08-31 11:20:10,971 WARN [org.geotools.data.complex] - http://www.opengis.net/gml/3.2:ScaleType has no super type
+2012-08-31 11:20:11,000 INFO [org.geoserver] - Loaded feature type 'MappedFeature', enabled
+2012-08-31 11:20:11,000 INFO [org.geoserver] - Loaded feature type 'gsml_MappedFeature'
+2012-08-31 11:20:11,001 INFO [org.geoserver] - Loaded layer 'MappedFeature'
+2012-08-31 11:20:11,007 INFO [org.geoserver] - Loaded store 'gsmlgu_GeologicUnit', enabled
+2012-08-31 11:20:11,008 INFO [org.geoserver] - Loaded data store 'gsmlgu_GeologicUnit'
+2012-08-31 11:20:11,095 WARN [org.geotools.data.complex] - http://www.opengis.net/gml/3.2:AngleType has no super type
+2012-08-31 11:20:11,095 WARN [org.geotools.data.complex] - http://www.opengis.net/gml/3.2:ScaleType has no super type
+2012-08-31 11:20:11,134 INFO [org.geoserver] - Loaded feature type 'GeologicUnit', enabled
+2012-08-31 11:20:11,134 INFO [org.geoserver] - Loaded feature type 'gsmlgu_GeologicUnit'
+2012-08-31 11:20:11,145 INFO [org.geoserver] - Loaded store 'gsmlgu_CompositionPart', enabled
+2012-08-31 11:20:11,145 INFO [org.geoserver] - Loaded data store 'gsmlgu_CompositionPart'
+2012-08-31 11:20:11,170 WARN [org.geotools.data.complex] - http://www.opengis.net/gml/3.2:AngleType has no super type
+2012-08-31 11:20:11,170 WARN [org.geotools.data.complex] - http://www.opengis.net/gml/3.2:ScaleType has no super type
+2012-08-31 11:20:11,196 INFO [org.geoserver] - Loaded feature type 'CompositionPart', enabled
+2012-08-31 11:20:11,197 INFO [org.geoserver] - Loaded feature type 'gsmlgu_CompositionPart'
+2012-08-31 11:20:11,271 INFO [org.geoserver] - Loaded service 'wms', enabled
+2012-08-31 11:20:11,284 INFO [org.geoserver] - Loaded service 'wfs', enabled
+2012-08-31 11:20:11,290 INFO [org.geoserver] - Loaded service 'wcs', enabled
+2012-08-31 11:20:11,547 INFO [org.geoserver.gwc.config] - Initializing GeoServer specific GWC configuration from gwc-gs.xml
+2012-08-31 11:20:11,550 DEBUG [org.geoserver.gwc.config] - GWC GeoServer specific configuration loaded from gwc-gs.xml
+2012-08-31 11:20:11,590 INFO [org.geoserver.ows.OWSHandlerMapping] - Mapped URL path [/ows/**] onto handler 'dispatcher'
+2012-08-31 11:20:11,590 INFO [org.geoserver.ows.OWSHandlerMapping] - Mapped URL path [/ows] onto handler 'dispatcher'
+2012-08-31 11:20:11,935 INFO [org.geoserver.gwc.layer] - Initializing GWC configuration based on GeoServer's Catalog
+2012-08-31 11:20:11,936 INFO [org.geoserver.gwc.layer] - GeoServer TileLayer store base directory is: /home/fgravin/dev/ign/igngeoserver/data/nuts/gwc-layers
+2012-08-31 11:20:11,936 INFO [org.geoserver.gwc.layer] - Loading tile layers from /home/fgravin/dev/ign/igngeoserver/data/nuts/gwc-layers
+2012-08-31 11:20:11,936 DEBUG [org.geoserver.gwc.layer] - Depersisting GeoServerTileLayerInfo from /home/fgravin/dev/ign/igngeoserver/data/nuts/gwc-layers/LayerInfoImpl--38693ac9_1390bc2da21_-7fd3.xml
+2012-08-31 11:20:11,941 DEBUG [org.geoserver.gwc.layer] - Loaded tile layer 'au:simple_administrativeunit'
+2012-08-31 11:20:11,956 DEBUG [org.geoserver.gwc.layer] - Depersisting GeoServerTileLayerInfo from /home/fgravin/dev/ign/igngeoserver/data/nuts/gwc-layers/LayerInfoImpl--38693ac9_1390bc2da21_-7fd3.xml
+2012-08-31 11:20:11,960 INFO [org.geoserver.gwc.layer] - GWC configuration based on GeoServer's Catalog loaded successfuly
+2012-08-31 11:20:11,961 WARN [org.geowebcache.config.XMLConfiguration] - Found no configuration file in config directory, will create one at '/home/fgravin/dev/ign/igngeoserver/data/nuts/gwc/geowebcache.xml' from template jar:file:/home/fgravin/.m2/repository/org/geowebcache/gwc-core/1.3-RC5/gwc-core-1.3-RC5.jar!/geowebcache_empty.xml
+2012-08-31 11:20:12,967 INFO [org.geoserver.ows.OWSHandlerMapping] - Mapped URL path [/wms/*] onto handler 'dispatcher'
+2012-08-31 11:20:12,967 INFO [org.geoserver.ows.OWSHandlerMapping] - Mapped URL path [/wms] onto handler 'dispatcher'
+2012-08-31 11:20:13,023 INFO [org.geoserver.ows.OWSHandlerMapping] - Mapped URL path [/kml] onto handler 'dispatcher'
+2012-08-31 11:20:13,023 INFO [org.geoserver.ows.OWSHandlerMapping] - Mapped URL path [/kml/*] onto handler 'dispatcher'
+2012-08-31 11:20:13,025 INFO [org.geoserver.ows.OWSHandlerMapping] - Mapped URL path [/animate] onto handler 'dispatcher'
+2012-08-31 11:20:13,025 INFO [org.geoserver.ows.OWSHandlerMapping] - Mapped URL path [/animate/*] onto handler 'dispatcher'
+2012-08-31 11:20:13,108 INFO [org.geoserver.ows.OWSHandlerMapping] - Mapped URL path [/wfs/*] onto handler 'dispatcher'
+2012-08-31 11:20:13,108 INFO [org.geoserver.ows.OWSHandlerMapping] - Mapped URL path [/TestWfsPost] onto handler 'wfsTestServlet'
+2012-08-31 11:20:13,108 INFO [org.geoserver.ows.OWSHandlerMapping] - Mapped URL path [/wfs] onto handler 'dispatcher'
+2012-08-31 11:20:13,185 INFO [org.geoserver.ows.OWSHandlerMapping] - Mapped URL path [/wcs] onto handler 'dispatcher'
+2012-08-31 11:20:13,185 INFO [org.geoserver.ows.OWSHandlerMapping] - Mapped URL path [/wcs/**] onto handler 'dispatcher'
+2012-08-31 11:20:13,208 INFO [org.geoserver.ows.OWSHandlerMapping] - Mapped URL path [/gwc/service/**] onto handler 'dispatcher'
+2012-08-31 11:20:13,930 DEBUG [org.geoserver.security.RESTfulDefinitionSource] - Line 1: /**:GET=ADMIN
+2012-08-31 11:20:13,930 DEBUG [org.geoserver.security.RESTfulDefinitionSource] - ~~~~~~~~~~ name= /**:GET firstColonIndex= 3
+2012-08-31 11:20:13,930 DEBUG [org.geoserver.security.RESTfulDefinitionSource] - ~~~~~~~~~~ name= /**:GET antPath= /** methods= GET
+2012-08-31 11:20:13,930 DEBUG [org.geoserver.security.RESTfulDefinitionSource] - methodList = [Ljava.lang.String;@265a892c
+2012-08-31 11:20:13,930 DEBUG [org.geoserver.security.RESTfulDefinitionSource] - method[0]: GET
+2012-08-31 11:20:13,931 DEBUG [org.geoserver.security.RESTfulPathBasedFilterInvocationDefinitionMap] - Added Ant path: /**; attributes: [ADMIN], httpMethods: [Ljava.lang.String;@265a892c
+2012-08-31 11:20:13,931 DEBUG [org.geoserver.security.RESTfulPathBasedFilterInvocationDefinitionMap] - httpMethods[0]: GET
+2012-08-31 11:20:13,931 DEBUG [org.geoserver.security.RESTfulDefinitionSource] - Line 1: /**:POST,DELETE,PUT=ADMIN
+2012-08-31 11:20:13,931 DEBUG [org.geoserver.security.RESTfulDefinitionSource] - ~~~~~~~~~~ name= /**:POST,DELETE,PUT firstColonIndex= 3
+2012-08-31 11:20:13,931 DEBUG [org.geoserver.security.RESTfulDefinitionSource] - ~~~~~~~~~~ name= /**:POST,DELETE,PUT antPath= /** methods= POST,DELETE,PUT
+2012-08-31 11:20:13,931 DEBUG [org.geoserver.security.RESTfulDefinitionSource] - methodList = [Ljava.lang.String;@37e31adc
+2012-08-31 11:20:13,931 DEBUG [org.geoserver.security.RESTfulDefinitionSource] - method[0]: POST
+2012-08-31 11:20:13,931 DEBUG [org.geoserver.security.RESTfulDefinitionSource] - method[1]: DELETE
+2012-08-31 11:20:13,931 DEBUG [org.geoserver.security.RESTfulDefinitionSource] - method[2]: PUT
+2012-08-31 11:20:13,931 DEBUG [org.geoserver.security.RESTfulPathBasedFilterInvocationDefinitionMap] - Added Ant path: /**; attributes: [ADMIN], httpMethods: [Ljava.lang.String;@37e31adc
+2012-08-31 11:20:13,932 DEBUG [org.geoserver.security.RESTfulPathBasedFilterInvocationDefinitionMap] - httpMethods[0]: POST
+2012-08-31 11:20:13,932 DEBUG [org.geoserver.security.RESTfulPathBasedFilterInvocationDefinitionMap] - httpMethods[1]: DELETE
+2012-08-31 11:20:13,932 DEBUG [org.geoserver.security.RESTfulPathBasedFilterInvocationDefinitionMap] - httpMethods[2]: PUT
+2012-08-31 11:21:05,234 WARN [org.springframework.beans.factory.support.DisposableBeanAdapter] - Invocation of destroy method failed on bean with name 'geoServerLoader': org.springframework.beans.factory.BeanCreationNotAllowedException: Error creating bean with name 'GWCLifeCycleHandler': Singleton bean creation not allowed while the singletons of this factory are in destruction (Do not request a bean from a BeanFactory in a destroy method implementation!)
+2012-08-31 15:49:52,800 DEBUG [org.geoserver.logging] - Logging output to file '/home/fgravin/dev/ign/igngeoserver/data/nuts/logs/geoserver.log'
+2012-08-31 15:49:52,800 DEBUG [org.geoserver.logging] - FINISHED CONFIGURING GEOSERVER LOGGING -------------------------
+2012-08-31 15:49:53,666 DEBUG [org.vfny.geoserver.global] - Found Java environment variable GEOSERVER_DATA_DIR to be unset
+2012-08-31 15:49:53,666 DEBUG [org.vfny.geoserver.global] - Found Servlet context parameter GEOSERVER_DATA_DIR to be unset
+2012-08-31 15:49:53,877 DEBUG [org.vfny.geoserver.global] - Found Java environment variable GEOSERVER_DATA_DIR to be unset
+2012-08-31 15:49:53,877 DEBUG [org.vfny.geoserver.global] - Found Servlet context parameter GEOSERVER_DATA_DIR to be unset
+2012-08-31 15:49:53,877 ERROR [org.vfny.geoserver.global] - 
+----------------------------------
+- GEOSERVER_DATA_DIR: /home/fgravin/dev/ign/igngeoserver/data/nuts
+----------------------------------
+2012-08-31 15:49:53,893 INFO [org.geoserver.config.GeoServerPropertyConfigurer] - Loading properties file from URL [file:/home/fgravin/dev/ign/igngeoserver/data/nuts/monitoring/hibernate.properties]
+2012-08-31 15:49:53,907 WARN [org.springframework.beans.factory.config.CustomEditorConfigurer] - Passing PropertyEditor instances into CustomEditorConfigurer is deprecated: use PropertyEditorRegistrars or PropertyEditor class names instead. Offending key [org.geotools.util.Version; offending editor instance: org.geoserver.platform.util.VersionPropertyEditor@7c1c2956
+2012-08-31 15:49:54,276 DEBUG [org.geoserver.monitor] - Monitoring database connection info:
+url = jdbc:h2:file:${GEOSERVER_DATA_DIR}/monitoring/monitoring
+driver = org.h2.Driver
+
+2012-08-31 15:49:54,653 WARN [org.hibernate.impl.SessionFactoryObjectFactory] - InitialContext did not implement EventContext
+2012-08-31 15:49:54,825 INFO [org.geoserver] - GeoServer configuration lock is enabled
+2012-08-31 15:49:54,874 INFO [org.geoserver] - Loaded style 'raster'
+2012-08-31 15:49:54,874 INFO [org.geoserver] - Loaded style 'line'
+2012-08-31 15:49:54,875 INFO [org.geoserver] - Loaded style 'polygon'
+2012-08-31 15:49:54,875 INFO [org.geoserver] - Loaded style 'point'
+2012-08-31 15:49:54,876 INFO [org.geoserver] - Loaded default workspace au
+2012-08-31 15:49:54,879 INFO [org.geoserver] - Loaded workspace 'gmd'
+2012-08-31 15:49:54,880 INFO [org.geoserver] - Loaded workspace 'au'
+2012-08-31 15:49:54,881 INFO [org.geoserver] - Loaded workspace 'base'
+2012-08-31 15:49:54,882 INFO [org.geoserver] - Loaded workspace 'gsml'
+2012-08-31 15:49:54,883 INFO [org.geoserver] - Loaded workspace 'gsmlgu'
+2012-08-31 15:49:54,883 INFO [org.geoserver] - Loaded workspace 'stat'
+2012-08-31 15:49:54,884 INFO [org.geoserver] - Loaded workspace 'gn'
+2012-08-31 15:49:54,885 INFO [org.geoserver] - Loaded workspace 'gml'
+2012-08-31 15:49:55,134 INFO [org.geoserver] - Loaded store 'au_AdministrativeUnit', enabled
+2012-08-31 15:49:55,137 INFO [org.geoserver] - Loaded data store 'au_AdministrativeUnit'
+2012-08-31 15:49:59,633 WARN [org.geotools.jdbc] - No primary key or unique index found for spellingofname.
+2012-08-31 15:49:59,774 WARN [org.geotools.jdbc] - No primary key or unique index found for pronunciationofname.
+2012-08-31 15:49:59,812 WARN [org.geotools.jdbc] - No primary key or unique index found for geographicalname.
+2012-08-31 15:49:59,866 WARN [org.geotools.jdbc] - No primary key or unique index found for administrativeboundary.
+2012-08-31 15:50:00,227 WARN [org.geotools.jdbc] - No primary key or unique index found for administrativeunit.
+2012-08-31 15:50:00,261 INFO [org.geoserver] - Loaded feature type 'AdministrativeBoundary', enabled
+2012-08-31 15:50:00,267 INFO [org.geoserver] - Loaded feature type 'au_AdministrativeUnit'
+2012-08-31 15:50:00,278 INFO [org.geoserver] - Loaded layer 'AdministrativeBoundary'
+2012-08-31 15:50:00,281 INFO [org.geoserver] - Loaded feature type 'AdministrativeUnit', enabled
+2012-08-31 15:50:00,282 INFO [org.geoserver] - Loaded feature type 'au_AdministrativeUnit'
+2012-08-31 15:50:00,283 INFO [org.geoserver] - Loaded layer 'AdministrativeUnit'
+2012-08-31 15:50:00,371 INFO [org.geoserver] - Loaded store 'test_au', enabled
+2012-08-31 15:50:00,416 INFO [org.geoserver] - Loaded data store 'test_au'
+2012-08-31 15:50:00,439 INFO [org.geoserver] - Loaded feature type 'simple_administrativeunit', enabled
+2012-08-31 15:50:00,440 INFO [org.geoserver] - Loaded feature type 'test_au'
+2012-08-31 15:50:00,442 INFO [org.geoserver] - Loaded layer 'simple_administrativeunit'
+2012-08-31 15:50:00,449 INFO [org.geoserver] - Loaded store 'gsml_MappedFeature', enabled
+2012-08-31 15:50:00,450 INFO [org.geoserver] - Loaded data store 'gsml_MappedFeature'
+2012-08-31 15:50:00,567 WARN [org.geotools.data.complex] - http://www.opengis.net/gml/3.2:AngleType has no super type
+2012-08-31 15:50:00,568 WARN [org.geotools.data.complex] - http://www.opengis.net/gml/3.2:ScaleType has no super type
+2012-08-31 15:50:00,590 INFO [org.geoserver] - Loaded feature type 'MappedFeature', enabled
+2012-08-31 15:50:00,590 INFO [org.geoserver] - Loaded feature type 'gsml_MappedFeature'
+2012-08-31 15:50:00,591 INFO [org.geoserver] - Loaded layer 'MappedFeature'
+2012-08-31 15:50:00,599 INFO [org.geoserver] - Loaded store 'gsmlgu_GeologicUnit', enabled
+2012-08-31 15:50:00,599 INFO [org.geoserver] - Loaded data store 'gsmlgu_GeologicUnit'
+2012-08-31 15:50:00,694 WARN [org.geotools.data.complex] - http://www.opengis.net/gml/3.2:AngleType has no super type
+2012-08-31 15:50:00,694 WARN [org.geotools.data.complex] - http://www.opengis.net/gml/3.2:ScaleType has no super type
+2012-08-31 15:50:00,733 INFO [org.geoserver] - Loaded feature type 'GeologicUnit', enabled
+2012-08-31 15:50:00,734 INFO [org.geoserver] - Loaded feature type 'gsmlgu_GeologicUnit'
+2012-08-31 15:50:00,745 INFO [org.geoserver] - Loaded store 'gsmlgu_CompositionPart', enabled
+2012-08-31 15:50:00,746 INFO [org.geoserver] - Loaded data store 'gsmlgu_CompositionPart'
+2012-08-31 15:50:00,774 WARN [org.geotools.data.complex] - http://www.opengis.net/gml/3.2:AngleType has no super type
+2012-08-31 15:50:00,774 WARN [org.geotools.data.complex] - http://www.opengis.net/gml/3.2:ScaleType has no super type
+2012-08-31 15:50:00,800 INFO [org.geoserver] - Loaded feature type 'CompositionPart', enabled
+2012-08-31 15:50:00,801 INFO [org.geoserver] - Loaded feature type 'gsmlgu_CompositionPart'
+2012-08-31 15:50:00,874 INFO [org.geoserver] - Loaded service 'wms', enabled
+2012-08-31 15:50:00,887 INFO [org.geoserver] - Loaded service 'wfs', enabled
+2012-08-31 15:50:00,894 INFO [org.geoserver] - Loaded service 'wcs', enabled
+2012-08-31 15:50:01,157 INFO [org.geoserver.gwc.config] - Initializing GeoServer specific GWC configuration from gwc-gs.xml
+2012-08-31 15:50:01,162 DEBUG [org.geoserver.gwc.config] - GWC GeoServer specific configuration loaded from gwc-gs.xml
+2012-08-31 15:50:01,353 INFO [org.geoserver.ows.OWSHandlerMapping] - Mapped URL path [/ows/**] onto handler 'dispatcher'
+2012-08-31 15:50:01,353 INFO [org.geoserver.ows.OWSHandlerMapping] - Mapped URL path [/ows] onto handler 'dispatcher'
+2012-08-31 15:50:01,570 INFO [org.geoserver.gwc.layer] - Initializing GWC configuration based on GeoServer's Catalog
+2012-08-31 15:50:01,570 INFO [org.geoserver.gwc.layer] - GeoServer TileLayer store base directory is: /home/fgravin/dev/ign/igngeoserver/data/nuts/gwc-layers
+2012-08-31 15:50:01,571 INFO [org.geoserver.gwc.layer] - Loading tile layers from /home/fgravin/dev/ign/igngeoserver/data/nuts/gwc-layers
+2012-08-31 15:50:01,571 DEBUG [org.geoserver.gwc.layer] - Depersisting GeoServerTileLayerInfo from /home/fgravin/dev/ign/igngeoserver/data/nuts/gwc-layers/LayerInfoImpl--38693ac9_1390bc2da21_-7fd3.xml
+2012-08-31 15:50:01,576 DEBUG [org.geoserver.gwc.layer] - Loaded tile layer 'au:simple_administrativeunit'
+2012-08-31 15:50:01,590 DEBUG [org.geoserver.gwc.layer] - Depersisting GeoServerTileLayerInfo from /home/fgravin/dev/ign/igngeoserver/data/nuts/gwc-layers/LayerInfoImpl--38693ac9_1390bc2da21_-7fd3.xml
+2012-08-31 15:50:01,595 INFO [org.geoserver.gwc.layer] - GWC configuration based on GeoServer's Catalog loaded successfuly
+2012-08-31 15:50:02,439 INFO [org.geoserver.ows.OWSHandlerMapping] - Mapped URL path [/wms/*] onto handler 'dispatcher'
+2012-08-31 15:50:02,439 INFO [org.geoserver.ows.OWSHandlerMapping] - Mapped URL path [/wms] onto handler 'dispatcher'
+2012-08-31 15:50:02,496 INFO [org.geoserver.ows.OWSHandlerMapping] - Mapped URL path [/kml] onto handler 'dispatcher'
+2012-08-31 15:50:02,497 INFO [org.geoserver.ows.OWSHandlerMapping] - Mapped URL path [/kml/*] onto handler 'dispatcher'
+2012-08-31 15:50:02,499 INFO [org.geoserver.ows.OWSHandlerMapping] - Mapped URL path [/animate] onto handler 'dispatcher'
+2012-08-31 15:50:02,499 INFO [org.geoserver.ows.OWSHandlerMapping] - Mapped URL path [/animate/*] onto handler 'dispatcher'
+2012-08-31 15:50:02,580 INFO [org.geoserver.ows.OWSHandlerMapping] - Mapped URL path [/wfs/*] onto handler 'dispatcher'
+2012-08-31 15:50:02,580 INFO [org.geoserver.ows.OWSHandlerMapping] - Mapped URL path [/TestWfsPost] onto handler 'wfsTestServlet'
+2012-08-31 15:50:02,581 INFO [org.geoserver.ows.OWSHandlerMapping] - Mapped URL path [/wfs] onto handler 'dispatcher'
+2012-08-31 15:50:02,659 INFO [org.geoserver.ows.OWSHandlerMapping] - Mapped URL path [/wcs] onto handler 'dispatcher'
+2012-08-31 15:50:02,659 INFO [org.geoserver.ows.OWSHandlerMapping] - Mapped URL path [/wcs/**] onto handler 'dispatcher'
+2012-08-31 15:50:02,681 INFO [org.geoserver.ows.OWSHandlerMapping] - Mapped URL path [/gwc/service/**] onto handler 'dispatcher'
+2012-08-31 15:50:03,145 INFO [org.geoserver.monitor] - Monitor extension enabled
+2012-08-31 15:50:03,494 DEBUG [org.geoserver.security.RESTfulDefinitionSource] - Line 1: /**:GET=ADMIN
+2012-08-31 15:50:03,494 DEBUG [org.geoserver.security.RESTfulDefinitionSource] - ~~~~~~~~~~ name= /**:GET firstColonIndex= 3
+2012-08-31 15:50:03,495 DEBUG [org.geoserver.security.RESTfulDefinitionSource] - ~~~~~~~~~~ name= /**:GET antPath= /** methods= GET
+2012-08-31 15:50:03,495 DEBUG [org.geoserver.security.RESTfulDefinitionSource] - methodList = [Ljava.lang.String;@1d0fb7fb
+2012-08-31 15:50:03,495 DEBUG [org.geoserver.security.RESTfulDefinitionSource] - method[0]: GET
+2012-08-31 15:50:03,495 DEBUG [org.geoserver.security.RESTfulPathBasedFilterInvocationDefinitionMap] - Added Ant path: /**; attributes: [ADMIN], httpMethods: [Ljava.lang.String;@1d0fb7fb
+2012-08-31 15:50:03,495 DEBUG [org.geoserver.security.RESTfulPathBasedFilterInvocationDefinitionMap] - httpMethods[0]: GET
+2012-08-31 15:50:03,495 DEBUG [org.geoserver.security.RESTfulDefinitionSource] - Line 1: /**:POST,DELETE,PUT=ADMIN
+2012-08-31 15:50:03,495 DEBUG [org.geoserver.security.RESTfulDefinitionSource] - ~~~~~~~~~~ name= /**:POST,DELETE,PUT firstColonIndex= 3
+2012-08-31 15:50:03,496 DEBUG [org.geoserver.security.RESTfulDefinitionSource] - ~~~~~~~~~~ name= /**:POST,DELETE,PUT antPath= /** methods= POST,DELETE,PUT
+2012-08-31 15:50:03,496 DEBUG [org.geoserver.security.RESTfulDefinitionSource] - methodList = [Ljava.lang.String;@71067de1
+2012-08-31 15:50:03,496 DEBUG [org.geoserver.security.RESTfulDefinitionSource] - method[0]: POST
+2012-08-31 15:50:03,496 DEBUG [org.geoserver.security.RESTfulDefinitionSource] - method[1]: DELETE
+2012-08-31 15:50:03,496 DEBUG [org.geoserver.security.RESTfulDefinitionSource] - method[2]: PUT
+2012-08-31 15:50:03,496 DEBUG [org.geoserver.security.RESTfulPathBasedFilterInvocationDefinitionMap] - Added Ant path: /**; attributes: [ADMIN], httpMethods: [Ljava.lang.String;@71067de1
+2012-08-31 15:50:03,496 DEBUG [org.geoserver.security.RESTfulPathBasedFilterInvocationDefinitionMap] - httpMethods[0]: POST
+2012-08-31 15:50:03,496 DEBUG [org.geoserver.security.RESTfulPathBasedFilterInvocationDefinitionMap] - httpMethods[1]: DELETE
+2012-08-31 15:50:03,496 DEBUG [org.geoserver.security.RESTfulPathBasedFilterInvocationDefinitionMap] - httpMethods[2]: PUT
+2012-08-31 15:51:01,556 DEBUG [org.geoserver.monitor] - Testing /web/ for monitor filtering
+2012-08-31 15:51:01,557 DEBUG [org.geoserver.monitor] - /geoserver/web/ was filtered from monitoring
+2012-08-31 15:51:01,557 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Using SessionFactory 'hibSessionFactory' for OpenSessionInViewFilter
+2012-08-31 15:51:01,557 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Opening single Hibernate Session in OpenSessionInViewFilter
+2012-08-31 15:51:01,712 DEBUG [org.geoserver] - Thread 19 locking in mode READ
+2012-08-31 15:51:01,712 DEBUG [org.geoserver] - Thread 19 got the lock in mode READ
+2012-08-31 15:51:01,767 DEBUG [org.geoserver.filters] - Creating a new http session inside the web UI (normal behavior)
+java.lang.Exception: Full stack trace for the session creation path
+	at org.geoserver.filters.SessionDebugFilter$SessionDebugWrapper.getSession(SessionDebugFilter.java:87)
+	at javax.servlet.http.HttpServletRequestWrapper.getSession(HttpServletRequestWrapper.java:227)
+	at javax.servlet.http.HttpServletRequestWrapper.getSession(HttpServletRequestWrapper.java:227)
+	at org.apache.wicket.protocol.http.AbstractHttpSessionStore.getSessionId(AbstractHttpSessionStore.java:187)
+	at org.apache.wicket.Session.bind(Session.java:420)
+	at org.apache.wicket.Page.onBeforeRender(Page.java:1537)
+	at org.apache.wicket.Component.internalBeforeRender(Component.java:1071)
+	at org.apache.wicket.Component.beforeRender(Component.java:1105)
+	at org.apache.wicket.Component.prepareForRender(Component.java:2292)
+	at org.apache.wicket.Page.prepareForRender(Page.java:1521)
+	at org.apache.wicket.Component.prepareForRender(Component.java:2329)
+	at org.apache.wicket.Page.renderPage(Page.java:892)
+	at org.apache.wicket.request.target.component.BookmarkablePageRequestTarget.respond(BookmarkablePageRequestTarget.java:261)
+	at org.apache.wicket.request.AbstractRequestCycleProcessor.respond(AbstractRequestCycleProcessor.java:105)
+	at org.apache.wicket.RequestCycle.processEventsAndRespond(RequestCycle.java:1258)
+	at org.apache.wicket.RequestCycle.step(RequestCycle.java:1329)
+	at org.apache.wicket.RequestCycle.steps(RequestCycle.java:1436)
+	at org.apache.wicket.RequestCycle.request(RequestCycle.java:545)
+	at org.apache.wicket.protocol.http.WicketFilter.doGet(WicketFilter.java:484)
+	at org.apache.wicket.protocol.http.WicketServlet.doGet(WicketServlet.java:138)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.springframework.web.servlet.mvc.ServletWrappingController.handleRequestInternal(ServletWrappingController.java:159)
+	at org.springframework.web.servlet.mvc.AbstractController.handleRequest(AbstractController.java:153)
+	at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:48)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:923)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:852)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:882)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:778)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1166)
+	at org.geoserver.filters.ThreadLocalsCleanupFilter.doFilter(ThreadLocalsCleanupFilter.java:23)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+	at org.geoserver.filters.SpringDelegatingFilter$Chain.doFilter(SpringDelegatingFilter.java:74)
+	at org.springframework.orm.hibernate3.support.OpenSessionInViewFilter.doFilterInternal(OpenSessionInViewFilter.java:198)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)
+	at org.geoserver.filters.SpringDelegatingFilter$Chain.doFilter(SpringDelegatingFilter.java:70)
+	at org.geoserver.monitor.MonitorFilter.doFilter(MonitorFilter.java:86)
+	at org.geoserver.filters.SpringDelegatingFilter$Chain.doFilter(SpringDelegatingFilter.java:70)
+	at org.geoserver.filters.SpringDelegatingFilter.doFilter(SpringDelegatingFilter.java:45)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+	at org.geoserver.platform.AdvancedDispatchFilter.doFilter(AdvancedDispatchFilter.java:49)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+	at org.vfny.geoserver.filters.SetCharacterEncodingFilter.doFilter(SetCharacterEncodingFilter.java:109)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:311)
+	at org.geoserver.security.filter.GeoServerCompositeFilter$NestedFilterChain.doFilter(GeoServerCompositeFilter.java:68)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:116)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:83)
+	at org.geoserver.security.filter.GeoServerCompositeFilter$NestedFilterChain.doFilter(GeoServerCompositeFilter.java:72)
+	at org.geoserver.security.filter.GeoServerCompositeFilter.doFilter(GeoServerCompositeFilter.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:323)
+	at org.geoserver.security.filter.GeoServerCompositeFilter$NestedFilterChain.doFilter(GeoServerCompositeFilter.java:68)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:113)
+	at org.geoserver.security.filter.GeoServerCompositeFilter$NestedFilterChain.doFilter(GeoServerCompositeFilter.java:72)
+	at org.geoserver.security.filter.GeoServerCompositeFilter.doFilter(GeoServerCompositeFilter.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:323)
+	at org.geoserver.security.filter.GeoServerAnonymousAuthenticationFilter.doFilter(GeoServerAnonymousAuthenticationFilter.java:53)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:323)
+	at org.geoserver.security.filter.GeoServerCompositeFilter$NestedFilterChain.doFilter(GeoServerCompositeFilter.java:68)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:139)
+	at org.geoserver.security.filter.GeoServerCompositeFilter$NestedFilterChain.doFilter(GeoServerCompositeFilter.java:72)
+	at org.geoserver.security.filter.GeoServerCompositeFilter.doFilter(GeoServerCompositeFilter.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:323)
+	at org.geoserver.security.filter.GeoServerCompositeFilter$NestedFilterChain.doFilter(GeoServerCompositeFilter.java:68)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:87)
+	at org.geoserver.security.filter.GeoServerCompositeFilter$NestedFilterChain.doFilter(GeoServerCompositeFilter.java:72)
+	at org.geoserver.security.filter.GeoServerCompositeFilter.doFilter(GeoServerCompositeFilter.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:323)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:173)
+	at org.geoserver.security.GeoServerSecurityFilterChainProxy.doFilter(GeoServerSecurityFilterChainProxy.java:97)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:259)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+	at org.geoserver.filters.LoggingFilter.doFilter(LoggingFilter.java:71)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+	at org.geoserver.filters.GZIPFilter.doFilter(GZIPFilter.java:41)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+	at org.geoserver.filters.SessionDebugFilter.doFilter(SessionDebugFilter.java:46)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:388)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:765)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:418)
+	at org.mortbay.jetty.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:230)
+	at org.mortbay.jetty.handler.HandlerCollection.handle(HandlerCollection.java:114)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:923)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:547)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:409)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+2012-08-31 15:51:01,776 DEBUG [org.geoserver.web] - cannot convert url: jar:file:/home/fgravin/.m2/repository/org/geoserver/web/web-core/2.3-SNAPSHOT/web-core-2.3-SNAPSHOT.jar!/org/geoserver/web/DemoPage.html to file (URI is not hierarchical), falling back to the inputstream for polling
+2012-08-31 15:51:01,789 DEBUG [org.geoserver.web] - cannot convert url: jar:file:/home/fgravin/.m2/repository/org/geoserver/web/web-core/2.3-SNAPSHOT/web-core-2.3-SNAPSHOT.jar!/org/geoserver/web/GeoServerBasePage.html to file (URI is not hierarchical), falling back to the inputstream for polling
+2012-08-31 15:51:01,808 DEBUG [org.geoserver.web] - cannot convert url: jar:file:/home/fgravin/.m2/repository/org/geoserver/web/web-core/2.3-SNAPSHOT/web-core-2.3-SNAPSHOT.jar!/org/geoserver/web/css/blueprint/screen.css to file (URI is not hierarchical), falling back to the inputstream for polling
+2012-08-31 15:51:01,809 DEBUG [org.geoserver.web] - cannot convert url: jar:file:/home/fgravin/.m2/repository/org/geoserver/web/web-core/2.3-SNAPSHOT/web-core-2.3-SNAPSHOT.jar!/org/geoserver/web/css/blueprint/screen.css to file (URI is not hierarchical), falling back to the inputstream for polling
+2012-08-31 15:51:01,812 DEBUG [org.geoserver.web] - cannot convert url: jar:file:/home/fgravin/.m2/repository/org/geoserver/web/web-core/2.3-SNAPSHOT/web-core-2.3-SNAPSHOT.jar!/org/geoserver/web/css/blueprint/print.css to file (URI is not hierarchical), falling back to the inputstream for polling
+2012-08-31 15:51:01,812 DEBUG [org.geoserver.web] - cannot convert url: jar:file:/home/fgravin/.m2/repository/org/geoserver/web/web-core/2.3-SNAPSHOT/web-core-2.3-SNAPSHOT.jar!/org/geoserver/web/css/blueprint/print.css to file (URI is not hierarchical), falling back to the inputstream for polling
+2012-08-31 15:51:01,813 DEBUG [org.geoserver.web] - cannot convert url: jar:file:/home/fgravin/.m2/repository/org/geoserver/web/web-core/2.3-SNAPSHOT/web-core-2.3-SNAPSHOT.jar!/org/geoserver/web/css/geoserver.css to file (URI is not hierarchical), falling back to the inputstream for polling
+2012-08-31 15:51:01,814 DEBUG [org.geoserver.web] - cannot convert url: jar:file:/home/fgravin/.m2/repository/org/geoserver/web/web-core/2.3-SNAPSHOT/web-core-2.3-SNAPSHOT.jar!/org/geoserver/web/css/geoserver.css to file (URI is not hierarchical), falling back to the inputstream for polling
+2012-08-31 15:51:01,815 DEBUG [org.geoserver.web] - cannot convert url: jar:file:/home/fgravin/.m2/repository/org/geoserver/web/web-core/2.3-SNAPSHOT/web-core-2.3-SNAPSHOT.jar!/org/geoserver/web/css/blueprint/ie.css to file (URI is not hierarchical), falling back to the inputstream for polling
+2012-08-31 15:51:01,816 DEBUG [org.geoserver.web] - cannot convert url: jar:file:/home/fgravin/.m2/repository/org/geoserver/web/web-core/2.3-SNAPSHOT/web-core-2.3-SNAPSHOT.jar!/org/geoserver/web/css/blueprint/ie.css to file (URI is not hierarchical), falling back to the inputstream for polling
+2012-08-31 15:51:01,817 DEBUG [org.geoserver.web] - cannot convert url: jar:file:/home/fgravin/.m2/repository/org/geoserver/web/web-core/2.3-SNAPSHOT/web-core-2.3-SNAPSHOT.jar!/org/geoserver/web/css/geoserver-ie.css to file (URI is not hierarchical), falling back to the inputstream for polling
+2012-08-31 15:51:01,817 DEBUG [org.geoserver.web] - cannot convert url: jar:file:/home/fgravin/.m2/repository/org/geoserver/web/web-core/2.3-SNAPSHOT/web-core-2.3-SNAPSHOT.jar!/org/geoserver/web/css/geoserver-ie.css to file (URI is not hierarchical), falling back to the inputstream for polling
+2012-08-31 15:51:01,818 DEBUG [org.geoserver.web] - cannot convert url: jar:file:/home/fgravin/.m2/repository/org/geoserver/web/web-core/2.3-SNAPSHOT/web-core-2.3-SNAPSHOT.jar!/org/geoserver/web/js/jquery-1.2.6.min.js to file (URI is not hierarchical), falling back to the inputstream for polling
+2012-08-31 15:51:01,819 DEBUG [org.geoserver.web] - cannot convert url: jar:file:/home/fgravin/.m2/repository/org/geoserver/web/web-core/2.3-SNAPSHOT/web-core-2.3-SNAPSHOT.jar!/org/geoserver/web/js/jquery-1.2.6.min.js to file (URI is not hierarchical), falling back to the inputstream for polling
+2012-08-31 15:51:01,820 DEBUG [org.geoserver.web] - cannot convert url: jar:file:/home/fgravin/.m2/repository/org/geoserver/web/web-core/2.3-SNAPSHOT/web-core-2.3-SNAPSHOT.jar!/org/geoserver/web/js/jquery.inline-info.js to file (URI is not hierarchical), falling back to the inputstream for polling
+2012-08-31 15:51:01,821 DEBUG [org.geoserver.web] - cannot convert url: jar:file:/home/fgravin/.m2/repository/org/geoserver/web/web-core/2.3-SNAPSHOT/web-core-2.3-SNAPSHOT.jar!/org/geoserver/web/js/jquery.inline-info.js to file (URI is not hierarchical), falling back to the inputstream for polling
+2012-08-31 15:51:01,824 DEBUG [org.geoserver.web] - cannot convert url: jar:file:/home/fgravin/.m2/repository/org/apache/wicket/wicket/1.4.12/wicket-1.4.12.jar!/org/apache/wicket/markup/html/panel/FeedbackPanel.html to file (URI is not hierarchical), falling back to the inputstream for polling
+2012-08-31 15:51:01,906 DEBUG [org.geoserver] - Thread 19 releasing the lock in mode READ
+2012-08-31 15:51:01,907 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Closing single Hibernate Session in OpenSessionInViewFilter
+2012-08-31 15:51:01,908 DEBUG [org.geoserver.filters] - Compressing output for mimetype: text/html; charset=utf-8
+2012-08-31 15:51:03,208 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 15:51:03,209 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 15:51:03,209 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 15:51:05,302 DEBUG [org.geoserver.monitor] - Testing /web/ for monitor filtering
+2012-08-31 15:51:05,302 DEBUG [org.geoserver.monitor] - /geoserver/web/ was filtered from monitoring
+2012-08-31 15:51:05,302 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Using SessionFactory 'hibSessionFactory' for OpenSessionInViewFilter
+2012-08-31 15:51:05,302 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Opening single Hibernate Session in OpenSessionInViewFilter
+2012-08-31 15:51:05,303 DEBUG [org.geoserver] - Thread 19 locking in mode READ
+2012-08-31 15:51:05,303 DEBUG [org.geoserver] - Thread 19 got the lock in mode READ
+2012-08-31 15:51:05,324 DEBUG [org.geoserver.web] - cannot convert url: jar:file:/home/fgravin/.m2/repository/org/geoserver/web/web-demo/2.3-SNAPSHOT/web-demo-2.3-SNAPSHOT.jar!/org/geoserver/web/demo/DemoRequestsPage.html to file (URI is not hierarchical), falling back to the inputstream for polling
+2012-08-31 15:51:05,331 DEBUG [org.geoserver.web] - cannot convert url: jar:file:/home/fgravin/.m2/repository/org/geoserver/web/web-core/2.3-SNAPSHOT/web-core-2.3-SNAPSHOT.jar!/org/geoserver/web/css/blueprint/screen.css to file (URI is not hierarchical), falling back to the inputstream for polling
+2012-08-31 15:51:05,332 DEBUG [org.geoserver.web] - cannot convert url: jar:file:/home/fgravin/.m2/repository/org/geoserver/web/web-core/2.3-SNAPSHOT/web-core-2.3-SNAPSHOT.jar!/org/geoserver/web/css/blueprint/print.css to file (URI is not hierarchical), falling back to the inputstream for polling
+2012-08-31 15:51:05,333 DEBUG [org.geoserver.web] - cannot convert url: jar:file:/home/fgravin/.m2/repository/org/geoserver/web/web-core/2.3-SNAPSHOT/web-core-2.3-SNAPSHOT.jar!/org/geoserver/web/css/geoserver.css to file (URI is not hierarchical), falling back to the inputstream for polling
+2012-08-31 15:51:05,334 DEBUG [org.geoserver.web] - cannot convert url: jar:file:/home/fgravin/.m2/repository/org/geoserver/web/web-core/2.3-SNAPSHOT/web-core-2.3-SNAPSHOT.jar!/org/geoserver/web/css/blueprint/ie.css to file (URI is not hierarchical), falling back to the inputstream for polling
+2012-08-31 15:51:05,334 DEBUG [org.geoserver.web] - cannot convert url: jar:file:/home/fgravin/.m2/repository/org/geoserver/web/web-core/2.3-SNAPSHOT/web-core-2.3-SNAPSHOT.jar!/org/geoserver/web/css/geoserver-ie.css to file (URI is not hierarchical), falling back to the inputstream for polling
+2012-08-31 15:51:05,335 DEBUG [org.geoserver.web] - cannot convert url: jar:file:/home/fgravin/.m2/repository/org/geoserver/web/web-core/2.3-SNAPSHOT/web-core-2.3-SNAPSHOT.jar!/org/geoserver/web/js/jquery-1.2.6.min.js to file (URI is not hierarchical), falling back to the inputstream for polling
+2012-08-31 15:51:05,336 DEBUG [org.geoserver.web] - cannot convert url: jar:file:/home/fgravin/.m2/repository/org/geoserver/web/web-core/2.3-SNAPSHOT/web-core-2.3-SNAPSHOT.jar!/org/geoserver/web/js/jquery.inline-info.js to file (URI is not hierarchical), falling back to the inputstream for polling
+2012-08-31 15:51:05,339 DEBUG [org.geoserver.web] - cannot convert url: jar:file:/home/fgravin/.m2/repository/org/geoserver/web/web-core/2.3-SNAPSHOT/web-core-2.3-SNAPSHOT.jar!/org/geoserver/web/wicket/CodeMirrorEditor.html to file (URI is not hierarchical), falling back to the inputstream for polling
+2012-08-31 15:51:05,346 DEBUG [org.geoserver.web] - cannot convert url: jar:file:/home/fgravin/.m2/repository/org/apache/wicket/wicket-extensions/1.4.12/wicket-extensions-1.4.12.jar!/org/apache/wicket/extensions/ajax/markup/html/modal/ModalWindow.html to file (URI is not hierarchical), falling back to the inputstream for polling
+2012-08-31 15:51:05,410 DEBUG [org.geoserver.web] - cannot convert url: jar:file:/home/fgravin/.m2/repository/org/apache/wicket/wicket/1.4.12/wicket-1.4.12.jar!/org/apache/wicket/Application.properties to file (URI is not hierarchical), falling back to the inputstream for polling
+2012-08-31 15:51:05,438 DEBUG [org.geoserver] - Thread 19 releasing the lock in mode READ
+2012-08-31 15:51:05,438 DEBUG [org.geoserver.filters] - Compressing output for mimetype: text/html; charset=utf-8
+2012-08-31 15:51:05,439 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Closing single Hibernate Session in OpenSessionInViewFilter
+2012-08-31 15:52:03,208 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 15:52:03,209 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 15:52:03,209 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 15:52:14,947 DEBUG [org.geoserver.monitor] - Testing /web/ for monitor filtering
+2012-08-31 15:52:14,947 DEBUG [org.geoserver.monitor] - /geoserver/web/ was filtered from monitoring
+2012-08-31 15:52:14,947 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Using SessionFactory 'hibSessionFactory' for OpenSessionInViewFilter
+2012-08-31 15:52:14,947 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Opening single Hibernate Session in OpenSessionInViewFilter
+2012-08-31 15:52:14,955 DEBUG [org.geoserver] - Thread 19 locking in mode READ
+2012-08-31 15:52:14,955 DEBUG [org.geoserver] - Thread 19 got the lock in mode READ
+2012-08-31 15:52:14,972 DEBUG [org.geoserver] - Thread 19 releasing the lock in mode READ
+2012-08-31 15:52:14,972 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Closing single Hibernate Session in OpenSessionInViewFilter
+2012-08-31 15:52:14,972 DEBUG [org.geoserver.filters] - Compressing output for mimetype: text/xml; charset=utf-8
+2012-08-31 15:52:15,082 DEBUG [org.geoserver.monitor] - Testing /web/ for monitor filtering
+2012-08-31 15:52:15,094 DEBUG [org.geoserver.monitor] - /geoserver/web/ was filtered from monitoring
+2012-08-31 15:52:15,094 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Using SessionFactory 'hibSessionFactory' for OpenSessionInViewFilter
+2012-08-31 15:52:15,094 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Opening single Hibernate Session in OpenSessionInViewFilter
+2012-08-31 15:52:15,095 DEBUG [org.geoserver] - Thread 19 locking in mode READ
+2012-08-31 15:52:15,095 DEBUG [org.geoserver] - Thread 19 got the lock in mode READ
+2012-08-31 15:52:15,096 DEBUG [org.geoserver.web] - cannot convert url: jar:file:/home/fgravin/.m2/repository/org/geoserver/web/web-demo/2.3-SNAPSHOT/web-demo-2.3-SNAPSHOT.jar!/org/geoserver/web/demo/DemoRequestResponse.html to file (URI is not hierarchical), falling back to the inputstream for polling
+2012-08-31 15:52:15,099 DEBUG [org.geoserver] - Thread 19 releasing the lock in mode READ
+2012-08-31 15:52:15,099 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Closing single Hibernate Session in OpenSessionInViewFilter
+2012-08-31 15:52:15,099 DEBUG [org.geoserver.filters] - Compressing output for mimetype: text/html; charset=utf-8
+2012-08-31 15:52:15,195 DEBUG [org.geoserver.monitor] - Testing /TestWfsPost for monitor filtering
+2012-08-31 15:52:15,199 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Using SessionFactory 'hibSessionFactory' for OpenSessionInViewFilter
+2012-08-31 15:52:15,199 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Opening single Hibernate Session in OpenSessionInViewFilter
+2012-08-31 15:52:15,199 TRACE [org.geoserver.ows.OWSHandlerMapping] - No handler mapping found for [/TestWfsPost]
+2012-08-31 15:52:15,203 TRACE [org.geoserver.ows.OWSHandlerMapping] - No handler mapping found for [/TestWfsPost]
+2012-08-31 15:52:15,203 TRACE [org.geoserver.ows.OWSHandlerMapping] - No handler mapping found for [/TestWfsPost]
+2012-08-31 15:52:15,203 TRACE [org.geoserver.ows.OWSHandlerMapping] - No handler mapping found for [/TestWfsPost]
+2012-08-31 15:52:15,203 DEBUG [org.geoserver.ows.OWSHandlerMapping] - Mapping [/TestWfsPost] to HandlerExecutionChain with handler [org.springframework.web.servlet.mvc.ServletWrappingController@6a523a4f] and 1 interceptor
+2012-08-31 15:52:15,211 DEBUG [org.geoserver.monitor] - Testing /wfs for monitor filtering
+2012-08-31 15:52:15,211 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Using SessionFactory 'hibSessionFactory' for OpenSessionInViewFilter
+2012-08-31 15:52:15,211 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Opening single Hibernate Session in OpenSessionInViewFilter
+2012-08-31 15:52:15,212 TRACE [org.geoserver.ows.OWSHandlerMapping] - No handler mapping found for [/wfs]
+2012-08-31 15:52:15,212 TRACE [org.geoserver.ows.OWSHandlerMapping] - No handler mapping found for [/wfs]
+2012-08-31 15:52:15,212 TRACE [org.geoserver.ows.OWSHandlerMapping] - No handler mapping found for [/wfs]
+2012-08-31 15:52:15,212 TRACE [org.geoserver.ows.OWSHandlerMapping] - No handler mapping found for [/wfs]
+2012-08-31 15:52:15,212 DEBUG [org.geoserver.ows.OWSHandlerMapping] - Mapping [/wfs] to HandlerExecutionChain with handler [org.geoserver.ows.Dispatcher@43a9cdf9] and 1 interceptor
+2012-08-31 15:52:15,220 DEBUG [org.vfny.geoserver.requests] - First 4 bytes of XML doc are : 3C ('<') 3F ('?') 78 ('x') 6D ('m')
+2012-08-31 15:52:15,220 DEBUG [org.vfny.geoserver.requests] - Charset detection phase 1. Inferred encoding: UTF-8
+2012-08-31 15:52:15,220 DEBUG [org.vfny.geoserver.requests] - Charset detection phase 2. Charset in XML declaration is `null`.
+2012-08-31 15:52:15,220 DEBUG [org.vfny.geoserver.requests] - Trying to create reader basing on existing charset information: `UTF-8`.
+2012-08-31 15:52:15,220 DEBUG [org.geoserver.ows] - Raw XML request starts with: <?xml version="1.0"?>
+<GetFeature
+   service="WFS"
+   version="2.0.0"
+   xmlns="http://www.opengis.net/wfs/2.0"
+   xmlns:fes="http://www.opengis.net/fes/2.0"
+   xmlns:au="urn:x-inspire:specification:gmlas:AdministrativeUnits:3.0"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.opengis.net/wfs/2.0
+                       http://schemas.opengis.net/wfs/2.0/wfs.xsd">
+   <Query typeNames="au:AdministrativeBoundary">
+      <fes:Filter>
+            <fes:During>
+      <fes:ValueReference>au:beginLifespanVersion</fes:ValueReference>
+      <gml:TimePeriod gml:id="TP1">
+         <gml:begin>
+            <gml:TimeInstant gml:id="TI1">
+               <gml:timePosition>2005-05-17T00:00:00Z</gml:timePosition>
+            </gml:TimeInstant>
+         </gml:begin>
+         <gml:end>
+            <gml:TimeInstant gml:id="TI2">
+               <gml:timePosition>2005-05-23T00:00:00Z</gml:timePosition>
+            </gml:TimeInstant>
+         </gml:end>
+      </gml:Ti...
+2012-08-31 15:52:15,229 INFO [org.geoserver.wfs] - 
+Request: getServiceInfo
+2012-08-31 15:52:15,246 WARN [org.geotools.jdbc] - No primary key or unique index found for administrativeunit.
+2012-08-31 15:52:15,524 ERROR [org.geoserver.ows] - 
+org.geoserver.wfs.WFSException: Request parsing failed
+	at org.geoserver.wfs.xml.v2_0.WfsXmlReader.read(WfsXmlReader.java:58)
+	at org.geoserver.ows.Dispatcher.parseRequestXML(Dispatcher.java:1465)
+	at org.geoserver.ows.Dispatcher.dispatch(Dispatcher.java:631)
+	at org.geoserver.ows.Dispatcher.handleRequestInternal(Dispatcher.java:263)
+	at org.springframework.web.servlet.mvc.AbstractController.handleRequest(AbstractController.java:153)
+	at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:48)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:923)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:852)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:882)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:789)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1166)
+	at org.geoserver.filters.ThreadLocalsCleanupFilter.doFilter(ThreadLocalsCleanupFilter.java:23)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+	at org.geoserver.filters.SpringDelegatingFilter$Chain.doFilter(SpringDelegatingFilter.java:74)
+	at org.springframework.orm.hibernate3.support.OpenSessionInViewFilter.doFilterInternal(OpenSessionInViewFilter.java:198)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)
+	at org.geoserver.filters.SpringDelegatingFilter$Chain.doFilter(SpringDelegatingFilter.java:70)
+	at org.geoserver.monitor.MonitorFilter.doFilter(MonitorFilter.java:133)
+	at org.geoserver.filters.SpringDelegatingFilter$Chain.doFilter(SpringDelegatingFilter.java:70)
+	at org.geoserver.filters.SpringDelegatingFilter.doFilter(SpringDelegatingFilter.java:45)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+	at org.geoserver.platform.AdvancedDispatchFilter.doFilter(AdvancedDispatchFilter.java:49)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+	at org.vfny.geoserver.filters.SetCharacterEncodingFilter.doFilter(SetCharacterEncodingFilter.java:109)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:311)
+	at org.geoserver.security.filter.GeoServerCompositeFilter$NestedFilterChain.doFilter(GeoServerCompositeFilter.java:68)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:116)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:83)
+	at org.geoserver.security.filter.GeoServerCompositeFilter$NestedFilterChain.doFilter(GeoServerCompositeFilter.java:72)
+	at org.geoserver.security.filter.GeoServerCompositeFilter.doFilter(GeoServerCompositeFilter.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:323)
+	at org.geoserver.security.filter.GeoServerCompositeFilter$NestedFilterChain.doFilter(GeoServerCompositeFilter.java:68)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:113)
+	at org.geoserver.security.filter.GeoServerCompositeFilter$NestedFilterChain.doFilter(GeoServerCompositeFilter.java:72)
+	at org.geoserver.security.filter.GeoServerCompositeFilter.doFilter(GeoServerCompositeFilter.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:323)
+	at org.geoserver.security.filter.GeoServerAnonymousAuthenticationFilter.doFilter(GeoServerAnonymousAuthenticationFilter.java:53)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:323)
+	at org.geoserver.security.filter.GeoServerCompositeFilter$NestedFilterChain.doFilter(GeoServerCompositeFilter.java:68)
+	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilter(BasicAuthenticationFilter.java:150)
+	at org.geoserver.security.filter.GeoServerCompositeFilter$NestedFilterChain.doFilter(GeoServerCompositeFilter.java:72)
+	at org.geoserver.security.filter.GeoServerCompositeFilter.doFilter(GeoServerCompositeFilter.java:91)
+	at org.geoserver.security.filter.GeoServerBasicAuthenticationFilter.doFilter(GeoServerBasicAuthenticationFilter.java:82)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:323)
+	at org.geoserver.security.filter.GeoServerCompositeFilter$NestedFilterChain.doFilter(GeoServerCompositeFilter.java:68)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:87)
+	at org.geoserver.security.filter.GeoServerCompositeFilter$NestedFilterChain.doFilter(GeoServerCompositeFilter.java:72)
+	at org.geoserver.security.filter.GeoServerCompositeFilter.doFilter(GeoServerCompositeFilter.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:323)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:173)
+	at org.geoserver.security.GeoServerSecurityFilterChainProxy.doFilter(GeoServerSecurityFilterChainProxy.java:97)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:259)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+	at org.geoserver.filters.LoggingFilter.doFilter(LoggingFilter.java:71)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+	at org.geoserver.filters.GZIPFilter.doFilter(GZIPFilter.java:47)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+	at org.geoserver.filters.SessionDebugFilter.doFilter(SessionDebugFilter.java:46)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:388)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:765)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:418)
+	at org.mortbay.jetty.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:230)
+	at org.mortbay.jetty.handler.HandlerCollection.handle(HandlerCollection.java:114)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:938)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:755)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:218)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:409)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+Caused by: org.xml.sax.SAXParseException; lineNumber: 15; columnNumber: 36; The prefix "gml" for element "gml:TimePeriod" is not bound.
+	at org.apache.xerces.util.ErrorHandlerWrapper.createSAXParseException(Unknown Source)
+	at org.apache.xerces.util.ErrorHandlerWrapper.fatalError(Unknown Source)
+	at org.apache.xerces.impl.XMLErrorReporter.reportError(Unknown Source)
+	at org.apache.xerces.impl.XMLErrorReporter.reportError(Unknown Source)
+	at org.apache.xerces.impl.XMLNSDocumentScannerImpl.scanStartElement(Unknown Source)
+	at org.apache.xerces.impl.XMLDocumentFragmentScannerImpl$FragmentContentDispatcher.dispatch(Unknown Source)
+	at org.apache.xerces.impl.XMLDocumentFragmentScannerImpl.scanDocument(Unknown Source)
+	at org.apache.xerces.parsers.XML11Configuration.parse(Unknown Source)
+	at org.apache.xerces.parsers.XML11Configuration.parse(Unknown Source)
+	at org.apache.xerces.parsers.XMLParser.parse(Unknown Source)
+	at org.apache.xerces.parsers.AbstractSAXParser.parse(Unknown Source)
+	at org.geotools.xml.Parser.parse(Parser.java:239)
+	at org.geoserver.wfs.xml.WFSXmlUtils.parseRequest(WFSXmlUtils.java:82)
+	at org.geoserver.wfs.xml.v2_0.WfsXmlReader.read(WfsXmlReader.java:53)
+	... 79 more
+2012-08-31 15:52:15,596 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Closing single Hibernate Session in OpenSessionInViewFilter
+2012-08-31 15:52:15,596 DEBUG [org.geoserver.filters] - Compressing output for mimetype: application/xml
+2012-08-31 15:52:15,608 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Closing single Hibernate Session in OpenSessionInViewFilter
+2012-08-31 15:52:15,652 WARN [org.hibernate.util.JDBCExceptionReporter] - SQL Error: 90005, SQLState: 90005
+2012-08-31 15:52:15,652 ERROR [org.hibernate.util.JDBCExceptionReporter] - Value too long for column BODY BINARY(1024): X'3c3f786d6c2076657273696f6e3d22312e30223f3e0d0a3c476574466561747572650d0a202020736572766963653d22574653220d0a20202076657273696f... (1100); SQL statement:
+/* insert org.geoserver.monitor.RequestData */ insert into REQUEST (ID, STATUS, CATEGORY, PATH, BODY, QUERY_STRING, BODY_CONTENT_TYPE, BODY_CONTENT_LENGTH, SERVER_HOST, INTERNAL_SERVER_HOST, HTTP_METHOD, START_TIME, END_TIME, TOTAL_TIME, REMOTE_ADDRESS, REMOTE_HOST, REMOTE_USER, REMOTE_USER_AGENT, REMOTE_COUNTRY, REMOTE_CITY, REMOTE_LAT, REMOTE_LON, SERVICE, OPERATION, SUB_OPERATION, OWS_VERSION, CONTENT_TYPE, RESPONSE_LENGTH, ERROR_MESSAGE, EXCEPTION_STACK_TRACE) values (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [90005-119]
+2012-08-31 15:52:15,717 WARN [org.hibernate.util.JDBCExceptionReporter] - SQL Error: 90005, SQLState: 90005
+2012-08-31 15:52:15,717 ERROR [org.hibernate.util.JDBCExceptionReporter] - Value too long for column BODY BINARY(1024): X'3c3f786d6c2076657273696f6e3d22312e30223f3e0d0a3c476574466561747572650d0a202020736572766963653d22574653220d0a20202076657273696f... (1100); SQL statement:
+/* insert org.geoserver.monitor.RequestData */ insert into REQUEST (ID, STATUS, CATEGORY, PATH, BODY, QUERY_STRING, BODY_CONTENT_TYPE, BODY_CONTENT_LENGTH, SERVER_HOST, INTERNAL_SERVER_HOST, HTTP_METHOD, START_TIME, END_TIME, TOTAL_TIME, REMOTE_ADDRESS, REMOTE_HOST, REMOTE_USER, REMOTE_USER_AGENT, REMOTE_COUNTRY, REMOTE_CITY, REMOTE_LAT, REMOTE_LON, SERVICE, OPERATION, SUB_OPERATION, OWS_VERSION, CONTENT_TYPE, RESPONSE_LENGTH, ERROR_MESSAGE, EXCEPTION_STACK_TRACE) values (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [90005-119]
+2012-08-31 15:52:23,910 DEBUG [org.geoserver.monitor] - Testing /web/ for monitor filtering
+2012-08-31 15:52:23,911 DEBUG [org.geoserver.monitor] - /geoserver/web/ was filtered from monitoring
+2012-08-31 15:52:23,911 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Using SessionFactory 'hibSessionFactory' for OpenSessionInViewFilter
+2012-08-31 15:52:23,911 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Opening single Hibernate Session in OpenSessionInViewFilter
+2012-08-31 15:52:23,912 DEBUG [org.geoserver] - Thread 58 locking in mode READ
+2012-08-31 15:52:23,912 DEBUG [org.geoserver] - Thread 58 got the lock in mode READ
+2012-08-31 15:52:23,919 DEBUG [org.geoserver] - Thread 58 releasing the lock in mode READ
+2012-08-31 15:52:23,919 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Closing single Hibernate Session in OpenSessionInViewFilter
+2012-08-31 15:52:23,919 DEBUG [org.geoserver.filters] - Compressing output for mimetype: text/xml; charset=utf-8
+2012-08-31 15:52:40,333 DEBUG [org.geoserver.monitor] - Testing /web/ for monitor filtering
+2012-08-31 15:52:40,333 DEBUG [org.geoserver.monitor] - /geoserver/web/ was filtered from monitoring
+2012-08-31 15:52:40,333 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Using SessionFactory 'hibSessionFactory' for OpenSessionInViewFilter
+2012-08-31 15:52:40,333 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Opening single Hibernate Session in OpenSessionInViewFilter
+2012-08-31 15:52:40,336 DEBUG [org.geoserver] - Thread 58 locking in mode READ
+2012-08-31 15:52:40,336 DEBUG [org.geoserver] - Thread 58 got the lock in mode READ
+2012-08-31 15:52:40,350 DEBUG [org.geoserver] - Thread 58 releasing the lock in mode READ
+2012-08-31 15:52:40,350 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Closing single Hibernate Session in OpenSessionInViewFilter
+2012-08-31 15:52:40,351 DEBUG [org.geoserver.filters] - Compressing output for mimetype: text/xml; charset=utf-8
+2012-08-31 15:52:40,459 DEBUG [org.geoserver.monitor] - Testing /web/ for monitor filtering
+2012-08-31 15:52:40,459 DEBUG [org.geoserver.monitor] - /geoserver/web/ was filtered from monitoring
+2012-08-31 15:52:40,460 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Using SessionFactory 'hibSessionFactory' for OpenSessionInViewFilter
+2012-08-31 15:52:40,460 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Opening single Hibernate Session in OpenSessionInViewFilter
+2012-08-31 15:52:40,460 DEBUG [org.geoserver] - Thread 58 locking in mode READ
+2012-08-31 15:52:40,460 DEBUG [org.geoserver] - Thread 58 got the lock in mode READ
+2012-08-31 15:52:40,462 DEBUG [org.geoserver] - Thread 58 releasing the lock in mode READ
+2012-08-31 15:52:40,462 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Closing single Hibernate Session in OpenSessionInViewFilter
+2012-08-31 15:52:40,462 DEBUG [org.geoserver.filters] - Compressing output for mimetype: text/html; charset=utf-8
+2012-08-31 15:52:40,616 DEBUG [org.geoserver.monitor] - Testing /TestWfsPost for monitor filtering
+2012-08-31 15:52:40,616 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Using SessionFactory 'hibSessionFactory' for OpenSessionInViewFilter
+2012-08-31 15:52:40,616 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Opening single Hibernate Session in OpenSessionInViewFilter
+2012-08-31 15:52:40,617 TRACE [org.geoserver.ows.OWSHandlerMapping] - No handler mapping found for [/TestWfsPost]
+2012-08-31 15:52:40,617 TRACE [org.geoserver.ows.OWSHandlerMapping] - No handler mapping found for [/TestWfsPost]
+2012-08-31 15:52:40,617 TRACE [org.geoserver.ows.OWSHandlerMapping] - No handler mapping found for [/TestWfsPost]
+2012-08-31 15:52:40,617 TRACE [org.geoserver.ows.OWSHandlerMapping] - No handler mapping found for [/TestWfsPost]
+2012-08-31 15:52:40,617 DEBUG [org.geoserver.ows.OWSHandlerMapping] - Mapping [/TestWfsPost] to HandlerExecutionChain with handler [org.springframework.web.servlet.mvc.ServletWrappingController@6a523a4f] and 1 interceptor
+2012-08-31 15:52:40,621 DEBUG [org.geoserver.monitor] - Testing /wfs for monitor filtering
+2012-08-31 15:52:40,622 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Using SessionFactory 'hibSessionFactory' for OpenSessionInViewFilter
+2012-08-31 15:52:40,622 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Opening single Hibernate Session in OpenSessionInViewFilter
+2012-08-31 15:52:40,622 TRACE [org.geoserver.ows.OWSHandlerMapping] - No handler mapping found for [/wfs]
+2012-08-31 15:52:40,623 TRACE [org.geoserver.ows.OWSHandlerMapping] - No handler mapping found for [/wfs]
+2012-08-31 15:52:40,623 TRACE [org.geoserver.ows.OWSHandlerMapping] - No handler mapping found for [/wfs]
+2012-08-31 15:52:40,623 TRACE [org.geoserver.ows.OWSHandlerMapping] - No handler mapping found for [/wfs]
+2012-08-31 15:52:40,623 DEBUG [org.geoserver.ows.OWSHandlerMapping] - Mapping [/wfs] to HandlerExecutionChain with handler [org.geoserver.ows.Dispatcher@43a9cdf9] and 1 interceptor
+2012-08-31 15:52:40,624 DEBUG [org.vfny.geoserver.requests] - First 4 bytes of XML doc are : 3C ('<') 3F ('?') 78 ('x') 6D ('m')
+2012-08-31 15:52:40,624 DEBUG [org.vfny.geoserver.requests] - Charset detection phase 1. Inferred encoding: UTF-8
+2012-08-31 15:52:40,624 DEBUG [org.vfny.geoserver.requests] - Charset detection phase 2. Charset in XML declaration is `null`.
+2012-08-31 15:52:40,625 DEBUG [org.vfny.geoserver.requests] - Trying to create reader basing on existing charset information: `UTF-8`.
+2012-08-31 15:52:40,625 DEBUG [org.geoserver.ows] - Raw XML request starts with: <?xml version="1.0"?>
+<GetFeature
+   service="WFS"
+   version="2.0.0"
+   xmlns="http://www.opengis.net/wfs/2.0"
+   xmlns:fes="http://www.opengis.net/fes/2.0"
+   xmlns:au="urn:x-inspire:specification:gmlas:AdministrativeUnits:3.0"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.opengis.net/wfs/2.0
+                       http://schemas.opengis.net/wfs/2.0/wfs.xsd">
+   <Query typeNames="au:AdministrativeBoundary">
+      <fes:Filter>
+            <fes:During>
+      <fes:ValueReference>au:beginLifespanVersion</fes:ValueReference>
+      <gml:TimePeriod gml:id="TP1">
+         <gml:begin>
+            <gml:TimeInstant gml:id="TI1">
+               <gml:timePosition>2005-05-17T00:00:00Z</gml:timePosition>
+            </gml:TimeInstant>
+         </gml:begin>
+         <gml:end>
+            <gml:TimeInstant gml:id="TI2">
+               <gml:timePosition>2005-05-23T00:00:00Z</gml:timePosition>
+            </gml:TimeInstant>
+         </gml:end>
+      </gml:Ti...
+2012-08-31 15:52:40,626 INFO [org.geoserver.wfs] - 
+Request: getServiceInfo
+2012-08-31 15:52:40,636 ERROR [org.geoserver.ows] - 
+org.geoserver.wfs.WFSException: Request parsing failed
+	at org.geoserver.wfs.xml.v2_0.WfsXmlReader.read(WfsXmlReader.java:58)
+	at org.geoserver.ows.Dispatcher.parseRequestXML(Dispatcher.java:1465)
+	at org.geoserver.ows.Dispatcher.dispatch(Dispatcher.java:631)
+	at org.geoserver.ows.Dispatcher.handleRequestInternal(Dispatcher.java:263)
+	at org.springframework.web.servlet.mvc.AbstractController.handleRequest(AbstractController.java:153)
+	at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:48)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:923)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:852)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:882)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:789)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1166)
+	at org.geoserver.filters.ThreadLocalsCleanupFilter.doFilter(ThreadLocalsCleanupFilter.java:23)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+	at org.geoserver.filters.SpringDelegatingFilter$Chain.doFilter(SpringDelegatingFilter.java:74)
+	at org.springframework.orm.hibernate3.support.OpenSessionInViewFilter.doFilterInternal(OpenSessionInViewFilter.java:198)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)
+	at org.geoserver.filters.SpringDelegatingFilter$Chain.doFilter(SpringDelegatingFilter.java:70)
+	at org.geoserver.monitor.MonitorFilter.doFilter(MonitorFilter.java:133)
+	at org.geoserver.filters.SpringDelegatingFilter$Chain.doFilter(SpringDelegatingFilter.java:70)
+	at org.geoserver.filters.SpringDelegatingFilter.doFilter(SpringDelegatingFilter.java:45)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+	at org.geoserver.platform.AdvancedDispatchFilter.doFilter(AdvancedDispatchFilter.java:49)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+	at org.vfny.geoserver.filters.SetCharacterEncodingFilter.doFilter(SetCharacterEncodingFilter.java:109)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:311)
+	at org.geoserver.security.filter.GeoServerCompositeFilter$NestedFilterChain.doFilter(GeoServerCompositeFilter.java:68)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:116)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:83)
+	at org.geoserver.security.filter.GeoServerCompositeFilter$NestedFilterChain.doFilter(GeoServerCompositeFilter.java:72)
+	at org.geoserver.security.filter.GeoServerCompositeFilter.doFilter(GeoServerCompositeFilter.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:323)
+	at org.geoserver.security.filter.GeoServerCompositeFilter$NestedFilterChain.doFilter(GeoServerCompositeFilter.java:68)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:113)
+	at org.geoserver.security.filter.GeoServerCompositeFilter$NestedFilterChain.doFilter(GeoServerCompositeFilter.java:72)
+	at org.geoserver.security.filter.GeoServerCompositeFilter.doFilter(GeoServerCompositeFilter.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:323)
+	at org.geoserver.security.filter.GeoServerAnonymousAuthenticationFilter.doFilter(GeoServerAnonymousAuthenticationFilter.java:53)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:323)
+	at org.geoserver.security.filter.GeoServerCompositeFilter$NestedFilterChain.doFilter(GeoServerCompositeFilter.java:68)
+	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilter(BasicAuthenticationFilter.java:150)
+	at org.geoserver.security.filter.GeoServerCompositeFilter$NestedFilterChain.doFilter(GeoServerCompositeFilter.java:72)
+	at org.geoserver.security.filter.GeoServerCompositeFilter.doFilter(GeoServerCompositeFilter.java:91)
+	at org.geoserver.security.filter.GeoServerBasicAuthenticationFilter.doFilter(GeoServerBasicAuthenticationFilter.java:82)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:323)
+	at org.geoserver.security.filter.GeoServerCompositeFilter$NestedFilterChain.doFilter(GeoServerCompositeFilter.java:68)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:87)
+	at org.geoserver.security.filter.GeoServerCompositeFilter$NestedFilterChain.doFilter(GeoServerCompositeFilter.java:72)
+	at org.geoserver.security.filter.GeoServerCompositeFilter.doFilter(GeoServerCompositeFilter.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:323)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:173)
+	at org.geoserver.security.GeoServerSecurityFilterChainProxy.doFilter(GeoServerSecurityFilterChainProxy.java:97)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:259)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+	at org.geoserver.filters.LoggingFilter.doFilter(LoggingFilter.java:71)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+	at org.geoserver.filters.GZIPFilter.doFilter(GZIPFilter.java:47)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+	at org.geoserver.filters.SessionDebugFilter.doFilter(SessionDebugFilter.java:46)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:388)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:765)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:418)
+	at org.mortbay.jetty.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:230)
+	at org.mortbay.jetty.handler.HandlerCollection.handle(HandlerCollection.java:114)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:938)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:755)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:218)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:409)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+Caused by: org.xml.sax.SAXParseException; lineNumber: 15; columnNumber: 36; The prefix "gml" for element "gml:TimePeriod" is not bound.
+	at org.apache.xerces.util.ErrorHandlerWrapper.createSAXParseException(Unknown Source)
+	at org.apache.xerces.util.ErrorHandlerWrapper.fatalError(Unknown Source)
+	at org.apache.xerces.impl.XMLErrorReporter.reportError(Unknown Source)
+	at org.apache.xerces.impl.XMLErrorReporter.reportError(Unknown Source)
+	at org.apache.xerces.impl.XMLNSDocumentScannerImpl.scanStartElement(Unknown Source)
+	at org.apache.xerces.impl.XMLDocumentFragmentScannerImpl$FragmentContentDispatcher.dispatch(Unknown Source)
+	at org.apache.xerces.impl.XMLDocumentFragmentScannerImpl.scanDocument(Unknown Source)
+	at org.apache.xerces.parsers.XML11Configuration.parse(Unknown Source)
+	at org.apache.xerces.parsers.XML11Configuration.parse(Unknown Source)
+	at org.apache.xerces.parsers.XMLParser.parse(Unknown Source)
+	at org.apache.xerces.parsers.AbstractSAXParser.parse(Unknown Source)
+	at org.geotools.xml.Parser.parse(Parser.java:239)
+	at org.geoserver.wfs.xml.WFSXmlUtils.parseRequest(WFSXmlUtils.java:82)
+	at org.geoserver.wfs.xml.v2_0.WfsXmlReader.read(WfsXmlReader.java:53)
+	... 79 more
+2012-08-31 15:52:40,705 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Closing single Hibernate Session in OpenSessionInViewFilter
+2012-08-31 15:52:40,705 DEBUG [org.geoserver.filters] - Compressing output for mimetype: application/xml
+2012-08-31 15:52:40,710 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Closing single Hibernate Session in OpenSessionInViewFilter
+2012-08-31 15:52:40,714 WARN [org.hibernate.util.JDBCExceptionReporter] - SQL Error: 90005, SQLState: 90005
+2012-08-31 15:52:40,715 ERROR [org.hibernate.util.JDBCExceptionReporter] - Value too long for column BODY BINARY(1024): X'3c3f786d6c2076657273696f6e3d22312e30223f3e0d0a3c476574466561747572650d0a202020736572766963653d22574653220d0a20202076657273696f... (1100); SQL statement:
+/* insert org.geoserver.monitor.RequestData */ insert into REQUEST (ID, STATUS, CATEGORY, PATH, BODY, QUERY_STRING, BODY_CONTENT_TYPE, BODY_CONTENT_LENGTH, SERVER_HOST, INTERNAL_SERVER_HOST, HTTP_METHOD, START_TIME, END_TIME, TOTAL_TIME, REMOTE_ADDRESS, REMOTE_HOST, REMOTE_USER, REMOTE_USER_AGENT, REMOTE_COUNTRY, REMOTE_CITY, REMOTE_LAT, REMOTE_LON, SERVICE, OPERATION, SUB_OPERATION, OWS_VERSION, CONTENT_TYPE, RESPONSE_LENGTH, ERROR_MESSAGE, EXCEPTION_STACK_TRACE) values (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [90005-119]
+2012-08-31 15:52:40,724 WARN [org.hibernate.util.JDBCExceptionReporter] - SQL Error: 90005, SQLState: 90005
+2012-08-31 15:52:40,724 ERROR [org.hibernate.util.JDBCExceptionReporter] - Value too long for column BODY BINARY(1024): X'3c3f786d6c2076657273696f6e3d22312e30223f3e0d0a3c476574466561747572650d0a202020736572766963653d22574653220d0a20202076657273696f... (1100); SQL statement:
+/* insert org.geoserver.monitor.RequestData */ insert into REQUEST (ID, STATUS, CATEGORY, PATH, BODY, QUERY_STRING, BODY_CONTENT_TYPE, BODY_CONTENT_LENGTH, SERVER_HOST, INTERNAL_SERVER_HOST, HTTP_METHOD, START_TIME, END_TIME, TOTAL_TIME, REMOTE_ADDRESS, REMOTE_HOST, REMOTE_USER, REMOTE_USER_AGENT, REMOTE_COUNTRY, REMOTE_CITY, REMOTE_LAT, REMOTE_LON, SERVICE, OPERATION, SUB_OPERATION, OWS_VERSION, CONTENT_TYPE, RESPONSE_LENGTH, ERROR_MESSAGE, EXCEPTION_STACK_TRACE) values (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [90005-119]
+2012-08-31 15:52:46,811 DEBUG [org.geoserver.monitor] - Testing /web/ for monitor filtering
+2012-08-31 15:52:46,812 DEBUG [org.geoserver.monitor] - /geoserver/web/ was filtered from monitoring
+2012-08-31 15:52:46,812 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Using SessionFactory 'hibSessionFactory' for OpenSessionInViewFilter
+2012-08-31 15:52:46,812 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Opening single Hibernate Session in OpenSessionInViewFilter
+2012-08-31 15:52:46,813 DEBUG [org.geoserver] - Thread 58 locking in mode READ
+2012-08-31 15:52:46,813 DEBUG [org.geoserver] - Thread 58 got the lock in mode READ
+2012-08-31 15:52:46,821 DEBUG [org.geoserver] - Thread 58 releasing the lock in mode READ
+2012-08-31 15:52:46,821 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Closing single Hibernate Session in OpenSessionInViewFilter
+2012-08-31 15:52:46,822 DEBUG [org.geoserver.filters] - Compressing output for mimetype: text/xml; charset=utf-8
+2012-08-31 15:53:03,208 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 15:53:03,209 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 15:53:03,209 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 15:53:11,532 DEBUG [org.geoserver.monitor] - Testing /web/ for monitor filtering
+2012-08-31 15:53:11,532 DEBUG [org.geoserver.monitor] - /geoserver/web/ was filtered from monitoring
+2012-08-31 15:53:11,532 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Using SessionFactory 'hibSessionFactory' for OpenSessionInViewFilter
+2012-08-31 15:53:11,532 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Opening single Hibernate Session in OpenSessionInViewFilter
+2012-08-31 15:53:11,535 DEBUG [org.geoserver] - Thread 58 locking in mode READ
+2012-08-31 15:53:11,535 DEBUG [org.geoserver] - Thread 58 got the lock in mode READ
+2012-08-31 15:53:11,545 DEBUG [org.geoserver] - Thread 58 releasing the lock in mode READ
+2012-08-31 15:53:11,545 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Closing single Hibernate Session in OpenSessionInViewFilter
+2012-08-31 15:53:11,546 DEBUG [org.geoserver.filters] - Compressing output for mimetype: text/xml; charset=utf-8
+2012-08-31 15:53:11,577 DEBUG [org.geoserver.monitor] - Testing /web/ for monitor filtering
+2012-08-31 15:53:11,578 DEBUG [org.geoserver.monitor] - /geoserver/web/ was filtered from monitoring
+2012-08-31 15:53:11,578 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Using SessionFactory 'hibSessionFactory' for OpenSessionInViewFilter
+2012-08-31 15:53:11,578 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Opening single Hibernate Session in OpenSessionInViewFilter
+2012-08-31 15:53:11,579 DEBUG [org.geoserver] - Thread 58 locking in mode READ
+2012-08-31 15:53:11,579 DEBUG [org.geoserver] - Thread 58 got the lock in mode READ
+2012-08-31 15:53:11,582 DEBUG [org.geoserver] - Thread 58 releasing the lock in mode READ
+2012-08-31 15:53:11,582 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Closing single Hibernate Session in OpenSessionInViewFilter
+2012-08-31 15:53:11,583 DEBUG [org.geoserver.filters] - Compressing output for mimetype: text/html; charset=utf-8
+2012-08-31 15:53:11,723 DEBUG [org.geoserver.monitor] - Testing /TestWfsPost for monitor filtering
+2012-08-31 15:53:11,723 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Using SessionFactory 'hibSessionFactory' for OpenSessionInViewFilter
+2012-08-31 15:53:11,723 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Opening single Hibernate Session in OpenSessionInViewFilter
+2012-08-31 15:53:11,723 TRACE [org.geoserver.ows.OWSHandlerMapping] - No handler mapping found for [/TestWfsPost]
+2012-08-31 15:53:11,724 TRACE [org.geoserver.ows.OWSHandlerMapping] - No handler mapping found for [/TestWfsPost]
+2012-08-31 15:53:11,724 TRACE [org.geoserver.ows.OWSHandlerMapping] - No handler mapping found for [/TestWfsPost]
+2012-08-31 15:53:11,724 TRACE [org.geoserver.ows.OWSHandlerMapping] - No handler mapping found for [/TestWfsPost]
+2012-08-31 15:53:11,724 DEBUG [org.geoserver.ows.OWSHandlerMapping] - Mapping [/TestWfsPost] to HandlerExecutionChain with handler [org.springframework.web.servlet.mvc.ServletWrappingController@6a523a4f] and 1 interceptor
+2012-08-31 15:53:11,727 DEBUG [org.geoserver.monitor] - Testing /wfs for monitor filtering
+2012-08-31 15:53:11,727 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Using SessionFactory 'hibSessionFactory' for OpenSessionInViewFilter
+2012-08-31 15:53:11,727 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Opening single Hibernate Session in OpenSessionInViewFilter
+2012-08-31 15:53:11,728 TRACE [org.geoserver.ows.OWSHandlerMapping] - No handler mapping found for [/wfs]
+2012-08-31 15:53:11,728 TRACE [org.geoserver.ows.OWSHandlerMapping] - No handler mapping found for [/wfs]
+2012-08-31 15:53:11,728 TRACE [org.geoserver.ows.OWSHandlerMapping] - No handler mapping found for [/wfs]
+2012-08-31 15:53:11,728 TRACE [org.geoserver.ows.OWSHandlerMapping] - No handler mapping found for [/wfs]
+2012-08-31 15:53:11,728 DEBUG [org.geoserver.ows.OWSHandlerMapping] - Mapping [/wfs] to HandlerExecutionChain with handler [org.geoserver.ows.Dispatcher@43a9cdf9] and 1 interceptor
+2012-08-31 15:53:11,729 DEBUG [org.vfny.geoserver.requests] - First 4 bytes of XML doc are : 3C ('<') 3F ('?') 78 ('x') 6D ('m')
+2012-08-31 15:53:11,729 DEBUG [org.vfny.geoserver.requests] - Charset detection phase 1. Inferred encoding: UTF-8
+2012-08-31 15:53:11,729 DEBUG [org.vfny.geoserver.requests] - Charset detection phase 2. Charset in XML declaration is `null`.
+2012-08-31 15:53:11,729 DEBUG [org.vfny.geoserver.requests] - Trying to create reader basing on existing charset information: `UTF-8`.
+2012-08-31 15:53:11,730 DEBUG [org.geoserver.ows] - Raw XML request starts with: <?xml version="1.0"?>
+<GetFeature
+   service="WFS"
+   version="2.0.0"
+   xmlns="http://www.opengis.net/wfs/2.0"
+   xmlns:fes="http://www.opengis.net/fes/2.0"
+   xmlns:au="urn:x-inspire:specification:gmlas:AdministrativeUnits:3.0"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:gml="http://www.opengis.net/gml/3.2"
+   xsi:schemaLocation="http://www.opengis.net/wfs/2.0
+                       http://schemas.opengis.net/wfs/2.0/wfs.xsd">
+   <Query typeNames="au:AdministrativeBoundary">
+      <fes:Filter>
+            <fes:During>
+      <fes:ValueReference>au:beginLifespanVersion</fes:ValueReference>
+      <gml:TimePeriod gml:id="TP1">
+         <gml:begin>
+            <gml:TimeInstant gml:id="TI1">
+               <gml:timePosition>2005-05-17T00:00:00Z</gml:timePosition>
+            </gml:TimeInstant>
+         </gml:begin>
+         <gml:end>
+            <gml:TimeInstant gml:id="TI2">
+               <gml:timePosition>2005-05-23T00:00:00Z</gml:timePosition>
+            </gml:Ti...
+2012-08-31 15:53:11,731 INFO [org.geoserver.wfs] - 
+Request: getServiceInfo
+2012-08-31 15:53:11,898 DEBUG [org.vfny.geoserver.requests] - Query is org.geoserver.wfs.request.Query$WFS20@1a3e6224
+ To gt2: Query:
+   feature type: AdministrativeBoundary
+   filter: org.geotools.filter.temporal.DuringImpl@35f38782
+   [properties:  ALL ]
+2012-08-31 15:53:11,904 INFO [org.geoserver.wfs] - 
+Request: getFeature
+    service = WFS
+    version = 2.0.0
+    baseUrl = http://localhost:8080/geoserver/
+    abstractQueryExpressionGroup[0] = wfs:abstractQueryExpression=net.opengis.wfs20.impl.QueryTypeImpl@3d27da4b (handle: null) (abstractProjectionClause: null, abstractSelectionClause: org.geotools.filter.temporal.DuringImpl@35f38782, abstractSortingClause: null, aliases: null, typeNames: [{urn:x-inspire:specification:gmlas:AdministrativeUnits:3.0}AdministrativeBoundary]) (featureVersion: null, srsName: null, filter: null, propertyNames: null, sortBy: null)
+    abstractQueryExpression[0]:
+        abstractSelectionClause = org.geotools.filter.temporal.DuringImpl@35f38782
+        typeNames[0] = {urn:x-inspire:specification:gmlas:AdministrativeUnits:3.0}AdministrativeBoundary
+        filter = org.geotools.filter.temporal.DuringImpl@35f38782
+    outputFormat = application/gml+xml; version=3.2
+    resolve = none
+    resolveDepth = *
+    resolveTimeout = 300
+    resultType = results
+2012-08-31 15:53:11,960 ERROR [org.geoserver.ows] - 
+java.lang.RuntimeException: Failed to get property: {http://www.opengis.net/wfs/2.0}boundedBy
+	at org.geotools.xml.impl.GetPropertyExecutor.visit(GetPropertyExecutor.java:105)
+	at org.geotools.xml.impl.BindingWalker$BindingExecutionChain.execute(BindingWalker.java:220)
+	at org.geotools.xml.impl.BindingWalker.walk(BindingWalker.java:186)
+	at org.geotools.xml.impl.BindingVisitorDispatch.walk(BindingVisitorDispatch.java:47)
+	at org.geotools.xml.impl.BindingVisitorDispatch.walk(BindingVisitorDispatch.java:32)
+	at org.geotools.xml.impl.BindingPropertyExtractor.properties(BindingPropertyExtractor.java:85)
+	at org.geotools.xml.Encoder.encode(Encoder.java:933)
+	at org.geotools.xml.Encoder.encode(Encoder.java:584)
+	at org.geoserver.wfs.xml.GML32OutputFormat.encode(GML32OutputFormat.java:104)
+	at org.geoserver.wfs.xml.GML3OutputFormat.complexFeatureStreamIntercept(GML3OutputFormat.java:292)
+	at org.geoserver.wfs.xml.GML3OutputFormat.write(GML3OutputFormat.java:252)
+	at org.geoserver.wfs.WFSGetFeatureOutputFormat.write(WFSGetFeatureOutputFormat.java:138)
+	at org.geoserver.ows.Dispatcher.response(Dispatcher.java:912)
+	at org.geoserver.ows.Dispatcher.handleRequestInternal(Dispatcher.java:276)
+	at org.springframework.web.servlet.mvc.AbstractController.handleRequest(AbstractController.java:153)
+	at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:48)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:923)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:852)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:882)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:789)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1166)
+	at org.geoserver.filters.ThreadLocalsCleanupFilter.doFilter(ThreadLocalsCleanupFilter.java:23)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+	at org.geoserver.filters.SpringDelegatingFilter$Chain.doFilter(SpringDelegatingFilter.java:74)
+	at org.springframework.orm.hibernate3.support.OpenSessionInViewFilter.doFilterInternal(OpenSessionInViewFilter.java:198)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)
+	at org.geoserver.filters.SpringDelegatingFilter$Chain.doFilter(SpringDelegatingFilter.java:70)
+	at org.geoserver.monitor.MonitorFilter.doFilter(MonitorFilter.java:133)
+	at org.geoserver.filters.SpringDelegatingFilter$Chain.doFilter(SpringDelegatingFilter.java:70)
+	at org.geoserver.filters.SpringDelegatingFilter.doFilter(SpringDelegatingFilter.java:45)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+	at org.geoserver.platform.AdvancedDispatchFilter.doFilter(AdvancedDispatchFilter.java:49)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+	at org.vfny.geoserver.filters.SetCharacterEncodingFilter.doFilter(SetCharacterEncodingFilter.java:109)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:311)
+	at org.geoserver.security.filter.GeoServerCompositeFilter$NestedFilterChain.doFilter(GeoServerCompositeFilter.java:68)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:116)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:83)
+	at org.geoserver.security.filter.GeoServerCompositeFilter$NestedFilterChain.doFilter(GeoServerCompositeFilter.java:72)
+	at org.geoserver.security.filter.GeoServerCompositeFilter.doFilter(GeoServerCompositeFilter.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:323)
+	at org.geoserver.security.filter.GeoServerCompositeFilter$NestedFilterChain.doFilter(GeoServerCompositeFilter.java:68)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:113)
+	at org.geoserver.security.filter.GeoServerCompositeFilter$NestedFilterChain.doFilter(GeoServerCompositeFilter.java:72)
+	at org.geoserver.security.filter.GeoServerCompositeFilter.doFilter(GeoServerCompositeFilter.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:323)
+	at org.geoserver.security.filter.GeoServerAnonymousAuthenticationFilter.doFilter(GeoServerAnonymousAuthenticationFilter.java:53)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:323)
+	at org.geoserver.security.filter.GeoServerCompositeFilter$NestedFilterChain.doFilter(GeoServerCompositeFilter.java:68)
+	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilter(BasicAuthenticationFilter.java:150)
+	at org.geoserver.security.filter.GeoServerCompositeFilter$NestedFilterChain.doFilter(GeoServerCompositeFilter.java:72)
+	at org.geoserver.security.filter.GeoServerCompositeFilter.doFilter(GeoServerCompositeFilter.java:91)
+	at org.geoserver.security.filter.GeoServerBasicAuthenticationFilter.doFilter(GeoServerBasicAuthenticationFilter.java:82)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:323)
+	at org.geoserver.security.filter.GeoServerCompositeFilter$NestedFilterChain.doFilter(GeoServerCompositeFilter.java:68)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:87)
+	at org.geoserver.security.filter.GeoServerCompositeFilter$NestedFilterChain.doFilter(GeoServerCompositeFilter.java:72)
+	at org.geoserver.security.filter.GeoServerCompositeFilter.doFilter(GeoServerCompositeFilter.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:323)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:173)
+	at org.geoserver.security.GeoServerSecurityFilterChainProxy.doFilter(GeoServerSecurityFilterChainProxy.java:97)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:259)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+	at org.geoserver.filters.LoggingFilter.doFilter(LoggingFilter.java:71)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+	at org.geoserver.filters.GZIPFilter.doFilter(GZIPFilter.java:47)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+	at org.geoserver.filters.SessionDebugFilter.doFilter(SessionDebugFilter.java:46)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:388)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:765)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:418)
+	at org.mortbay.jetty.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:230)
+	at org.mortbay.jetty.handler.HandlerCollection.handle(HandlerCollection.java:114)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:938)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:755)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:409)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+Caused by: java.lang.UnsupportedOperationException: Temporal filters not supported
+	at org.geotools.data.complex.filter.UnmappingFilterVisitor.visit(UnmappingFilterVisitor.java:911)
+	at org.geotools.data.complex.filter.UnmappingFilterVisitor.visit(UnmappingFilterVisitor.java:875)
+	at org.geotools.filter.temporal.DuringImpl.accept(DuringImpl.java:38)
+	at org.geotools.data.complex.AppSchemaDataAccess.unrollFilter(AppSchemaDataAccess.java:514)
+	at org.geotools.data.complex.AppSchemaDataAccess.unrollQuery(AppSchemaDataAccess.java:318)
+	at org.geotools.data.complex.AbstractMappingFeatureIterator.getUnrolledQuery(AbstractMappingFeatureIterator.java:281)
+	at org.geotools.data.complex.AbstractMappingFeatureIterator.<init>(AbstractMappingFeatureIterator.java:173)
+	at org.geotools.data.complex.DataAccessMappingFeatureIterator.<init>(DataAccessMappingFeatureIterator.java:160)
+	at org.geotools.data.complex.DataAccessMappingFeatureIterator.<init>(DataAccessMappingFeatureIterator.java:135)
+	at org.geotools.data.complex.MappingFeatureIteratorFactory.getInstance(MappingFeatureIteratorFactory.java:178)
+	at org.geotools.data.complex.MappingFeatureCollection.features(MappingFeatureCollection.java:190)
+	at org.geotools.data.complex.MappingFeatureCollection.getBounds(MappingFeatureCollection.java:207)
+	at org.geotools.wfs.bindings.WFSParsingUtils.FeatureCollectionType_getProperty(WFSParsingUtils.java:91)
+	at org.geotools.wfs.v2_0.FeatureCollectionTypeBinding.getProperty(FeatureCollectionTypeBinding.java:66)
+	at org.geotools.xml.impl.GetPropertyExecutor.visit(GetPropertyExecutor.java:103)
+	... 89 more
+2012-08-31 15:53:11,968 DEBUG [org.geoserver.filters] - Compressing output for mimetype: application/xml
+2012-08-31 15:53:11,969 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Closing single Hibernate Session in OpenSessionInViewFilter
+2012-08-31 15:53:11,972 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Closing single Hibernate Session in OpenSessionInViewFilter
+2012-08-31 15:53:11,978 WARN [org.hibernate.util.JDBCExceptionReporter] - SQL Error: 90005, SQLState: 90005
+2012-08-31 15:53:11,978 ERROR [org.hibernate.util.JDBCExceptionReporter] - Value too long for column BODY BINARY(1024): X'3c3f786d6c2076657273696f6e3d22312e30223f3e0d0a3c476574466561747572650d0a202020736572766963653d22574653220d0a20202076657273696f... (1147); SQL statement:
+/* insert org.geoserver.monitor.RequestData */ insert into REQUEST (ID, STATUS, CATEGORY, PATH, BODY, QUERY_STRING, BODY_CONTENT_TYPE, BODY_CONTENT_LENGTH, SERVER_HOST, INTERNAL_SERVER_HOST, HTTP_METHOD, START_TIME, END_TIME, TOTAL_TIME, REMOTE_ADDRESS, REMOTE_HOST, REMOTE_USER, REMOTE_USER_AGENT, REMOTE_COUNTRY, REMOTE_CITY, REMOTE_LAT, REMOTE_LON, SERVICE, OPERATION, SUB_OPERATION, OWS_VERSION, CONTENT_TYPE, RESPONSE_LENGTH, ERROR_MESSAGE, EXCEPTION_STACK_TRACE) values (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [90005-119]
+2012-08-31 15:53:11,983 WARN [org.hibernate.util.JDBCExceptionReporter] - SQL Error: 90005, SQLState: 90005
+2012-08-31 15:53:11,983 ERROR [org.hibernate.util.JDBCExceptionReporter] - Value too long for column BODY BINARY(1024): X'3c3f786d6c2076657273696f6e3d22312e30223f3e0d0a3c476574466561747572650d0a202020736572766963653d22574653220d0a20202076657273696f... (1147); SQL statement:
+/* insert org.geoserver.monitor.RequestData */ insert into REQUEST (ID, STATUS, CATEGORY, PATH, BODY, QUERY_STRING, BODY_CONTENT_TYPE, BODY_CONTENT_LENGTH, SERVER_HOST, INTERNAL_SERVER_HOST, HTTP_METHOD, START_TIME, END_TIME, TOTAL_TIME, REMOTE_ADDRESS, REMOTE_HOST, REMOTE_USER, REMOTE_USER_AGENT, REMOTE_COUNTRY, REMOTE_CITY, REMOTE_LAT, REMOTE_LON, SERVICE, OPERATION, SUB_OPERATION, OWS_VERSION, CONTENT_TYPE, RESPONSE_LENGTH, ERROR_MESSAGE, EXCEPTION_STACK_TRACE) values (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [90005-119]
+2012-08-31 15:53:33,449 DEBUG [org.geoserver.monitor] - Testing /web/ for monitor filtering
+2012-08-31 15:53:33,450 DEBUG [org.geoserver.monitor] - /geoserver/web/ was filtered from monitoring
+2012-08-31 15:53:33,450 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Using SessionFactory 'hibSessionFactory' for OpenSessionInViewFilter
+2012-08-31 15:53:33,450 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Opening single Hibernate Session in OpenSessionInViewFilter
+2012-08-31 15:53:33,451 DEBUG [org.geoserver] - Thread 66 locking in mode READ
+2012-08-31 15:53:33,451 DEBUG [org.geoserver] - Thread 66 got the lock in mode READ
+2012-08-31 15:53:33,458 DEBUG [org.geoserver] - Thread 66 releasing the lock in mode READ
+2012-08-31 15:53:33,458 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Closing single Hibernate Session in OpenSessionInViewFilter
+2012-08-31 15:53:33,458 DEBUG [org.geoserver.filters] - Compressing output for mimetype: text/xml; charset=utf-8
+2012-08-31 15:54:03,208 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 15:54:03,209 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 15:54:03,209 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 15:55:03,208 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 15:55:03,208 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 15:55:03,208 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 15:56:03,208 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 15:56:03,208 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 15:56:03,208 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 15:57:03,208 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 15:57:03,208 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 15:57:03,208 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 15:58:03,208 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 15:58:03,208 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 15:58:03,208 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 15:59:03,208 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 15:59:03,209 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 15:59:03,209 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:00:03,208 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:00:03,208 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:00:03,208 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:01:03,208 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:01:03,209 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:01:03,209 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:02:03,208 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:02:03,208 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:02:03,208 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:03:03,208 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:03:03,209 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:03:03,209 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:04:03,208 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:04:03,208 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:04:03,208 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:05:03,208 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:05:03,209 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:05:03,209 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:06:03,208 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:06:03,208 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:06:03,208 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:07:03,208 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:07:03,209 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:07:03,209 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:08:03,208 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:08:03,208 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:08:03,208 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:09:03,208 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:09:03,208 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:09:03,208 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:10:03,208 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:10:03,208 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:10:03,208 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:11:03,208 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:11:03,208 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:11:03,208 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:12:03,209 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:12:03,209 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:12:03,209 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:13:03,209 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:13:03,209 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:13:03,209 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:14:03,209 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:14:03,210 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:14:03,210 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:15:03,209 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:15:03,209 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:15:03,209 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:16:03,209 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:16:03,210 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:16:03,210 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:17:03,209 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:17:03,209 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:17:03,209 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:18:03,209 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:18:03,210 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:18:03,210 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:19:03,209 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:19:03,209 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:19:03,209 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:20:03,209 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:20:03,209 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:20:03,210 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:21:03,209 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:21:03,209 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:21:03,209 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:22:03,209 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:22:03,209 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:22:03,209 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:23:03,209 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:23:03,209 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:23:03,209 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:24:03,209 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:24:03,209 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:24:03,209 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:25:03,210 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:25:03,210 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:25:03,210 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:26:03,210 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:26:03,210 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:26:03,210 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:27:03,210 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:27:03,211 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:27:03,211 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:28:03,210 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:28:03,210 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:28:03,210 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:29:03,210 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:29:03,211 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:29:03,211 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:30:03,210 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:30:03,210 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:30:03,210 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:31:03,210 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:31:03,211 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:31:03,211 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:32:03,210 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:32:03,210 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:32:03,210 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:33:03,210 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:33:03,211 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:33:03,211 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:34:03,210 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:34:03,210 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:34:03,210 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:35:03,210 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:35:03,210 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:35:03,210 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:36:03,210 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:36:03,211 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:36:03,211 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:37:03,210 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:37:03,210 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:37:03,210 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:38:03,210 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:38:03,211 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:38:03,211 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:39:03,210 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:39:03,210 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:39:03,210 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:40:03,210 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:40:03,210 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:40:03,211 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:41:03,210 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:41:03,210 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:41:03,210 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:42:03,210 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:42:03,210 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:42:03,210 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:42:29,217 DEBUG [org.geoserver.monitor] - Testing /web/ for monitor filtering
+2012-08-31 16:42:29,217 DEBUG [org.geoserver.monitor] - /geoserver/web/ was filtered from monitoring
+2012-08-31 16:42:29,217 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Using SessionFactory 'hibSessionFactory' for OpenSessionInViewFilter
+2012-08-31 16:42:29,217 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Opening single Hibernate Session in OpenSessionInViewFilter
+2012-08-31 16:42:29,220 DEBUG [org.geoserver] - Thread 66 locking in mode READ
+2012-08-31 16:42:29,220 DEBUG [org.geoserver] - Thread 66 got the lock in mode READ
+2012-08-31 16:42:29,220 DEBUG [org.geoserver] - Thread 66 releasing the lock in mode READ
+2012-08-31 16:42:29,220 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Closing single Hibernate Session in OpenSessionInViewFilter
+2012-08-31 16:42:29,220 DEBUG [org.geoserver.filters] - Compressing output for mimetype: text/xml; charset=utf-8
+2012-08-31 16:42:29,250 DEBUG [org.geoserver.monitor] - Testing /web/ for monitor filtering
+2012-08-31 16:42:29,250 DEBUG [org.geoserver.monitor] - /geoserver/web/ was filtered from monitoring
+2012-08-31 16:42:29,250 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Using SessionFactory 'hibSessionFactory' for OpenSessionInViewFilter
+2012-08-31 16:42:29,250 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Opening single Hibernate Session in OpenSessionInViewFilter
+2012-08-31 16:42:29,251 DEBUG [org.geoserver] - Thread 66 locking in mode READ
+2012-08-31 16:42:29,251 DEBUG [org.geoserver] - Thread 66 got the lock in mode READ
+2012-08-31 16:42:29,254 DEBUG [org.geoserver.filters] - Creating a new http session inside the web UI (normal behavior)
+java.lang.Exception: Full stack trace for the session creation path
+	at org.geoserver.filters.SessionDebugFilter$SessionDebugWrapper.getSession(SessionDebugFilter.java:87)
+	at javax.servlet.http.HttpServletRequestWrapper.getSession(HttpServletRequestWrapper.java:227)
+	at javax.servlet.http.HttpServletRequestWrapper.getSession(HttpServletRequestWrapper.java:227)
+	at org.apache.wicket.protocol.http.AbstractHttpSessionStore.getSessionId(AbstractHttpSessionStore.java:187)
+	at org.apache.wicket.Session.bind(Session.java:420)
+	at org.apache.wicket.Page.onBeforeRender(Page.java:1537)
+	at org.apache.wicket.Component.internalBeforeRender(Component.java:1071)
+	at org.apache.wicket.Component.beforeRender(Component.java:1105)
+	at org.apache.wicket.Component.prepareForRender(Component.java:2292)
+	at org.apache.wicket.Page.prepareForRender(Page.java:1521)
+	at org.apache.wicket.Component.prepareForRender(Component.java:2329)
+	at org.apache.wicket.Page.renderPage(Page.java:892)
+	at org.apache.wicket.request.target.component.BookmarkablePageRequestTarget.respond(BookmarkablePageRequestTarget.java:261)
+	at org.apache.wicket.request.AbstractRequestCycleProcessor.respond(AbstractRequestCycleProcessor.java:105)
+	at org.apache.wicket.RequestCycle.processEventsAndRespond(RequestCycle.java:1258)
+	at org.apache.wicket.RequestCycle.step(RequestCycle.java:1329)
+	at org.apache.wicket.RequestCycle.steps(RequestCycle.java:1436)
+	at org.apache.wicket.RequestCycle.request(RequestCycle.java:545)
+	at org.apache.wicket.protocol.http.WicketFilter.doGet(WicketFilter.java:484)
+	at org.apache.wicket.protocol.http.WicketServlet.doGet(WicketServlet.java:138)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.springframework.web.servlet.mvc.ServletWrappingController.handleRequestInternal(ServletWrappingController.java:159)
+	at org.springframework.web.servlet.mvc.AbstractController.handleRequest(AbstractController.java:153)
+	at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:48)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:923)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:852)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:882)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:778)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1166)
+	at org.geoserver.filters.ThreadLocalsCleanupFilter.doFilter(ThreadLocalsCleanupFilter.java:23)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+	at org.geoserver.filters.SpringDelegatingFilter$Chain.doFilter(SpringDelegatingFilter.java:74)
+	at org.springframework.orm.hibernate3.support.OpenSessionInViewFilter.doFilterInternal(OpenSessionInViewFilter.java:198)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)
+	at org.geoserver.filters.SpringDelegatingFilter$Chain.doFilter(SpringDelegatingFilter.java:70)
+	at org.geoserver.monitor.MonitorFilter.doFilter(MonitorFilter.java:86)
+	at org.geoserver.filters.SpringDelegatingFilter$Chain.doFilter(SpringDelegatingFilter.java:70)
+	at org.geoserver.filters.SpringDelegatingFilter.doFilter(SpringDelegatingFilter.java:45)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+	at org.geoserver.platform.AdvancedDispatchFilter.doFilter(AdvancedDispatchFilter.java:49)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+	at org.vfny.geoserver.filters.SetCharacterEncodingFilter.doFilter(SetCharacterEncodingFilter.java:109)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:311)
+	at org.geoserver.security.filter.GeoServerCompositeFilter$NestedFilterChain.doFilter(GeoServerCompositeFilter.java:68)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:116)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:83)
+	at org.geoserver.security.filter.GeoServerCompositeFilter$NestedFilterChain.doFilter(GeoServerCompositeFilter.java:72)
+	at org.geoserver.security.filter.GeoServerCompositeFilter.doFilter(GeoServerCompositeFilter.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:323)
+	at org.geoserver.security.filter.GeoServerCompositeFilter$NestedFilterChain.doFilter(GeoServerCompositeFilter.java:68)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:113)
+	at org.geoserver.security.filter.GeoServerCompositeFilter$NestedFilterChain.doFilter(GeoServerCompositeFilter.java:72)
+	at org.geoserver.security.filter.GeoServerCompositeFilter.doFilter(GeoServerCompositeFilter.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:323)
+	at org.geoserver.security.filter.GeoServerAnonymousAuthenticationFilter.doFilter(GeoServerAnonymousAuthenticationFilter.java:53)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:323)
+	at org.geoserver.security.filter.GeoServerCompositeFilter$NestedFilterChain.doFilter(GeoServerCompositeFilter.java:68)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:139)
+	at org.geoserver.security.filter.GeoServerCompositeFilter$NestedFilterChain.doFilter(GeoServerCompositeFilter.java:72)
+	at org.geoserver.security.filter.GeoServerCompositeFilter.doFilter(GeoServerCompositeFilter.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:323)
+	at org.geoserver.security.filter.GeoServerCompositeFilter$NestedFilterChain.doFilter(GeoServerCompositeFilter.java:68)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:87)
+	at org.geoserver.security.filter.GeoServerCompositeFilter$NestedFilterChain.doFilter(GeoServerCompositeFilter.java:72)
+	at org.geoserver.security.filter.GeoServerCompositeFilter.doFilter(GeoServerCompositeFilter.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:323)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:173)
+	at org.geoserver.security.GeoServerSecurityFilterChainProxy.doFilter(GeoServerSecurityFilterChainProxy.java:97)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:259)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+	at org.geoserver.filters.LoggingFilter.doFilter(LoggingFilter.java:71)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+	at org.geoserver.filters.GZIPFilter.doFilter(GZIPFilter.java:41)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+	at org.geoserver.filters.SessionDebugFilter.doFilter(SessionDebugFilter.java:46)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:388)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:765)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:418)
+	at org.mortbay.jetty.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:230)
+	at org.mortbay.jetty.handler.HandlerCollection.handle(HandlerCollection.java:114)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:923)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:547)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:409)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+2012-08-31 16:42:29,259 DEBUG [org.geoserver.web] - cannot convert url: jar:file:/home/fgravin/.m2/repository/org/geoserver/web/web-core/2.3-SNAPSHOT/web-core-2.3-SNAPSHOT.jar!/org/geoserver/web/GeoServerExpiredPage.html to file (URI is not hierarchical), falling back to the inputstream for polling
+2012-08-31 16:42:29,263 DEBUG [org.geoserver.web] - cannot convert url: jar:file:/home/fgravin/.m2/repository/org/geoserver/web/web-core/2.3-SNAPSHOT/web-core-2.3-SNAPSHOT.jar!/org/geoserver/web/css/blueprint/screen.css to file (URI is not hierarchical), falling back to the inputstream for polling
+2012-08-31 16:42:29,264 DEBUG [org.geoserver.web] - cannot convert url: jar:file:/home/fgravin/.m2/repository/org/geoserver/web/web-core/2.3-SNAPSHOT/web-core-2.3-SNAPSHOT.jar!/org/geoserver/web/css/blueprint/print.css to file (URI is not hierarchical), falling back to the inputstream for polling
+2012-08-31 16:42:29,265 DEBUG [org.geoserver.web] - cannot convert url: jar:file:/home/fgravin/.m2/repository/org/geoserver/web/web-core/2.3-SNAPSHOT/web-core-2.3-SNAPSHOT.jar!/org/geoserver/web/css/geoserver.css to file (URI is not hierarchical), falling back to the inputstream for polling
+2012-08-31 16:42:29,266 DEBUG [org.geoserver.web] - cannot convert url: jar:file:/home/fgravin/.m2/repository/org/geoserver/web/web-core/2.3-SNAPSHOT/web-core-2.3-SNAPSHOT.jar!/org/geoserver/web/css/blueprint/ie.css to file (URI is not hierarchical), falling back to the inputstream for polling
+2012-08-31 16:42:29,266 DEBUG [org.geoserver.web] - cannot convert url: jar:file:/home/fgravin/.m2/repository/org/geoserver/web/web-core/2.3-SNAPSHOT/web-core-2.3-SNAPSHOT.jar!/org/geoserver/web/css/geoserver-ie.css to file (URI is not hierarchical), falling back to the inputstream for polling
+2012-08-31 16:42:29,267 DEBUG [org.geoserver.web] - cannot convert url: jar:file:/home/fgravin/.m2/repository/org/geoserver/web/web-core/2.3-SNAPSHOT/web-core-2.3-SNAPSHOT.jar!/org/geoserver/web/js/jquery-1.2.6.min.js to file (URI is not hierarchical), falling back to the inputstream for polling
+2012-08-31 16:42:29,268 DEBUG [org.geoserver.web] - cannot convert url: jar:file:/home/fgravin/.m2/repository/org/geoserver/web/web-core/2.3-SNAPSHOT/web-core-2.3-SNAPSHOT.jar!/org/geoserver/web/js/jquery.inline-info.js to file (URI is not hierarchical), falling back to the inputstream for polling
+2012-08-31 16:42:29,286 DEBUG [org.geoserver] - Thread 66 releasing the lock in mode READ
+2012-08-31 16:42:29,287 DEBUG [org.geoserver.monitor.OpenSessionInViewFilter] - Closing single Hibernate Session in OpenSessionInViewFilter
+2012-08-31 16:42:29,287 DEBUG [org.geoserver.filters] - Compressing output for mimetype: text/html; charset=utf-8
+2012-08-31 16:43:03,210 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:43:03,210 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:43:03,210 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:44:03,210 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:44:03,210 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:44:03,210 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:45:03,210 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:45:03,210 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:45:03,210 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:46:03,210 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:46:03,210 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:46:03,210 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:47:03,211 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:47:03,211 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:47:03,211 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:48:03,211 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:48:03,211 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:48:03,211 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:49:03,212 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:49:03,212 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:49:03,212 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:50:03,211 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:50:03,211 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:50:03,211 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:51:03,211 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:51:03,212 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:51:03,212 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:52:03,211 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:52:03,211 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:52:03,211 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:53:03,211 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:53:03,212 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:53:03,212 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:54:03,211 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:54:03,211 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:54:03,211 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:55:03,211 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:55:03,212 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:55:03,212 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:56:03,211 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:56:03,211 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:56:03,211 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:57:03,211 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:57:03,211 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:57:03,212 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:58:03,211 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:58:03,211 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:58:03,211 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 16:59:03,211 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 16:59:03,212 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 16:59:03,212 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 17:00:03,211 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 17:00:03,211 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 17:00:03,211 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 17:01:03,211 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 17:01:03,211 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 17:01:03,211 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 17:02:03,211 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 17:02:03,211 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 17:02:03,211 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 17:03:03,211 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 17:03:03,211 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 17:03:03,211 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 17:04:03,211 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 17:04:03,212 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 17:04:03,212 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 17:05:03,212 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 17:05:03,212 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 17:05:03,212 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 17:06:03,212 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 17:06:03,212 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 17:06:03,212 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 17:07:03,212 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 17:07:03,212 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 17:07:03,212 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 17:08:03,212 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 17:08:03,212 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 17:08:03,212 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 17:09:03,212 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 17:09:03,212 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 17:09:03,212 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 17:10:03,212 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 17:10:03,212 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 17:10:03,212 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 17:11:03,212 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 17:11:03,212 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 17:11:03,212 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 17:12:03,212 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 17:12:03,212 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 17:12:03,212 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 17:13:03,213 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 17:13:03,213 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 17:13:03,213 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 17:14:03,213 DEBUG [org.geoserver.security] - Start searching for expired authentication tokens
+2012-08-31 17:14:03,213 DEBUG [org.geoserver.security] - Number of expired authentication tokens found: 0
+2012-08-31 17:14:03,213 DEBUG [org.geoserver.security] - End searching for expired authentication tokens
+2012-08-31 17:14:13,558 DEBUG [org.geoserver.gwc.layer] - Depersisting GeoServerTileLayerInfo from /home/fgravin/dev/ign/igngeoserver/data/nuts/gwc-layers/LayerInfoImpl--38693ac9_1390bc2da21_-7fd3.xml
+2012-08-31 17:14:15,061 WARN [org.springframework.beans.factory.support.DisposableBeanAdapter] - Invocation of destroy method failed on bean with name 'geoServerLoader': org.springframework.beans.factory.BeanCreationNotAllowedException: Error creating bean with name 'GWCLifeCycleHandler': Singleton bean creation not allowed while the singletons of this factory are in destruction (Do not request a bean from a BeanFactory in a destroy method implementation!)
+2012-09-03 09:40:55,550 DEBUG [org.geoserver.logging] - Logging output to file '/home/fgravin/dev/ign/igngeoserver/data/nuts/logs/geoserver.log'
+2012-09-03 09:40:55,611 DEBUG [org.geoserver.logging] - FINISHED CONFIGURING GEOSERVER LOGGING -------------------------
+2012-09-03 09:40:56,761 DEBUG [org.vfny.geoserver.global] - Found Java environment variable GEOSERVER_DATA_DIR to be unset
+2012-09-03 09:40:56,761 DEBUG [org.vfny.geoserver.global] - Found Servlet context parameter GEOSERVER_DATA_DIR to be unset
+2012-09-03 09:40:56,902 DEBUG [org.vfny.geoserver.global] - Found Java environment variable GEOSERVER_DATA_DIR to be unset
+2012-09-03 09:40:56,902 DEBUG [org.vfny.geoserver.global] - Found Servlet context parameter GEOSERVER_DATA_DIR to be unset
+2012-09-03 09:40:56,902 ERROR [org.vfny.geoserver.global] - 
+----------------------------------
+- GEOSERVER_DATA_DIR: /home/fgravin/dev/ign/igngeoserver/data/nuts
+----------------------------------
+2012-09-03 09:40:56,959 INFO [org.geoserver.config.GeoServerPropertyConfigurer] - Loading properties file from URL [file:/home/fgravin/dev/ign/igngeoserver/data/nuts/monitoring/hibernate.properties]
+2012-09-03 09:40:56,977 WARN [org.springframework.beans.factory.config.CustomEditorConfigurer] - Passing PropertyEditor instances into CustomEditorConfigurer is deprecated: use PropertyEditorRegistrars or PropertyEditor class names instead. Offending key [org.geotools.util.Version; offending editor instance: org.geoserver.platform.util.VersionPropertyEditor@f286799
+2012-09-03 09:40:57,413 INFO [org.geoserver.monitor] - Configuring monitoring database from: /home/fgravin/dev/ign/igngeoserver/data/nuts/monitoring/db.properties
+2012-09-03 09:40:57,431 DEBUG [org.geoserver.monitor] - Monitoring database connection info:
+url = jdbc:h2:file:${GEOSERVER_DATA_DIR}/monitoring/monitoring
+driver = org.h2.Driver
+
+2012-09-03 09:40:57,962 WARN [org.hibernate.impl.SessionFactoryObjectFactory] - InitialContext did not implement EventContext
+2012-09-03 09:40:58,261 INFO [org.geoserver] - GeoServer configuration lock is enabled
+2012-09-03 09:40:58,340 INFO [org.geoserver] - Loaded style 'raster'
+2012-09-03 09:40:58,354 INFO [org.geoserver] - Loaded style 'line'
+2012-09-03 09:40:58,375 INFO [org.geoserver] - Loaded style 'polygon'
+2012-09-03 09:40:58,399 INFO [org.geoserver] - Loaded style 'point'
+2012-09-03 09:40:58,410 INFO [org.geoserver] - Loaded default workspace au
+2012-09-03 09:40:58,498 INFO [org.geoserver] - Loaded workspace 'gmd'
+2012-09-03 09:40:58,655 INFO [org.geoserver] - Loaded workspace 'au'
+2012-09-03 09:40:58,756 INFO [org.geoserver] - Loaded workspace 'base'
+2012-09-03 09:40:58,862 INFO [org.geoserver] - Loaded workspace 'gsml'
+2012-09-03 09:40:59,029 INFO [org.geoserver] - Loaded workspace 'gsmlgu'
+2012-09-03 09:40:59,114 INFO [org.geoserver] - Loaded workspace 'stat'
+2012-09-03 09:40:59,202 INFO [org.geoserver] - Loaded workspace 'gn'
+2012-09-03 09:40:59,371 INFO [org.geoserver] - Loaded workspace 'gml'
+2012-09-03 09:40:59,490 INFO [org.geoserver] - Loaded store 'au_AdministrativeUnit', enabled
+2012-09-03 09:40:59,581 INFO [org.geoserver] - Loaded data store 'au_AdministrativeUnit'
+2012-09-03 09:41:05,784 WARN [org.geotools.jdbc] - No primary key or unique index found for spellingofname.
+2012-09-03 09:41:05,969 WARN [org.geotools.jdbc] - No primary key or unique index found for pronunciationofname.
+2012-09-03 09:41:06,017 WARN [org.geotools.jdbc] - No primary key or unique index found for geographicalname.
+2012-09-03 09:41:06,091 WARN [org.geotools.jdbc] - No primary key or unique index found for administrativeboundary.
+2012-09-03 09:41:06,882 WARN [org.geotools.jdbc] - No primary key or unique index found for administrativeunit.
+2012-09-03 09:41:06,987 INFO [org.geoserver] - Loaded feature type 'AdministrativeBoundary', enabled
+2012-09-03 09:41:06,994 INFO [org.geoserver] - Loaded feature type 'au_AdministrativeUnit'
+2012-09-03 09:41:07,007 INFO [org.geoserver] - Loaded layer 'AdministrativeBoundary'
+2012-09-03 09:41:07,022 INFO [org.geoserver] - Loaded feature type 'AdministrativeUnit', enabled
+2012-09-03 09:41:07,023 INFO [org.geoserver] - Loaded feature type 'au_AdministrativeUnit'
+2012-09-03 09:41:07,026 INFO [org.geoserver] - Loaded layer 'AdministrativeUnit'
+2012-09-03 09:41:07,031 INFO [org.geoserver] - Loaded store 'test_au', enabled
+2012-09-03 09:41:07,032 INFO [org.geoserver] - Loaded data store 'test_au'
+2012-09-03 09:41:07,048 WARN [org.geoserver] - Error connecting to 'test_au'. Disabling.
+2012-09-03 09:41:07,050 INFO [org.geoserver] - 
+java.io.IOException
+	at org.geoserver.catalog.ResourcePool.getDataStore(ResourcePool.java:406)
+	at org.geoserver.catalog.impl.DataStoreInfoImpl.getDataStore(DataStoreInfoImpl.java:37)
+	at org.geoserver.config.GeoServerLoader.readCatalog(GeoServerLoader.java:344)
+	at org.geoserver.config.GeoServerLoader.readCatalog(GeoServerLoader.java:222)
+	at org.geoserver.config.DefaultGeoServerLoader.loadCatalog(DefaultGeoServerLoader.java:42)
+	at org.geoserver.config.GeoServerLoader.postProcessBeforeInitialization(GeoServerLoader.java:116)
+	at org.geoserver.config.GeoServerLoaderProxy.postProcessBeforeInitialization(GeoServerLoaderProxy.java:54)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:394)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1448)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:519)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:585)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:913)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:464)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:385)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:284)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:111)
+	at org.geoserver.platform.GeoServerContextLoaderListener.contextInitialized(GeoServerContextLoaderListener.java:18)
+	at org.mortbay.jetty.handler.ContextHandler.startContext(ContextHandler.java:548)
+	at org.mortbay.jetty.servlet.Context.startContext(Context.java:136)
+	at org.mortbay.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1250)
+	at org.mortbay.jetty.handler.ContextHandler.doStart(ContextHandler.java:517)
+	at org.mortbay.jetty.webapp.WebAppContext.doStart(WebAppContext.java:467)
+	at org.mortbay.jetty.plugin.Jetty6PluginWebAppContext.doStart(Jetty6PluginWebAppContext.java:115)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.handler.HandlerCollection.doStart(HandlerCollection.java:152)
+	at org.mortbay.jetty.handler.ContextHandlerCollection.doStart(ContextHandlerCollection.java:156)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.handler.HandlerCollection.doStart(HandlerCollection.java:152)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.handler.HandlerWrapper.doStart(HandlerWrapper.java:130)
+	at org.mortbay.jetty.Server.doStart(Server.java:224)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.plugin.Jetty6PluginServer.start(Jetty6PluginServer.java:132)
+	at org.mortbay.jetty.plugin.AbstractJettyMojo.startJetty(AbstractJettyMojo.java:441)
+	at org.mortbay.jetty.plugin.AbstractJettyMojo.execute(AbstractJettyMojo.java:383)
+	at org.mortbay.jetty.plugin.AbstractJettyRunMojo.execute(AbstractJettyRunMojo.java:210)
+	at org.mortbay.jetty.plugin.Jetty6RunMojo.execute(Jetty6RunMojo.java:184)
+	at org.apache.maven.plugin.DefaultPluginManager.executeMojo(DefaultPluginManager.java:490)
+	at org.apache.maven.lifecycle.DefaultLifecycleExecutor.executeGoals(DefaultLifecycleExecutor.java:694)
+	at org.apache.maven.lifecycle.DefaultLifecycleExecutor.executeStandaloneGoal(DefaultLifecycleExecutor.java:569)
+	at org.apache.maven.lifecycle.DefaultLifecycleExecutor.executeGoal(DefaultLifecycleExecutor.java:539)
+	at org.apache.maven.lifecycle.DefaultLifecycleExecutor.executeGoalAndHandleFailures(DefaultLifecycleExecutor.java:387)
+	at org.apache.maven.lifecycle.DefaultLifecycleExecutor.executeTaskSegments(DefaultLifecycleExecutor.java:348)
+	at org.apache.maven.lifecycle.DefaultLifecycleExecutor.execute(DefaultLifecycleExecutor.java:180)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:328)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:138)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:362)
+	at org.apache.maven.cli.compat.CompatibleMain.main(CompatibleMain.java:60)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:616)
+	at org.codehaus.classworlds.Launcher.launchEnhanced(Launcher.java:315)
+	at org.codehaus.classworlds.Launcher.launch(Launcher.java:255)
+	at org.codehaus.classworlds.Launcher.mainWithExitCode(Launcher.java:430)
+	at org.codehaus.classworlds.Launcher.main(Launcher.java:375)
+Caused by: java.lang.RuntimeException: Unable to obtain connection: Cannot create PoolableConnectionFactory (FATAL: password authentication failed for user "ign")
+	at org.geotools.jdbc.JDBCDataStore.createConnection(JDBCDataStore.java:1666)
+	at org.geotools.jdbc.JDBCDataStore.createTypeNames(JDBCDataStore.java:833)
+	at org.geotools.data.store.ContentDataStore.getTypeNames(ContentDataStore.java:300)
+	at org.vfny.geoserver.util.DataStoreUtils.getDataAccess(DataStoreUtils.java:114)
+	at org.geoserver.catalog.ResourcePool.getDataStore(ResourcePool.java:366)
+	... 60 more
+Caused by: org.apache.commons.dbcp.SQLNestedException: Cannot create PoolableConnectionFactory (FATAL: password authentication failed for user "ign")
+	at org.apache.commons.dbcp.BasicDataSource.createPoolableConnectionFactory(BasicDataSource.java:1549)
+	at org.apache.commons.dbcp.BasicDataSource.createDataSource(BasicDataSource.java:1388)
+	at org.apache.commons.dbcp.BasicDataSource.getConnection(BasicDataSource.java:1044)
+	at org.geotools.data.jdbc.datasource.AbstractManageableDataSource.getConnection(AbstractManageableDataSource.java:46)
+	at org.geotools.jdbc.JDBCDataStore.createConnection(JDBCDataStore.java:1652)
+	... 64 more
+Caused by: org.postgresql.util.PSQLException: FATAL: password authentication failed for user "ign"
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:291)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:108)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:66)
+	at org.postgresql.jdbc2.AbstractJdbc2Connection.<init>(AbstractJdbc2Connection.java:125)
+	at org.postgresql.jdbc3.AbstractJdbc3Connection.<init>(AbstractJdbc3Connection.java:30)
+	at org.postgresql.jdbc3.Jdbc3Connection.<init>(Jdbc3Connection.java:24)
+	at org.postgresql.Driver.makeConnection(Driver.java:393)
+	at org.postgresql.Driver.connect(Driver.java:267)
+	at org.apache.commons.dbcp.DriverConnectionFactory.createConnection(DriverConnectionFactory.java:38)
+	at org.apache.commons.dbcp.PoolableConnectionFactory.makeObject(PoolableConnectionFactory.java:582)
+	at org.apache.commons.dbcp.BasicDataSource.validateConnectionFactory(BasicDataSource.java:1556)
+	at org.apache.commons.dbcp.BasicDataSource.createPoolableConnectionFactory(BasicDataSource.java:1545)
+	... 68 more
+2012-09-03 09:41:07,058 INFO [org.geoserver] - Loaded feature type 'simple_administrativeunit', enabled
+2012-09-03 09:41:07,060 INFO [org.geoserver] - Loaded feature type 'test_au'
+2012-09-03 09:41:07,063 INFO [org.geoserver] - Loaded layer 'simple_administrativeunit'
+2012-09-03 09:41:07,080 INFO [org.geoserver] - Loaded store 'gsml_MappedFeature', enabled
+2012-09-03 09:41:07,081 INFO [org.geoserver] - Loaded data store 'gsml_MappedFeature'
+2012-09-03 09:41:07,309 WARN [org.geotools.data.complex] - http://www.opengis.net/gml/3.2:AngleType has no super type
+2012-09-03 09:41:07,310 WARN [org.geotools.data.complex] - http://www.opengis.net/gml/3.2:ScaleType has no super type
+2012-09-03 09:41:07,353 INFO [org.geoserver] - Loaded feature type 'MappedFeature', enabled
+2012-09-03 09:41:07,356 INFO [org.geoserver] - Loaded feature type 'gsml_MappedFeature'
+2012-09-03 09:41:07,359 INFO [org.geoserver] - Loaded layer 'MappedFeature'
+2012-09-03 09:41:07,374 INFO [org.geoserver] - Loaded store 'gsmlgu_GeologicUnit', enabled
+2012-09-03 09:41:07,376 INFO [org.geoserver] - Loaded data store 'gsmlgu_GeologicUnit'
+2012-09-03 09:41:07,565 WARN [org.geotools.data.complex] - http://www.opengis.net/gml/3.2:AngleType has no super type
+2012-09-03 09:41:07,566 WARN [org.geotools.data.complex] - http://www.opengis.net/gml/3.2:ScaleType has no super type
+2012-09-03 09:41:07,623 INFO [org.geoserver] - Loaded feature type 'GeologicUnit', enabled
+2012-09-03 09:41:07,626 INFO [org.geoserver] - Loaded feature type 'gsmlgu_GeologicUnit'
+2012-09-03 09:41:07,643 INFO [org.geoserver] - Loaded store 'gsmlgu_CompositionPart', enabled
+2012-09-03 09:41:07,644 INFO [org.geoserver] - Loaded data store 'gsmlgu_CompositionPart'
+2012-09-03 09:41:07,691 WARN [org.geotools.data.complex] - http://www.opengis.net/gml/3.2:AngleType has no super type
+2012-09-03 09:41:07,691 WARN [org.geotools.data.complex] - http://www.opengis.net/gml/3.2:ScaleType has no super type
+2012-09-03 09:41:07,717 INFO [org.geoserver] - Loaded feature type 'CompositionPart', enabled
+2012-09-03 09:41:07,720 INFO [org.geoserver] - Loaded feature type 'gsmlgu_CompositionPart'
+2012-09-03 09:41:07,758 WARN [org.springframework.beans.factory.support.DisposableBeanAdapter] - Invocation of destroy method failed on bean with name 'geoServerLoader': java.lang.NullPointerException
+2012-09-03 09:41:07,758 ERROR [org.springframework.web.context.ContextLoader] - Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'secureCatalog' defined in URL [jar:file:/home/fgravin/.m2/repository/org/geoserver/main/2.3-SNAPSHOT/main-2.3-SNAPSHOT.jar!/applicationContext.xml]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Could not instantiate bean class [org.geoserver.security.SecureCatalogImpl]: Constructor threw exception; nested exception is java.lang.NullPointerException
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:288)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1035)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:939)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:485)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:585)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:913)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:464)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:385)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:284)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:111)
+	at org.geoserver.platform.GeoServerContextLoaderListener.contextInitialized(GeoServerContextLoaderListener.java:18)
+	at org.mortbay.jetty.handler.ContextHandler.startContext(ContextHandler.java:548)
+	at org.mortbay.jetty.servlet.Context.startContext(Context.java:136)
+	at org.mortbay.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1250)
+	at org.mortbay.jetty.handler.ContextHandler.doStart(ContextHandler.java:517)
+	at org.mortbay.jetty.webapp.WebAppContext.doStart(WebAppContext.java:467)
+	at org.mortbay.jetty.plugin.Jetty6PluginWebAppContext.doStart(Jetty6PluginWebAppContext.java:115)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.handler.HandlerCollection.doStart(HandlerCollection.java:152)
+	at org.mortbay.jetty.handler.ContextHandlerCollection.doStart(ContextHandlerCollection.java:156)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.handler.HandlerCollection.doStart(HandlerCollection.java:152)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.handler.HandlerWrapper.doStart(HandlerWrapper.java:130)
+	at org.mortbay.jetty.Server.doStart(Server.java:224)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.plugin.Jetty6PluginServer.start(Jetty6PluginServer.java:132)
+	at org.mortbay.jetty.plugin.AbstractJettyMojo.startJetty(AbstractJettyMojo.java:441)
+	at org.mortbay.jetty.plugin.AbstractJettyMojo.execute(AbstractJettyMojo.java:383)
+	at org.mortbay.jetty.plugin.AbstractJettyRunMojo.execute(AbstractJettyRunMojo.java:210)
+	at org.mortbay.jetty.plugin.Jetty6RunMojo.execute(Jetty6RunMojo.java:184)
+	at org.apache.maven.plugin.DefaultPluginManager.executeMojo(DefaultPluginManager.java:490)
+	at org.apache.maven.lifecycle.DefaultLifecycleExecutor.executeGoals(DefaultLifecycleExecutor.java:694)
+	at org.apache.maven.lifecycle.DefaultLifecycleExecutor.executeStandaloneGoal(DefaultLifecycleExecutor.java:569)
+	at org.apache.maven.lifecycle.DefaultLifecycleExecutor.executeGoal(DefaultLifecycleExecutor.java:539)
+	at org.apache.maven.lifecycle.DefaultLifecycleExecutor.executeGoalAndHandleFailures(DefaultLifecycleExecutor.java:387)
+	at org.apache.maven.lifecycle.DefaultLifecycleExecutor.executeTaskSegments(DefaultLifecycleExecutor.java:348)
+	at org.apache.maven.lifecycle.DefaultLifecycleExecutor.execute(DefaultLifecycleExecutor.java:180)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:328)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:138)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:362)
+	at org.apache.maven.cli.compat.CompatibleMain.main(CompatibleMain.java:60)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:616)
+	at org.codehaus.classworlds.Launcher.launchEnhanced(Launcher.java:315)
+	at org.codehaus.classworlds.Launcher.launch(Launcher.java:255)
+	at org.codehaus.classworlds.Launcher.mainWithExitCode(Launcher.java:430)
+	at org.codehaus.classworlds.Launcher.main(Launcher.java:375)
+Caused by: org.springframework.beans.BeanInstantiationException: Could not instantiate bean class [org.geoserver.security.SecureCatalogImpl]: Constructor threw exception; nested exception is java.lang.NullPointerException
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:162)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:110)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:280)
+	... 54 more
+Caused by: java.lang.NullPointerException
+	at org.geoserver.security.impl.DefaultDataAccessManager.buildAuthorizationTree(DefaultDataAccessManager.java:117)
+	at org.geoserver.security.impl.DefaultDataAccessManager.<init>(DefaultDataAccessManager.java:64)
+	at org.geoserver.security.SecureCatalogImpl.lookupDataAccessManager(SecureCatalogImpl.java:105)
+	at org.geoserver.security.SecureCatalogImpl.lookupResourceAccessManager(SecureCatalogImpl.java:94)
+	at org.geoserver.security.SecureCatalogImpl.<init>(SecureCatalogImpl.java:80)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:532)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:147)
+	... 56 more
+2012-09-03 09:41:08,559 ERROR [org.geotools.jdbc] - There's code using JDBC based datastore and not disposing them. This may lead to temporary loss of database connections. Please make sure all data access code calls DataStore.dispose() before freeing all references to it

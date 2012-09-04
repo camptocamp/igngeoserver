@@ -1,0 +1,16 @@
+<layer>
+  <name>simple_administrativeunit</name>
+  <id>LayerInfoImpl--38693ac9:1390bc2da21:-7fd3</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--98e9dd7:1390b1440ac:-8000</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--38693ac9:1390bc2da21:-7fd4</id>
+  </resource>
+  <enabled>true</enabled>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

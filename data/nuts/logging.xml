@@ -1,0 +1,4 @@
+<logging>
+  <level>GEOSERVER_DEVELOPER_LOGGING.properties</level>
+  <stdOutLogging>true</stdOutLogging>
+</logging>

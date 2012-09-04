@@ -1,0 +1,13 @@
+<dataStore>
+    <id>gsmlgu_CompositionPart_datastore</id>
+    <name>gsmlgu_CompositionPart</name>
+    <enabled>true</enabled>
+    <workspace>
+        <id>gsmlgu_workspace</id>
+    </workspace>
+    <connectionParameters>
+        <entry key="namespace">http://xmlns.geosciml.org/GeologicUnit/3.0</entry>
+        <entry key="url">file:workspaces/gsmlgu/gsmlgu_CompositionPart/gsmlgu_CompositionPart.xml</entry>
+        <entry key="dbtype">app-schema</entry>
+    </connectionParameters>
+</dataStore>

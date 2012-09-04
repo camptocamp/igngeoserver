@@ -1,0 +1,10 @@
+<roleService>
+  <id>-98e9dd7:1390b1440ac:-7ff8</id>
+  <name>default</name>
+  <className>org.geoserver.security.xml.XMLRoleService</className>
+  <fileName>roles.xml</fileName>
+  <checkInterval>10000</checkInterval>
+  <validating>true</validating>
+  <adminRoleName>ADMIN</adminRoleName>
+  <groupAdminRoleName>GROUP_ADMIN</groupAdminRoleName>
+</roleService>

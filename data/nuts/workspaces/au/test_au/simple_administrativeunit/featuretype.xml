@@ -1,0 +1,51 @@
+<featureType>
+  <id>FeatureTypeInfoImpl--38693ac9:1390bc2da21:-7fd4</id>
+  <name>simple_administrativeunit</name>
+  <nativeName>administrativeunit</nativeName>
+  <namespace>
+    <id>au_AdministrativeBoundaries</id>
+  </namespace>
+  <title>simple_administrativeunit</title>
+  <keywords>
+    <string>administrativeunit</string>
+    <string>features</string>
+  </keywords>
+  <nativeCRS>GEOGCS[&quot;ETRS89&quot;, 
+  DATUM[&quot;European Terrestrial Reference System 1989&quot;, 
+    SPHEROID[&quot;GRS 1980&quot;, 6378137.0, 298.257222101, AUTHORITY[&quot;EPSG&quot;,&quot;7019&quot;]], 
+    TOWGS84[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], 
+    AUTHORITY[&quot;EPSG&quot;,&quot;6258&quot;]], 
+  PRIMEM[&quot;Greenwich&quot;, 0.0, AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]], 
+  UNIT[&quot;degree&quot;, 0.017453292519943295], 
+  AXIS[&quot;Geodetic longitude&quot;, EAST], 
+  AXIS[&quot;Geodetic latitude&quot;, NORTH], 
+  AUTHORITY[&quot;EPSG&quot;,&quot;4258&quot;]]</nativeCRS>
+  <srs>EPSG:4258</srs>
+  <nativeBoundingBox>
+    <minx>-5.14135026931763</minx>
+    <maxx>9.55996036529541</maxx>
+    <miny>41.3336181640625</miny>
+    <maxy>51.0893936157227</maxy>
+    <crs>EPSG:4258</crs>
+  </nativeBoundingBox>
+  <latLonBoundingBox>
+    <minx>-5.14135026931763</minx>
+    <maxx>9.55996036529541</maxx>
+    <miny>41.333618163126786</miny>
+    <maxy>51.08939361480102</maxy>
+    <crs>GEOGCS[&quot;WGS84(DD)&quot;, 
+  DATUM[&quot;WGS84&quot;, 
+    SPHEROID[&quot;WGS84&quot;, 6378137.0, 298.257223563]], 
+  PRIMEM[&quot;Greenwich&quot;, 0.0], 
+  UNIT[&quot;degree&quot;, 0.017453292519943295], 
+  AXIS[&quot;Geodetic longitude&quot;, EAST], 
+  AXIS[&quot;Geodetic latitude&quot;, NORTH]]</crs>
+  </latLonBoundingBox>
+  <projectionPolicy>FORCE_DECLARED</projectionPolicy>
+  <enabled>true</enabled>
+  <store class="dataStore">
+    <id>DataStoreInfoImpl-25c7a520:1390ba7edcb:-8000</id>
+  </store>
+  <maxFeatures>0</maxFeatures>
+  <numDecimals>0</numDecimals>
+</featureType>
