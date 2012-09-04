@@ -1,0 +1,13 @@
+<dataStore>
+    <id>gsmlgu_GeologicUnit_datastore</id>
+    <name>gsmlgu_GeologicUnit</name>
+    <enabled>true</enabled>
+    <workspace>
+        <id>gsmlgu_workspace</id>
+    </workspace>
+    <connectionParameters>
+        <entry key="namespace">http://xmlns.geosciml.org/GeologicUnit/3.0</entry>
+        <entry key="url">file:workspaces/gsmlgu/gsmlgu_GeologicUnit/gsmlgu_GeologicUnit.xml</entry>
+        <entry key="dbtype">app-schema</entry>
+    </connectionParameters>
+</dataStore>

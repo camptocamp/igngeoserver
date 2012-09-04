@@ -1,0 +1,17 @@
+<layer>
+  <id>au_AdministrativeBoundary_layer</id>
+  <name>AdministrativeBoundary</name>
+  <path>/</path>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <name>line</name>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>au_AdministrativeBoundary_featuretype</id>
+  </resource>
+  <enabled>true</enabled>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

@@ -1,0 +1,5 @@
+<namespace>
+    <id>gsml_namespace</id>
+    <prefix>gsml</prefix>
+    <uri>http://xmlns.geosciml.org/GeoSciML-Core/3.0</uri>
+</namespace>
