@@ -28,10 +28,6 @@
 			<prefix>gn</prefix>
 			<uri>urn:x-inspire:specification:gmlas:GeographicalNames:3.0</uri>
 		</Namespace>
-		<Namespace>
-			<prefix>stat</prefix>
-			<uri>urn:x-inspire:specification:gmlas:StatisticalUnits:0.0</uri>
-		</Namespace>
 	</namespaces>
 	<sourceDataStores>
 		<DataStore>
@@ -82,7 +78,7 @@
 	</sourceDataStores>
 	<targetTypes>
 		<FeatureType>
-			<schemaUri>GeographicalNames.xsd</schemaUri>
+			<schemaUri>http://inspire.ec.europa.eu/schemas/gn/3.0/GeographicalNames.xsd</schemaUri>
 		</FeatureType>
 	</targetTypes>
 	<typeMappings>
