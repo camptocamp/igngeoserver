@@ -28,10 +28,6 @@
 			<prefix>gn</prefix>
 			<uri>urn:x-inspire:specification:gmlas:GeographicalNames:3.0</uri>
 		</Namespace>
-		<Namespace>
-			<prefix>stat</prefix>
-			<uri>urn:x-inspire:specification:gmlas:StatisticalUnits:0.0</uri>
-		</Namespace>
 	</namespaces>
 	<sourceDataStores>
 		<DataStore>
@@ -39,7 +35,7 @@
 			<parameters>
 				<Parameter>
 					<name>namespace</name>
-					<value>urn:x-inspire:specification:gmlas:AdministrativeUnits:3.0</value>
+					<value>urn:x-inspire:specification:gmlas:BaseTypes:3.2</value>
 				</Parameter>
 				<Parameter>
 					<name>loose bbox</name>

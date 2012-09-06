@@ -185,7 +185,7 @@ CONSTRAINT Each administrative unit except for the lowest level units shall refe
               </complexContent>
             </complexType>
           </element>
-          <element minOccurs="0" name="upperLevelUnit" nillable="true" type="gml:ReferenceType">
+          <element minOccurs="0" name="upperLevelUnit" nillable="true" type="au:AdministrativeUnitPropertyType">
             <annotation>
               <documentation>-- Definition --&#13;
 A unit established at a higher level of national administrative hierarchy that this administrative unit administers. &#13;
@@ -201,7 +201,7 @@ CONSTRAINT Each administrative unit at the level other than '1st order' (i.e. na
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="administeredBy" nillable="true" type="gml:ReferenceType">
+          <element maxOccurs="unbounded" minOccurs="0" name="administeredBy" nillable="true" type="au:AdministrativeUnitPropertyType">
             <annotation>
               <documentation>-- Definition --&#13;
 Administrative units established at same level of national administrative hierarchy which are co-administered by this administrative unit. &#13;
@@ -212,7 +212,7 @@ Administrative units established at same level of national administrative hierar
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="coAdminister" nillable="true" type="gml:ReferenceType">
+          <element maxOccurs="unbounded" minOccurs="0" name="coAdminister" nillable="true" type="au:AdministrativeUnitPropertyType">
             <annotation>
               <documentation>-- Definition --&#13;
 A unit established at same level of national administrative hierarchy that administers this administrative unit.&#13;
@@ -223,7 +223,7 @@ A unit established at same level of national administrative hierarchy that admin
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" name="boundary" nillable="true" type="gml:ReferenceType">
+          <element maxOccurs="unbounded" name="boundary" nillable="true" type="au:AdministrativeBoundaryPropertyType">
             <annotation>
               <documentation>-- Definition --&#13;
 The administrative boundaries between this administrative unit and all the units adjacent to it.&#13;
@@ -345,7 +345,7 @@ Date and time at which this version of the spatial object was superseded or reti
               </simpleContent>
             </complexType>
           </element>
-          <element maxOccurs="unbounded" name="admUnit" nillable="true" type="gml:ReferenceType">
+          <element maxOccurs="unbounded" name="admUnit" nillable="true" type="au:AdministrativeUnitPropertyType">
             <annotation>
               <documentation>-- Definition --&#13;
 The administrative units separated by this administrative boundary. &#13;

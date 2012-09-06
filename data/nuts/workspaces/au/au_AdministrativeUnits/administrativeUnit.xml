@@ -93,8 +93,11 @@
 		</Include>
 	</includedTypes>
 	<targetTypes>
-		<FeatureType>
+		<!-- <FeatureType>
 			<schemaUri>http://inspire.ec.europa.eu/schemas/au/3.0/AdministrativeUnits.xsd</schemaUri>
+		</FeatureType> -->
+		<FeatureType>
+			<schemaUri>AdministrativeUnits.xsd</schemaUri>
 		</FeatureType>
 	</targetTypes>
 	<typeMappings>
@@ -106,7 +109,7 @@
 				<AttributeMapping>
 					<targetAttribute>au:AdministrativeUnit</targetAttribute>
 					<idExpression>
-						<OCQL>strTrim(inspireid)</OCQL>
+						<OCQL>strConcat('au.',strTrim(inspireid))</OCQL>
 					</idExpression>
 				</AttributeMapping>
 				<AttributeMapping>
@@ -232,20 +235,9 @@
 					<isMultiple>true</isMultiple>
 					<ClientProperty>
 						<name>xlink:href</name>
-						<value>strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', strTrim(inspireid))</value>
+						<value>strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:au.', inspireid)</value>
 					</ClientProperty>
 				</AttributeMapping>
-				<!-- <AttributeMapping>
-					<targetAttribute>au:upperLevelUnit</targetAttribute>
-					<ClientProperty>
-						<name>xlink:href</name>
-						<value>strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', if_then_else(isNull(upperlevelunit), 'missing', strTrim(upperlevelunit)))</value>
-					</ClientProperty>
-					<ClientProperty>
-						<name>nilReason</name>
-						<value>if_then_else(isNull(inspireid), 'unknown', '')</value>
-					</ClientProperty>
-				</AttributeMapping> -->
 				<AttributeMapping>
 					<targetAttribute>au:upperLevelUnit</targetAttribute>
 					<encodeIfEmpty>true</encodeIfEmpty>
@@ -257,7 +249,7 @@
 					<isMultiple>true</isMultiple>
 					<ClientProperty>
 						<name>xlink:href</name>
-						<value>strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', strTrim(inspireid))</value>
+						<value>strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:au.', strTrim(inspireid))</value>
 					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
@@ -265,7 +257,7 @@
 					<isMultiple>true</isMultiple>
 					<ClientProperty>
 						<name>xlink:href</name>
-						<value>strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', if_then_else(isNull(administeredby), 'missing', strTrim(administeredby)))</value>
+						<value>strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', if_then_else(isNull(administeredby), 'missing', strConcat('au.',strTrim(administeredby))))</value>
 					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
@@ -273,7 +265,7 @@
 					<isMultiple>true</isMultiple>
 					<ClientProperty>
 						<name>xlink:href</name>
-						<value>strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', if_then_else(isNull(coadminister), 'missing', strTrim(coadminister)))</value>
+						<value>strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', if_then_else(isNull(coadminister), 'missing', strConcat('au.',strTrim(coadminister))))</value>
 					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
@@ -281,7 +273,7 @@
 					<isMultiple>true</isMultiple>
 					<ClientProperty>
 						<name>xlink:href</name>
-						<value>strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', if_then_else(isNull(boundary), 'missing', strTrim(boundary)))</value>
+						<value>strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', if_then_else(isNull(boundary), 'missing', strConcat('ab.',strTrim(boundary))))</value>
 					</ClientProperty>
 				</AttributeMapping>
 			</attributeMappings>
@@ -294,7 +286,7 @@
 				<AttributeMapping>
 					<targetAttribute>au:AdministrativeBoundary</targetAttribute>
 					<idExpression>
-						<OCQL>strTrim(inspireid)</OCQL>
+						<OCQL>strConcat('ab.',strTrim(inspireid))</OCQL>
 					</idExpression>
 				</AttributeMapping>
 				<AttributeMapping>
@@ -385,34 +377,11 @@
 						<value>if_then_else(isNull(endlifespanversion), 'unknown', '')</value>
 					</ClientProperty>
 				</AttributeMapping>
-				<!-- <AttributeMapping>
-					<targetAttribute>au:admUnit</targetAttribute>
-					<sourceExpression>
-						<OCQL>strTrim(admunit)</OCQL>
-						<linkElement>au:AdministrativeUnit</linkElement>
-						<linkField>FEATURE_LINK</linkField>
-					</sourceExpression>
-					<isMultiple>true</isMultiple>
-					<encodeIfEmpty>true</encodeIfEmpty>
-					<ClientProperty>
-						<name>xlink:href</name>
-						<value>strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnits:3.0:', if_then_else(isNull(inspireid),'missing', strTrim(inspireid)))</value>
-					</ClientProperty>
-				</AttributeMapping> -->
-				<!-- <AttributeMapping>
-					<targetAttribute>au:admUnit</targetAttribute>
-					<sourceExpression>
-						<linkElement>if_then_else(equalTo(strTrim(admunit), ''),toXlinkHref('urn:x-inspire:specification:gmlas:AdministrativeUnits:3.0:missing'), toXlinkHref(strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnits:3.0:', strTrim(admunit))))
-						</linkElement>
-					</sourceExpression>
-					<isMultiple>true</isMultiple>
-					<encodeIfEmpty>true</encodeIfEmpty>
-				</AttributeMapping> -->
 				<AttributeMapping>
 					<targetAttribute>au:admUnit</targetAttribute>
 					<ClientProperty>
 						<name>xlink:href</name>
-						<value>strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnits:3.0:', strTrim(admunit))</value>
+						<value>strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', if_then_else(isNull(admunit), 'missing', strConcat('au.',strTrim(admunit))))</value>
 					</ClientProperty>
 				</AttributeMapping>
 			</attributeMappings>
