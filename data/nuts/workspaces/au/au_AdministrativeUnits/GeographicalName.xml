@@ -17,10 +17,6 @@
 			<uri>http://www.w3.org/1999/xlink</uri>
 		</Namespace>
 		<Namespace>
-			<prefix>base</prefix>
-			<uri>urn:x-inspire:specification:gmlas:BaseTypes:3.2</uri>
-		</Namespace>
-		<Namespace>
 			<prefix>gmd</prefix>
 			<uri>http://www.isotc211.org/2005/gmd</uri>
 		</Namespace>
