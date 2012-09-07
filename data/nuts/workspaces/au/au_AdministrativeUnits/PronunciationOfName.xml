@@ -98,7 +98,7 @@
 					</sourceExpression>
 					<ClientProperty>
 						<name>nilReason</name>
-						<value>if_then_else(isNull(pronunciationsoundlink), 'unknown', '')</value>
+						<value>if_then_else(isNull(pronunciationsoundlink), 'unknown', Expression.NIL)</value>
 					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
@@ -109,7 +109,7 @@
 					</sourceExpression>
 					<ClientProperty>
 						<name>nilReason</name>
-						<value>if_then_else(isNull(pronunciationipa), 'unknown', '')</value>
+						<value>if_then_else(isNull(pronunciationipa), 'unknown', Expression.NIL)</value>
 					</ClientProperty>
 				</AttributeMapping>
 			</attributeMappings>
