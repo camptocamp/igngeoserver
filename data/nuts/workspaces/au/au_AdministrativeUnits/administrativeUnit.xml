@@ -195,7 +195,7 @@
 					<encodeIfEmpty>false</encodeIfEmpty>
 					<ClientProperty>
 						<name>nilReason</name>
-						<value>if_then_else(isNull(beginlifespanversion), 'unknown', '')</value>
+						<value>if_then_else(isNull(beginlifespanversion), 'unknown', Expression.NIL)</value>
 					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
@@ -206,7 +206,7 @@
 					</sourceExpression>
 					<ClientProperty>
 						<name>nilReason</name>
-						<value>if_then_else(isNull(endlifespanversion), 'unknown', '')</value>
+						<value>if_then_else(isNull(endlifespanversion), 'unknown', Expression.NIL)</value>
 					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
@@ -340,7 +340,7 @@
 					</sourceExpression>
 					<ClientProperty>
 						<name>nilReason</name>
-						<value>if_then_else(isNull(legalstatus), 'unknown', '')</value>
+						<value>if_then_else(isNull(legalstatus), 'unknown', Expression.NIL)</value>
 					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
@@ -351,7 +351,7 @@
 					</sourceExpression>
 					<ClientProperty>
 						<name>nilReason</name>
-						<value>if_then_else(isNull(technicalstatus), 'unknown', '')</value>
+						<value>if_then_else(isNull(technicalstatus), 'unknown', Expression.NIL)</value>
 					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
@@ -363,7 +363,7 @@
 					</sourceExpression>
 					<ClientProperty>
 						<name>nilReason</name>
-						<value>if_then_else(isNull(beginlifespanversion), 'unknown', '')</value>
+						<value>if_then_else(isNull(beginlifespanversion), 'unknown', Expression.NIL)</value>
 					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
@@ -374,7 +374,7 @@
 					</sourceExpression>
 					<ClientProperty>
 						<name>nilReason</name>
-						<value>if_then_else(isNull(endlifespanversion), 'unknown', '')</value>
+						<value>if_then_else(isNull(endlifespanversion), 'unknown', Expression.NIL)</value>
 					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>

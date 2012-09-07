@@ -114,7 +114,7 @@
 					</sourceExpression>
 					<ClientProperty>
 						<name>nilReason</name>
-						<value>if_then_else(isNull(versionid), 'unknown', '')</value>
+						<value>if_then_else(isNull(versionid), 'unknown', Expression.NIL)</value>
 					</ClientProperty>
 				</AttributeMapping>
 			</attributeMappings>

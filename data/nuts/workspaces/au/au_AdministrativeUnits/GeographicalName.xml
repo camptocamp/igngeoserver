@@ -110,7 +110,7 @@
 					</sourceExpression>
 					<ClientProperty>
 						<name>nilReason</name>
-						<value>if_then_else(isNull(language), 'unknown', '')</value>
+						<value>if_then_else(isNull(language), 'unknown', Expression.NIL)</value>
 					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
@@ -121,7 +121,7 @@
 					</sourceExpression>
 					<ClientProperty>
 						<name>nilReason</name>
-						<value>if_then_else(isNull(language), 'unknown', '')</value>
+						<value>if_then_else(isNull(language), 'unknown', Expression.NIL)</value>
 					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
@@ -132,7 +132,7 @@
 					</sourceExpression>
 					<ClientProperty>
 						<name>nilReason</name>
-						<value>if_then_else(isNull(namestatus), 'unknown', '')</value>
+						<value>if_then_else(isNull(namestatus), 'unknown', Expression.NIL)</value>
 					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
@@ -143,7 +143,7 @@
 					</sourceExpression>
 					<ClientProperty>
 						<name>nilReason</name>
-						<value>if_then_else(isNull(sourceofname), 'unknown', '')</value>
+						<value>if_then_else(isNull(sourceofname), 'unknown', Expression.NIL)</value>
 					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
@@ -174,7 +174,7 @@
 					<encodeIfEmpty>true</encodeIfEmpty>
 					<ClientProperty>
 						<name>nilReason</name>
-						<value>if_then_else(isNull(grammaticalgender), 'unknown', '')</value>
+						<value>if_then_else(isNull(grammaticalgender), 'unknown', Expression.NIL)</value>
 					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
@@ -186,7 +186,7 @@
 					</sourceExpression>
 					<ClientProperty>
 						<name>nilReason</name>
-						<value>if_then_else(isNull(grammaticalnumber), 'unknown', '')</value>
+						<value>if_then_else(isNull(grammaticalnumber), 'unknown', Expression.NIL)</value>
 					</ClientProperty>
 					
 				</AttributeMapping>

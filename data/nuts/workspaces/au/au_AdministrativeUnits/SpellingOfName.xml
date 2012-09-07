@@ -104,7 +104,7 @@
 					</sourceExpression>
 					<ClientProperty>
 						<name>nilReason</name>
-						<value>if_then_else(isNull(script), 'unknown', '')</value>
+						<value>if_then_else(isNull(script), 'unknown', Expression.NIL)</value>
 					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
@@ -115,7 +115,7 @@
 					</sourceExpression>
 					<ClientProperty>
 						<name>nilReason</name>
-						<value>if_then_else(isNull(transliterationscheme), 'unknown', '')</value>
+						<value>if_then_else(isNull(transliterationscheme), 'unknown', Expression.NIL)</value>
 					</ClientProperty>
 				</AttributeMapping>
 			</attributeMappings>
