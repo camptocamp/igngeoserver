@@ -93,9 +93,8 @@
 		</Include>
 	</includedTypes>
 	<targetTypes>
-		<!-- <FeatureType>
-			<schemaUri>http://inspire.ec.europa.eu/schemas/au/3.0/AdministrativeUnits.xsd</schemaUri>
-		</FeatureType> -->
+		<!-- <FeatureType> <schemaUri>http://inspire.ec.europa.eu/schemas/au/3.0/AdministrativeUnits.xsd</schemaUri> 
+			</FeatureType> -->
 		<FeatureType>
 			<schemaUri>AdministrativeUnits.xsd</schemaUri>
 		</FeatureType>
@@ -109,33 +108,40 @@
 				<AttributeMapping>
 					<targetAttribute>au:AdministrativeUnit</targetAttribute>
 					<idExpression>
-						<OCQL>strConcat('au.',strTrim(inspireid))</OCQL>
+						<OCQL>inspireid</OCQL>
 					</idExpression>
 				</AttributeMapping>
 				<AttributeMapping>
 					<targetAttribute>FEATURE_LINK</targetAttribute>
 					<sourceExpression>
-						<OCQL>strTrim(inspireid)</OCQL>
+						<OCQL>inspireid</OCQL>
 					</sourceExpression>
 				</AttributeMapping>
-				<AttributeMapping> <targetAttribute>au:geometry</targetAttribute> 
+				<AttributeMapping>
+					<targetAttribute>FEATURE_LINK[2]</targetAttribute>
+					<sourceExpression>
+						<OCQL>upperlevelunit</OCQL>
+					</sourceExpression>
+				</AttributeMapping>
+				<AttributeMapping>
+					<targetAttribute>au:geometry</targetAttribute>
 					<idExpression>
-						<OCQL>strConcat('unit_geometry.', strTrim(inspireid))</OCQL> 
-					</idExpression> 
+						<OCQL>strConcat('unit_geometry.', inspireid)</OCQL>
+					</idExpression>
 					<sourceExpression>
 						<OCQL>geometry</OCQL>
-					</sourceExpression> 
+					</sourceExpression>
 				</AttributeMapping>
 				<AttributeMapping>
 					<targetAttribute>au:nationalCode</targetAttribute>
 					<sourceExpression>
-						<OCQL>strTrim(nationalcode)</OCQL>
+						<OCQL>nationalcode</OCQL>
 					</sourceExpression>
 				</AttributeMapping>
 				<AttributeMapping>
 					<targetAttribute>au:inspireId</targetAttribute>
 					<sourceExpression>
-						<OCQL>strTrim(inspireid)</OCQL>
+						<OCQL>inspireid</OCQL>
 						<linkElement>base:Identifier</linkElement>
 						<linkField>FEATURE_LINK</linkField>
 					</sourceExpression>
@@ -173,7 +179,7 @@
 				<AttributeMapping>
 					<targetAttribute>au:name</targetAttribute>
 					<sourceExpression>
-						<OCQL>strTrim(name)</OCQL>
+						<OCQL>name</OCQL>
 						<linkElement>gn:GeographicalName</linkElement>
 						<linkField>FEATURE_LINK</linkField>
 					</sourceExpression>
@@ -228,28 +234,27 @@
 				<AttributeMapping>
 					<targetAttribute>au:lowerLevelUnit</targetAttribute>
 					<sourceExpression>
-						<OCQL>strTrim(inspireid)</OCQL>
+						<OCQL>inspireid</OCQL>
 						<linkElement>au:AdministrativeUnit</linkElement>
-						<linkField>au:upperLevelUnit</linkField>
+						<linkField>FEATURE_LINK[2]</linkField>
 					</sourceExpression>
 					<isMultiple>true</isMultiple>
 					<ClientProperty>
 						<name>xlink:href</name>
-						<value>strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:au.', inspireid)</value>
+						<value>strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', inspireid)</value>
 					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
 					<targetAttribute>au:upperLevelUnit</targetAttribute>
 					<encodeIfEmpty>true</encodeIfEmpty>
 					<sourceExpression>
-						<OCQL>strTrim(upperlevelunit)</OCQL>
+						<OCQL>upperlevelunit</OCQL>
 						<linkElement>au:AdministrativeUnit</linkElement>
 						<linkField>FEATURE_LINK</linkField>
 					</sourceExpression>
-					<isMultiple>true</isMultiple>
 					<ClientProperty>
 						<name>xlink:href</name>
-						<value>strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:au.', strTrim(inspireid))</value>
+						<value>strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', inspireid)</value>
 					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
@@ -257,7 +262,7 @@
 					<isMultiple>true</isMultiple>
 					<ClientProperty>
 						<name>xlink:href</name>
-						<value>strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', if_then_else(isNull(administeredby), 'missing', strConcat('au.',strTrim(administeredby))))</value>
+						<value>strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', if_then_else(isNull(administeredby), 'missing', administeredby))</value>
 					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
@@ -265,7 +270,7 @@
 					<isMultiple>true</isMultiple>
 					<ClientProperty>
 						<name>xlink:href</name>
-						<value>strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', if_then_else(isNull(coadminister), 'missing', strConcat('au.',strTrim(coadminister))))</value>
+						<value>strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', if_then_else(isNull(coadminister), 'missing', coadminister))</value>
 					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
@@ -273,7 +278,7 @@
 					<isMultiple>true</isMultiple>
 					<ClientProperty>
 						<name>xlink:href</name>
-						<value>strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', if_then_else(isNull(boundary), 'missing', strConcat('ab.',strTrim(boundary))))</value>
+						<value>strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', if_then_else(isNull(boundary), 'missing', boundary))</value>
 					</ClientProperty>
 				</AttributeMapping>
 			</attributeMappings>
@@ -286,19 +291,19 @@
 				<AttributeMapping>
 					<targetAttribute>au:AdministrativeBoundary</targetAttribute>
 					<idExpression>
-						<OCQL>strConcat('ab.',strTrim(inspireid))</OCQL>
+						<OCQL>inspireid</OCQL>
 					</idExpression>
 				</AttributeMapping>
 				<AttributeMapping>
 					<targetAttribute>FEATURE_LINK</targetAttribute>
 					<sourceExpression>
-						<OCQL>strTrim(inspireid)</OCQL>
+						<OCQL>inspireid</OCQL>
 					</sourceExpression>
 				</AttributeMapping>
 				<AttributeMapping>
 					<targetAttribute>au:geometry</targetAttribute>
 					<idExpression>
-						<OCQL>strConcat('boundary_geometry.', strTrim(inspireid))</OCQL>
+						<OCQL>strConcat('boundary_geometry.', inspireid)</OCQL>
 					</idExpression>
 					<sourceExpression>
 						<OCQL>geometry</OCQL>
@@ -307,7 +312,7 @@
 				<AttributeMapping>
 					<targetAttribute>au:inspireId</targetAttribute>
 					<sourceExpression>
-						<OCQL>strTrim(inspireid)</OCQL>
+						<OCQL>inspireid</OCQL>
 						<linkElement>base:Identifier</linkElement>
 						<linkField>FEATURE_LINK</linkField>
 					</sourceExpression>
@@ -381,7 +386,7 @@
 					<targetAttribute>au:admUnit</targetAttribute>
 					<ClientProperty>
 						<name>xlink:href</name>
-						<value>strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', if_then_else(isNull(admunit), 'missing', strConcat('au.',strTrim(admunit))))</value>
+						<value>strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', if_then_else(isNull(admunit), 'missing', admunit))</value>
 					</ClientProperty>
 				</AttributeMapping>
 			</attributeMappings>
