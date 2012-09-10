@@ -160,7 +160,7 @@
 					<encodeIfEmpty>true</encodeIfEmpty>
 					<isMultiple>true</isMultiple>
 					<sourceExpression>
-						<OCQL>strTrim(spelling)</OCQL>
+						<OCQL>spelling</OCQL>
 						<linkElement>gn:SpellingOfName</linkElement>
 						<linkField>FEATURE_LINK</linkField>
 					</sourceExpression>
