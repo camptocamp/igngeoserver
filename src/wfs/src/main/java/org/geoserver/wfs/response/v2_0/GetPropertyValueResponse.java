@@ -6,13 +6,7 @@ package org.geoserver.wfs.response.v2_0;
 
 import java.io.IOException;
 import java.io.OutputStream;
-
-import javax.xml.namespace.QName;
-
-import net.opengis.wfs20.GetPropertyValueType;
-import net.opengis.wfs20.QueryType;
 import net.opengis.wfs20.ValueCollectionType;
-
 import org.geoserver.catalog.NamespaceInfo;
 import org.geoserver.config.GeoServer;
 import org.geoserver.platform.Operation;
@@ -30,13 +24,15 @@ public class GetPropertyValueResponse extends WFSResponse {
     protected void encode(Encoder encoder, Object value, OutputStream output, Operation op) 
         throws IOException, ServiceException {
 
-        GetPropertyValueType request = (GetPropertyValueType) op.getParameters()[0];
-        QueryType query = (QueryType) request.getAbstractQueryExpression();
-        QName typeName = (QName) query.getTypeNames().get(0);
+        //GetPropertyValueType request = (GetPropertyValueType) op.getParameters()[0];
+        //QueryType query = (QueryType) request.getAbstractQueryExpression();
+        //QName typeName = (QName) query.getTypeNames().get(0);
+        //NamespaceInfo ns = gs.getCatalog().getNamespaceByURI(typeName.getNamespaceURI());
         
-        NamespaceInfo ns = gs.getCatalog().getNamespaceByURI(typeName.getNamespaceURI());
+        for (NamespaceInfo ns : gs.getCatalog().getNamespaces()) {
+        	encoder.getNamespaces().declarePrefix(ns.getPrefix(), ns.getURI());
+        }
         
-        encoder.getNamespaces().declarePrefix(ns.getPrefix(), ns.getURI());
         encoder.encode(value, WFS.ValueCollection, output);
     }
 
