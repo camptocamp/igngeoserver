@@ -250,7 +250,7 @@
 					<sourceExpression>
 						<OCQL>upperlevelunit</OCQL>
 						<linkElement>au:AdministrativeUnit</linkElement>
-						<linkField>FEATURE_LINK</linkField>
+						<linkField>FEATURE_LINK[1]</linkField>
 					</sourceExpression>
 					<ClientProperty>
 						<name>xlink:href</name>
