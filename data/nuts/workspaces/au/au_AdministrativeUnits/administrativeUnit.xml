@@ -32,6 +32,10 @@
 			<prefix>stat</prefix>
 			<uri>urn:x-inspire:specification:gmlas:StatisticalUnits:0.0</uri>
 		</Namespace>
+		<Namespace>
+			<prefix>xsi</prefix>
+			<uri>http://www.w3.org/2001/XMLSchema-instance</uri>
+		</Namespace>
 	</namespaces>
 	<sourceDataStores>
 		<DataStore>
@@ -112,7 +116,7 @@
 					</idExpression>
 				</AttributeMapping>
 				<AttributeMapping>
-					<targetAttribute>FEATURE_LINK</targetAttribute>
+					<targetAttribute>FEATURE_LINK[1]</targetAttribute>
 					<sourceExpression>
 						<OCQL>inspireid</OCQL>
 					</sourceExpression>
@@ -159,7 +163,7 @@
 					</sourceExpression>
 					<ClientProperty>
 						<name>locale</name>
-						<value>'#FR'</value>
+						<value>strConcat('#', country)</value>
 					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
@@ -191,6 +195,10 @@
 						<name>nilReason</name>
 						<value>'unknown'</value>
 					</ClientProperty>
+					<ClientProperty>
+						<name>xsi:nil</name>
+						<value>'true'</value>
+					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
 					<encodeIfEmpty>true</encodeIfEmpty>
@@ -203,6 +211,10 @@
 						<name>nilReason</name>
 						<value>if_then_else(isNull(beginlifespanversion), 'unknown', Expression.NIL)</value>
 					</ClientProperty>
+					<ClientProperty>
+						<name>xsi:nil</name>
+						<value>if_then_else(isNull(beginlifespanversion), 'true', Expression.NIL)</value>
+					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
 					<encodeIfEmpty>true</encodeIfEmpty>
@@ -214,21 +226,33 @@
 						<name>nilReason</name>
 						<value>if_then_else(isNull(endlifespanversion), 'unknown', Expression.NIL)</value>
 					</ClientProperty>
+					<ClientProperty>
+						<name>xsi:nil</name>
+						<value>if_then_else(isNull(endlifespanversion), 'true', Expression.NIL)</value>
+					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
 					<targetAttribute>au:NUTS</targetAttribute>
 					<encodeIfEmpty>true</encodeIfEmpty>
 					<ClientProperty>
-						<name>xlink:href</name>
-						<value>'urn:x-inspire:specification:gmlas:AdministrativeUnits:3.0:missing'</value>
+						<name>nilReason</name>
+						<value>'unknown'</value>
+					</ClientProperty>
+					<ClientProperty>
+						<name>xsi:nil</name>
+						<value>'true'</value>
 					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
 					<targetAttribute>au:condominium</targetAttribute>
 					<encodeIfEmpty>true</encodeIfEmpty>
 					<ClientProperty>
-						<name>xlink:href</name>
-						<value>'urn:x-inspire:specification:gmlas:AdministrativeUnits:3.0:missing'</value>
+						<name>nilReason</name>
+						<value>'unknown'</value>
+					</ClientProperty>
+					<ClientProperty>
+						<name>xsi:nil</name>
+						<value>'true'</value>
 					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
@@ -250,7 +274,7 @@
 					<sourceExpression>
 						<OCQL>upperlevelunit</OCQL>
 						<linkElement>au:AdministrativeUnit</linkElement>
-						<linkField>FEATURE_LINK</linkField>
+						<linkField>FEATURE_LINK[1]</linkField>
 					</sourceExpression>
 					<ClientProperty>
 						<name>xlink:href</name>
@@ -261,24 +285,48 @@
 					<targetAttribute>au:administeredBy</targetAttribute>
 					<isMultiple>true</isMultiple>
 					<ClientProperty>
+						<name>nilReason</name>
+						<value>if_then_else(isNull(administeredby), 'unknown', Expression.NIL)</value>
+					</ClientProperty>
+					<ClientProperty>
+						<name>xsi:nil</name>
+						<value>if_then_else(isNull(administeredby), 'true', Expression.NIL)</value>
+					</ClientProperty>
+					<ClientProperty>
 						<name>xlink:href</name>
-						<value>strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', if_then_else(isNull(administeredby), 'missing', administeredby))</value>
+						<value>if_then_else(isNull(administeredby), '', strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', administeredby))</value>
 					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
 					<targetAttribute>au:coAdminister</targetAttribute>
 					<isMultiple>true</isMultiple>
 					<ClientProperty>
+						<name>nilReason</name>
+						<value>if_then_else(isNull(coadminister), 'unknown', Expression.NIL)</value>
+					</ClientProperty>
+					<ClientProperty>
+						<name>xsi:nil</name>
+						<value>if_then_else(isNull(coadminister), 'true', Expression.NIL)</value>
+					</ClientProperty>
+					<ClientProperty>
 						<name>xlink:href</name>
-						<value>strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', if_then_else(isNull(coadminister), 'missing', coadminister))</value>
+						<value>if_then_else(isNull(coadminister), '#href', strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', coadminister))</value>
 					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
 					<targetAttribute>au:boundary</targetAttribute>
 					<isMultiple>true</isMultiple>
 					<ClientProperty>
+						<name>nilReason</name>
+						<value>if_then_else(isNull(boundary), 'unknown', Expression.NIL)</value>
+					</ClientProperty>
+					<ClientProperty>
+						<name>xsi:nil</name>
+						<value>if_then_else(isNull(boundary), 'true', Expression.NIL)</value>
+					</ClientProperty>
+					<ClientProperty>
 						<name>xlink:href</name>
-						<value>strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', if_then_else(isNull(boundary), 'missing', boundary))</value>
+						<value>if_then_else(isNull(boundary), '#null', strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', boundary))</value>
 					</ClientProperty>
 				</AttributeMapping>
 			</attributeMappings>

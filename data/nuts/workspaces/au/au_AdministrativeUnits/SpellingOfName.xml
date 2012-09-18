@@ -24,6 +24,10 @@
 			<prefix>gn</prefix>
 			<uri>urn:x-inspire:specification:gmlas:GeographicalNames:3.0</uri>
 		</Namespace>
+		<Namespace>
+			<prefix>xsi</prefix>
+			<uri>http://www.w3.org/2001/XMLSchema-instance</uri>
+		</Namespace>
 	</namespaces>
 	<sourceDataStores>
 		<DataStore>
@@ -106,6 +110,10 @@
 						<name>nilReason</name>
 						<value>if_then_else(isNull(script), 'unknown', Expression.NIL)</value>
 					</ClientProperty>
+					<ClientProperty>
+						<name>xsi:nil</name>
+						<value>if_then_else(isNull(script), 'true', Expression.NIL)</value>
+					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
 					<targetAttribute>gn:transliterationScheme</targetAttribute>
@@ -116,6 +124,10 @@
 					<ClientProperty>
 						<name>nilReason</name>
 						<value>if_then_else(isNull(transliterationscheme), 'unknown', Expression.NIL)</value>
+					</ClientProperty>
+					<ClientProperty>
+						<name>xsi:nil</name>
+						<value>if_then_else(isNull(transliterationscheme), 'true', Expression.NIL)</value>
 					</ClientProperty>
 				</AttributeMapping>
 			</attributeMappings>

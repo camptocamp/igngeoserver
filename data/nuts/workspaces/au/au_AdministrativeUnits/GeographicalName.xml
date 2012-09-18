@@ -28,6 +28,10 @@
 			<prefix>stat</prefix>
 			<uri>urn:x-inspire:specification:gmlas:StatisticalUnits:0.0</uri>
 		</Namespace>
+		<Namespace>
+			<prefix>xsi</prefix>
+			<uri>http://www.w3.org/2001/XMLSchema-instance</uri>
+		</Namespace>
 	</namespaces>
 	<sourceDataStores>
 		<DataStore>
@@ -112,6 +116,10 @@
 						<name>nilReason</name>
 						<value>if_then_else(isNull(language), 'unknown', Expression.NIL)</value>
 					</ClientProperty>
+					<ClientProperty>
+						<name>xsi:nil</name>
+						<value>if_then_else(isNull(language), 'true', Expression.NIL)</value>
+					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
 					<targetAttribute>gn:nativeness</targetAttribute>
@@ -122,6 +130,10 @@
 					<ClientProperty>
 						<name>nilReason</name>
 						<value>if_then_else(isNull(language), 'unknown', Expression.NIL)</value>
+					</ClientProperty>
+					<ClientProperty>
+						<name>xsi:nil</name>
+						<value>if_then_else(isNull(language), 'true', Expression.NIL)</value>
 					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
@@ -134,6 +146,10 @@
 						<name>nilReason</name>
 						<value>if_then_else(isNull(namestatus), 'unknown', Expression.NIL)</value>
 					</ClientProperty>
+					<ClientProperty>
+						<name>xsi:nil</name>
+						<value>if_then_else(isNull(namestatus), 'true', Expression.NIL)</value>
+					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
 					<targetAttribute>gn:sourceOfName</targetAttribute>
@@ -144,6 +160,10 @@
 					<ClientProperty>
 						<name>nilReason</name>
 						<value>if_then_else(isNull(sourceofname), 'unknown', Expression.NIL)</value>
+					</ClientProperty>
+					<ClientProperty>
+						<name>xsi:nil</name>
+						<value>if_then_else(isNull(sourceofname), 'true', Expression.NIL)</value>
 					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
@@ -176,6 +196,10 @@
 						<name>nilReason</name>
 						<value>if_then_else(isNull(grammaticalgender), 'unknown', Expression.NIL)</value>
 					</ClientProperty>
+					<ClientProperty>
+						<name>xsi:nil</name>
+						<value>if_then_else(isNull(grammaticalgender), 'true', Expression.NIL)</value>
+					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
 					<targetAttribute>gn:grammaticalNumber</targetAttribute>
@@ -188,7 +212,10 @@
 						<name>nilReason</name>
 						<value>if_then_else(isNull(grammaticalnumber), 'unknown', Expression.NIL)</value>
 					</ClientProperty>
-					
+					<ClientProperty>
+						<name>xsi:nil</name>
+						<value>if_then_else(isNull(grammaticalnumber), 'true', Expression.NIL)</value>
+					</ClientProperty>
 				</AttributeMapping>
 			</attributeMappings>
 		</FeatureTypeMapping>

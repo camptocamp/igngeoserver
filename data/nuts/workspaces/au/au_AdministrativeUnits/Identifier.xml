@@ -28,6 +28,10 @@
 			<prefix>gn</prefix>
 			<uri>urn:x-inspire:specification:gmlas:GeographicalNames:3.0</uri>
 		</Namespace>
+		<Namespace>
+			<prefix>xsi</prefix>
+			<uri>http://www.w3.org/2001/XMLSchema-instance</uri>
+		</Namespace>
 	</namespaces>
 	<sourceDataStores>
 		<DataStore>
@@ -115,6 +119,10 @@
 					<ClientProperty>
 						<name>nilReason</name>
 						<value>if_then_else(isNull(versionid), 'unknown', Expression.NIL)</value>
+					</ClientProperty>
+					<ClientProperty>
+						<name>xsi:nil</name>
+						<value>if_then_else(isNull(versionid), 'true', Expression.NIL)</value>
 					</ClientProperty>
 				</AttributeMapping>
 			</attributeMappings>

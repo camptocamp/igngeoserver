@@ -161,7 +161,7 @@ NOTE Condominiums may only exist at state level and can be administered only by 
               </appinfo>
             </annotation>
           </element>
-          <element maxOccurs="unbounded" minOccurs="0" name="lowerLevelUnit" nillable="true">
+          <element maxOccurs="unbounded" minOccurs="0" name="lowerLevelUnit" nillable="true" type="au:AdministrativeUnitPropertyType">
             <annotation>
               <documentation>-- Definition --&#13;
 Units established at a lower level of the national administrative hierarchy which are administered by this administrative unit. &#13;
