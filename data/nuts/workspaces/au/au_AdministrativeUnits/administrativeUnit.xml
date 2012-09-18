@@ -294,7 +294,7 @@
 					</ClientProperty>
 					<ClientProperty>
 						<name>xlink:href</name>
-						<value>if_then_else(isNull(administeredby), '#null', strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', administeredby))</value>
+						<value>if_then_else(isNull(administeredby), Expression.NIL, strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', administeredby))</value>
 					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
@@ -310,7 +310,7 @@
 					</ClientProperty>
 					<ClientProperty>
 						<name>xlink:href</name>
-						<value>if_then_else(isNull(coadminister), '#null', strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', coadminister))</value>
+						<value>if_then_else(isNull(coadminister), Expression.NIL, strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', coadminister))</value>
 					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
@@ -326,7 +326,7 @@
 					</ClientProperty>
 					<ClientProperty>
 						<name>xlink:href</name>
-						<value>if_then_else(isNull(boundary), '#null', strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', boundary))</value>
+						<value>if_then_else(isNull(boundary), Expression.NIL, strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', boundary))</value>
 					</ClientProperty>
 				</AttributeMapping>
 			</attributeMappings>
