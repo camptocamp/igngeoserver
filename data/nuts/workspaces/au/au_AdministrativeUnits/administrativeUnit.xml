@@ -294,7 +294,7 @@
 					</ClientProperty>
 					<ClientProperty>
 						<name>xlink:href</name>
-						<value>if_then_else(isNull(administeredby), '', strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', administeredby))</value>
+						<value>if_then_else(isNull(administeredby), '#null', strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', administeredby))</value>
 					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
@@ -310,7 +310,7 @@
 					</ClientProperty>
 					<ClientProperty>
 						<name>xlink:href</name>
-						<value>if_then_else(isNull(coadminister), '#href', strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', coadminister))</value>
+						<value>if_then_else(isNull(coadminister), '#null', strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', coadminister))</value>
 					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
