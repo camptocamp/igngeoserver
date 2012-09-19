@@ -4,4 +4,11 @@ target
 .project
 *.class
 *.pyc
-
+*.swp
+data/*/security
+data/*/monitoring
+data/*/logs
+data/*/styles
+data/*/gwc*
+data/*/www
+data/*/workspaces/default.xml
