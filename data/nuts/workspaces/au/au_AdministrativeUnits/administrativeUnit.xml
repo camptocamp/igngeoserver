@@ -392,6 +392,10 @@
 						<OCQL>legalstatus</OCQL>
 					</sourceExpression>
 					<ClientProperty>
+						<name>xsi:nil</name>
+						<value>if_then_else(isNull(legalstatus), 'true', Expression.NIL)</value>
+					</ClientProperty>
+					<ClientProperty>
 						<name>nilReason</name>
 						<value>if_then_else(isNull(legalstatus), 'unknown', Expression.NIL)</value>
 					</ClientProperty>
@@ -403,6 +407,10 @@
 						<OCQL>technicalstatus</OCQL>
 					</sourceExpression>
 					<ClientProperty>
+						<name>xsi:nil</name>
+						<value>if_then_else(isNull(technicalstatus), 'true', Expression.NIL)</value>
+					</ClientProperty>
+					<ClientProperty>
 						<name>nilReason</name>
 						<value>if_then_else(isNull(technicalstatus), 'unknown', Expression.NIL)</value>
 					</ClientProperty>
@@ -411,9 +419,12 @@
 					<encodeIfEmpty>true</encodeIfEmpty>
 					<targetAttribute>au:beginLifespanVersion</targetAttribute>
 					<sourceExpression>
-						<!-- <OCQL>if_then_else(isNull(beginlifespanversion), 'noDate', beginlifespanversion)</OCQL> -->
 						<OCQL>beginlifespanversion</OCQL>
 					</sourceExpression>
+					<ClientProperty>
+						<name>xsi:nil</name>
+						<value>if_then_else(isNull(beginlifespanversion), 'true', Expression.NIL)</value>
+					</ClientProperty>
 					<ClientProperty>
 						<name>nilReason</name>
 						<value>if_then_else(isNull(beginlifespanversion), 'unknown', Expression.NIL)</value>
@@ -426,6 +437,10 @@
 						<OCQL>endlifespanversion</OCQL>
 					</sourceExpression>
 					<ClientProperty>
+						<name>xsi:nil</name>
+						<value>if_then_else(isNull(endlifespanversion), 'true', Expression.NIL)</value>
+					</ClientProperty>
+					<ClientProperty>
 						<name>nilReason</name>
 						<value>if_then_else(isNull(endlifespanversion), 'unknown', Expression.NIL)</value>
 					</ClientProperty>
@@ -433,8 +448,16 @@
 				<AttributeMapping>
 					<targetAttribute>au:admUnit</targetAttribute>
 					<ClientProperty>
+						<name>nilReason</name>
+						<value>if_then_else(isNull(admunit), 'unknown', Expression.NIL)</value>
+					</ClientProperty>
+					<ClientProperty>
+						<name>xsi:nil</name>
+						<value>if_then_else(isNull(admunit), 'true', Expression.NIL)</value>
+					</ClientProperty>
+					<ClientProperty>
 						<name>xlink:href</name>
-						<value>strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', if_then_else(isNull(admunit), 'missing', admunit))</value>
+						<value>if_then_else(isNull(admunit), Expression.NIL, strConcat('urn:x-inspire:specification:gmlas:AdministrativeUnit:3.0:', admunit))</value>
 					</ClientProperty>
 				</AttributeMapping>
 			</attributeMappings>
