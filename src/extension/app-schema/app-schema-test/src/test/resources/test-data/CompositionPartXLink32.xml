@@ -64,6 +64,7 @@
 	</targetTypes>
 	<typeMappings>
 		<FeatureTypeMapping>
+			<mappingName>myCompositionPart</mappingName>		
 			<sourceDataStore>CompositionPart</sourceDataStore>
 			<sourceType>CompositionPart</sourceType>
 			<targetElement>gsml:CompositionPart</targetElement>
@@ -85,7 +86,15 @@
                         <name>xlink:href</name>
                         <value>'urn:ogc:def:nil:OGC::unknown'</value>
                     </ClientProperty>
-				</AttributeMapping> 				
+				</AttributeMapping> 
+				 <AttributeMapping>
+                    <targetAttribute>
+                        FEATURE_LINK
+		            </targetAttribute>
+                    <sourceExpression>
+                        <OCQL>getId()</OCQL>
+                    </sourceExpression>
+                </AttributeMapping>				
 			</attributeMappings>
 		</FeatureTypeMapping>
 	</typeMappings>
