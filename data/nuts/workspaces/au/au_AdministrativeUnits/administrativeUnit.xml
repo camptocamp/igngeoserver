@@ -201,12 +201,10 @@
 					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
-					<encodeIfEmpty>true</encodeIfEmpty>
 					<targetAttribute>au:beginLifespanVersion</targetAttribute>
 					<sourceExpression>
 						<OCQL>beginlifespanversion</OCQL>
 					</sourceExpression>
-					<encodeIfEmpty>false</encodeIfEmpty>
 					<ClientProperty>
 						<name>nilReason</name>
 						<value>if_then_else(isNull(beginlifespanversion), 'unknown', Expression.NIL)</value>
@@ -217,7 +215,6 @@
 					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
-					<encodeIfEmpty>true</encodeIfEmpty>
 					<targetAttribute>au:endLifespanVersion</targetAttribute>
 					<sourceExpression>
 						<OCQL>endlifespanversion</OCQL>
@@ -416,7 +413,6 @@
 					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
-					<encodeIfEmpty>true</encodeIfEmpty>
 					<targetAttribute>au:beginLifespanVersion</targetAttribute>
 					<sourceExpression>
 						<OCQL>beginlifespanversion</OCQL>
@@ -429,9 +425,12 @@
 						<name>nilReason</name>
 						<value>if_then_else(isNull(beginlifespanversion), 'unknown', Expression.NIL)</value>
 					</ClientProperty>
+					<ClientProperty>
+						<name>xsi:nil</name>
+						<value>if_then_else(isNull(beginlifespanversion), 'true', Expression.NIL)</value>
+					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>
-					<encodeIfEmpty>true</encodeIfEmpty>
 					<targetAttribute>au:endLifespanVersion</targetAttribute>
 					<sourceExpression>
 						<OCQL>endlifespanversion</OCQL>
@@ -443,6 +442,10 @@
 					<ClientProperty>
 						<name>nilReason</name>
 						<value>if_then_else(isNull(endlifespanversion), 'unknown', Expression.NIL)</value>
+					</ClientProperty>
+					<ClientProperty>
+						<name>xsi:nil</name>
+						<value>if_then_else(isNull(endlifespanversion), 'true', Expression.NIL)</value>
 					</ClientProperty>
 				</AttributeMapping>
 				<AttributeMapping>

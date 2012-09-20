@@ -108,31 +108,17 @@ Center for national or local administration.&#13;
               <attribute name="nilReason" type="gml:NilReasonType"/>
             </complexType>
           </element>
-          <element name="beginLifespanVersion" nillable="true">
+          <element name="beginLifespanVersion" nillable="true" type="dateTime">
             <annotation>
               <documentation>-- Definition --&#13;
 Date and time at which this version of the spatial object was inserted or changed in the spatial data set.</documentation>
             </annotation>
-            <complexType>
-              <simpleContent>
-                <extension base="dateTime">
-                  <attribute name="nilReason" type="gml:NilReasonType"/>
-                </extension>
-              </simpleContent>
-            </complexType>
           </element>
-          <element minOccurs="0" name="endLifespanVersion" nillable="true">
+          <element minOccurs="0" name="endLifespanVersion" nillable="true" type="dateTime">
             <annotation>
               <documentation>-- Definition --&#13;
 Date and time at which this version of the spatial object was superseded or retired in the spatial data set.</documentation>
             </annotation>
-            <complexType>
-              <simpleContent>
-                <extension base="dateTime">
-                  <attribute name="nilReason" type="gml:NilReasonType"/>
-                </extension>
-              </simpleContent>
-            </complexType>
           </element>
           <element maxOccurs="3" name="NUTS" nillable="true" type="gml:ReferenceType">
             <annotation>
@@ -319,31 +305,17 @@ NOTE The technical status of the boundary is considered in terms of its topologi
               </simpleContent>
             </complexType>
           </element>
-          <element name="beginLifespanVersion" nillable="true">
+          <element name="beginLifespanVersion" nillable="true" type="dateTime">
             <annotation>
               <documentation>-- Definition --&#13;
 Date and time at which this version of the spatial object was inserted or changed in the spatial data set.</documentation>
             </annotation>
-            <complexType>
-              <simpleContent>
-                <extension base="dateTime">
-                  <attribute name="nilReason" type="gml:NilReasonType"/>
-                </extension>
-              </simpleContent>
-            </complexType>
           </element>
-          <element minOccurs="0" name="endLifespanVersion" nillable="true">
+          <element minOccurs="0" name="endLifespanVersion" nillable="true" type="dateTime">
             <annotation>
               <documentation>-- Definition --&#13;
 Date and time at which this version of the spatial object was superseded or retired in the spatial data set.</documentation>
             </annotation>
-            <complexType>
-              <simpleContent>
-                <extension base="dateTime">
-                  <attribute name="nilReason" type="gml:NilReasonType"/>
-                </extension>
-              </simpleContent>
-            </complexType>
           </element>
           <element maxOccurs="unbounded" name="admUnit" nillable="true" type="au:AdministrativeUnitPropertyType">
             <annotation>
@@ -431,31 +403,17 @@ Official geographical name of this condominium, given in several languages where
 Geometric representation of spatial area covered by this condominium</documentation>
             </annotation>
           </element>
-          <element name="beginLifespanVersion" nillable="true">
+          <element name="beginLifespanVersion" nillable="true" type="dateTime">
             <annotation>
               <documentation>-- Definition --&#13;
 Date and time at which this version of the spatial object was inserted or changed in the spatial data set.</documentation>
             </annotation>
-            <complexType>
-              <simpleContent>
-                <extension base="dateTime">
-                  <attribute name="nilReason" type="gml:NilReasonType"/>
-                </extension>
-              </simpleContent>
-            </complexType>
           </element>
-          <element minOccurs="0" name="endLifespanVersion" nillable="true">
+          <element minOccurs="0" name="endLifespanVersion" nillable="true" type="dateTime">
             <annotation>
               <documentation>-- Definition --&#13;
 Date and time at which this version of the spatial object was superseded or retired in the spatial data set.</documentation>
             </annotation>
-            <complexType>
-              <simpleContent>
-                <extension base="dateTime">
-                  <attribute name="nilReason" type="gml:NilReasonType"/>
-                </extension>
-              </simpleContent>
-            </complexType>
           </element>
           <element maxOccurs="unbounded" name="admUnit" nillable="true" type="gml:ReferenceType">
             <annotation>
