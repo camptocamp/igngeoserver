@@ -13,21 +13,17 @@ import net.opengis.wfs20.FeatureCollectionType;
 import net.opengis.wfs20.GetFeatureType;
 import net.opengis.wfs20.GetPropertyValueType;
 import net.opengis.wfs20.QueryType;
-import net.opengis.wfs20.ResolveValueType;
 import net.opengis.wfs20.ValueCollectionType;
 import net.opengis.wfs20.Wfs20Factory;
 
-import org.geoserver.catalog.AttributeTypeInfo;
 import org.geoserver.catalog.Catalog;
 import org.geoserver.catalog.FeatureTypeInfo;
 import org.geoserver.catalog.NamespaceInfo;
 import org.geoserver.wfs.request.GetFeatureRequest;
 import org.geotools.wfs.PropertyValueCollection;
 import org.opengis.feature.type.AttributeDescriptor;
-import org.opengis.feature.type.PropertyDescriptor;
 import org.opengis.filter.FilterFactory2;
 import org.opengis.filter.expression.PropertyName;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.xml.sax.helpers.NamespaceSupport;
 
 public class GetPropertyValue {
@@ -58,11 +54,6 @@ public class GetPropertyValue {
     }
 
     public ValueCollectionType run(GetPropertyValueType request) throws WFSException {
-        //check the request resolve
-       /* if (request.isSetResolve() && !ResolveValueType.NONE.equals(request.getResolve())) {
-            throw new WFSException(request, "Only resolve = none is supported", "InvalidParameterValue")
-                .locator("resolve");
-        }*/
 
         if (request.getValueReference() == null) {
             throw new WFSException(request, "No valueReference specified", "MissingParameterValue")
@@ -75,6 +66,7 @@ public class GetPropertyValue {
         getFeature.setResolve(request.getResolve());
         getFeature.setResolveDepth(request.getResolveDepth());
         getFeature.setResolveTimeout(request.getResolveTimeout());
+        getFeature.setCount(request.getCount());
         
         FeatureCollectionType fc = (FeatureCollectionType) 
             delegate.run(GetFeatureRequest.adapt(getFeature)).getAdaptee();
@@ -85,38 +77,14 @@ public class GetPropertyValue {
            catalog.getFeatureTypeByName(typeName.getNamespaceURI(), typeName.getLocalPart());
 
         try {
-            //look for the attribute type
-            /*AttributeTypeInfo attribute = null;
-            for (AttributeTypeInfo at : featureType.attributes()) {
-                if (at.getName().equals(request.getValueReference())) {
-                    attribute = at;
-                    break;
-                }
-            }
-            if (attribute == null) {
-                throw new WFSException(request, "No such attribute: " + request.getValueReference());
-            }*/
-            
+           
         	PropertyName propertyName = filterFactory.property(request.getValueReference(), getNamespaceSupport());
         	PropertyName propertyNameNoIndexes = filterFactory.property(request.getValueReference().replaceAll("\\[.*\\]", ""), getNamespaceSupport());
             AttributeDescriptor descriptor = (AttributeDescriptor) propertyNameNoIndexes.evaluate(featureType.getFeatureType());
             if (descriptor == null) {
             	throw new WFSException(request, "No such attribute: " + request.getValueReference());
             }
-            
-            //AttributeDescriptor descriptor = attribute.getAttribute();
-            /*if (descriptor == null) {
-                PropertyDescriptor pd = 
-                        featureType.getFeatureType().getDescriptor(attribute.getName());
-                if (pd instanceof AttributeDescriptor) {
-                    descriptor = (AttributeDescriptor) pd;
-                }
-            }
-
-            if (descriptor == null) {
-                throw new WFSException(request, "Unable to obtain descriptor for " + attribute.getName());
-            }*/
-            
+           
             //create value collection type from feature collection
             ValueCollectionType vc = Wfs20Factory.eINSTANCE.createValueCollectionType();
             vc.setTimeStamp(fc.getTimeStamp());
@@ -124,9 +92,6 @@ public class GetPropertyValue {
             vc.setNumberReturned(fc.getNumberReturned());
             vc.getMember().add(new PropertyValueCollection(fc.getMember().iterator().next(), 
                 descriptor, propertyName));
-            //TODO: next/previous but point back at GetPropertyValue
-            //vc.setNext(fc.getNext());
-            //vc.setPrevious(fc.getPrevious());
             return vc;
         }
         catch(IOException e) {

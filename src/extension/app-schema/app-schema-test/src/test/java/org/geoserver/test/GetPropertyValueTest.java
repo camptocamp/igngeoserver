@@ -113,6 +113,16 @@ public class GetPropertyValueTest extends AbstractAppSchemaWfsTestSupport {
         
     }
         
-    
+   /**
+    * Test GetPropertyValue for a simple property, tests only selected property is returned
+    */
+   public void testGetPropertyValueMax() {
+   	
+   	Document doc = getAsDOM("wfs?request=GetPropertyValue&version=2.0.0&typename=gsml:MappedFeature&valueReference=gml:name&count=2");
+   	
+   	LOGGER.info("WFS GetPropertyValue response:\n" + prettyString(doc));
+
+   	assertXpathCount(2, "//gml:name", doc);
+   }
 
 }
