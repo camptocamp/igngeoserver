@@ -112,7 +112,7 @@
 				<AttributeMapping>
 					<targetAttribute>au:AdministrativeUnit</targetAttribute>
 					<idExpression>
-						<OCQL>inspireid</OCQL>
+						<OCQL>id</OCQL>
 					</idExpression>
 				</AttributeMapping>
 				<AttributeMapping>
