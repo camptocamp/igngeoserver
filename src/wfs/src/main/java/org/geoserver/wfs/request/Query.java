@@ -114,11 +114,11 @@ public abstract class Query extends RequestObject {
 
         @Override
         public List<String> getPropertyNames() {
-            //WFS 2.0 has this as a list of QNAme, drop the qualified part
+            //WFS 2.0 has this as a list of QNAme, *DO NOT* drop the qualified part
             List<QName> propertyNames = eGet(adaptee, "abstractProjectionClause", List.class);
             List<String> l = new ArrayList();
             for (QName name : propertyNames) {
-                l.add(name.getLocalPart());
+                l.add(name.getPrefix() + ":" + name.getLocalPart());
             }
             return l;
         }
