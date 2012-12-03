@@ -124,5 +124,6 @@ public class Gsml30WfsTest extends AbstractAppSchemaWfsTestSupport {
         assertEquals(0, doc.getFirstChild().getChildNodes().item(0).getAttributes().getLength());
         assertEquals(0, doc.getFirstChild().getChildNodes().item(1).getAttributes().getLength());
     }
+    
 
 }
