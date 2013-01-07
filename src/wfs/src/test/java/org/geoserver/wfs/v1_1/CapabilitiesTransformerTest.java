@@ -42,7 +42,7 @@ public class CapabilitiesTransformerTest extends WFSTestSupport {
     	GetCapabilitiesType request = request();
         CapabilitiesTransformer tx = new CapabilitiesTransformer.WFS1_1(getWFS(), request.getBaseUrl(), getCatalog(), Collections.<WFSExtendedCapabilitiesProvider>emptyList());
         ByteArrayOutputStream output = new ByteArrayOutputStream();
-		tx.transform(request, output);
+        tx.transform(request, output);
 
         InputStreamReader reader = new InputStreamReader(new ByteArrayInputStream(output
                 .toByteArray()));
@@ -69,7 +69,7 @@ public class CapabilitiesTransformerTest extends WFSTestSupport {
     	GetCapabilitiesType request = request();
         CapabilitiesTransformer tx = new CapabilitiesTransformer.WFS1_1(getWFS(), request.getBaseUrl(), getCatalog(), Collections.<WFSExtendedCapabilitiesProvider>emptyList());
         ByteArrayOutputStream output = new ByteArrayOutputStream();
-		tx.transform(request, output);
+        tx.transform(request, output);
 
         Document dom = super.dom(new ByteArrayInputStream(output.toByteArray()));
 

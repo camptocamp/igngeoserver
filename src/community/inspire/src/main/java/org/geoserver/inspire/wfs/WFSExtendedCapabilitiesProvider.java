@@ -1,3 +1,7 @@
+/* Copyright (c) 2012 TOPP - www.openplans.org. All rights reserved.
+ * This code is licensed under the GPL 2.0 license, available at the root
+ * application directory.
+ */
 package org.geoserver.inspire.wfs;
 
 import static org.geoserver.inspire.InspireMetadata.LANGUAGE;
@@ -12,19 +16,20 @@ import org.xml.sax.Attributes;
 import org.xml.sax.helpers.AttributesImpl;
 import org.xml.sax.helpers.NamespaceSupport;
 
-public class WFSExtendedCapabilitiesProvider implements org.geoserver.wfs.WFSExtendedCapabilitiesProvider {
+public class WFSExtendedCapabilitiesProvider implements
+        org.geoserver.wfs.WFSExtendedCapabilitiesProvider {
 
     private static final String COMMON_NAMESPACE = "http://inspire.ec.europa.eu/schemas/common/1.0";
+
     public static final String DLS_NAMESPACE = "http://inspire.ec.europa.eu/schemas/inspire_dls/1.0";
 
-	/**
+    /**
      * IGN : Do we still need to host this xsd ?
      */
     public String[] getSchemaLocations(String schemaBaseURL) {
-        return new String[] { 
-        		COMMON_NAMESPACE, "http://inspire.ec.europa.eu/schemas/common/1.0/common.xsd",
-        		DLS_NAMESPACE, "http://inspire.ec.europa.eu/schemas/inspire_dls/1.0/inspire_dls.xsd"
-        };
+        return new String[] { COMMON_NAMESPACE,
+                "http://inspire.ec.europa.eu/schemas/common/1.0/common.xsd", DLS_NAMESPACE,
+                "http://inspire.ec.europa.eu/schemas/inspire_dls/1.0/inspire_dls.xsd" };
     }
 
     public void registerNamespaces(NamespaceSupport namespaces) {
@@ -36,11 +41,9 @@ public class WFSExtendedCapabilitiesProvider implements org.geoserver.wfs.WFSExt
         namespaces
                 .declarePrefix("srv", "http://schemas.opengis.net/iso/19139/20060504/srv/srv.xsd");
         // IGN : We add another xmlns for inspire_common
-        namespaces
-                .declarePrefix("inspire_common", COMMON_NAMESPACE);
+        namespaces.declarePrefix("inspire_common", COMMON_NAMESPACE);
         // IGN : We add another xmlns for inspire_dls
-        namespaces
-        .declarePrefix("inspire_dls", DLS_NAMESPACE);
+        namespaces.declarePrefix("inspire_dls", DLS_NAMESPACE);
     }
 
     public void encode(Translator tx, WFSInfo wfs, GetCapabilitiesRequest request)
@@ -80,12 +83,12 @@ public class WFSExtendedCapabilitiesProvider implements org.geoserver.wfs.WFSExt
         tx.chars(language);
         tx.end("inspire_common:Language");
         tx.end("inspire_common:DefaultLanguage");
-// TODO when more than one language
-//        tx.start("inspire_common:SupportedLanguage");
-//        tx.start("inspire_common:Language");
-//        tx.chars(language);
-//        tx.end("inspire_common:Language");
-//        tx.end("inspire_common:SupportedLanguage");
+        // TODO when more than one language
+        // tx.start("inspire_common:SupportedLanguage");
+        // tx.start("inspire_common:Language");
+        // tx.chars(language);
+        // tx.end("inspire_common:Language");
+        // tx.end("inspire_common:SupportedLanguage");
         tx.end("inspire_common:SupportedLanguages");
 
         // ResponseLanguage

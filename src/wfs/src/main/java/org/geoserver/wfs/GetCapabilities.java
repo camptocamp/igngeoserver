@@ -86,20 +86,22 @@ public class GetCapabilities {
         if ("1.0.0".equals(version)) {
             capsTransformer = new CapabilitiesTransformer.WFS1_0(wfs, catalog);
         } else {
-			if ("1.1.0".equals(version)) {
-			    capsTransformer = new CapabilitiesTransformer.WFS1_1(wfs, baseUrl, catalog, extendedCapabilitiesProviders);
-			}else if ("2.0.0".equals(version)) {
-				capsTransformer = new CapabilitiesTransformer.WFS2_0(wfs, baseUrl, catalog, extendedCapabilitiesProviders);
-			}else{
-			    throw new WFSException(request, "Could not understand version:" + version);
-			}
-		}
-        capsTransformer.setEncoding(Charset.forName( wfs.getGeoServer().getSettings().getCharset() ));
+            if ("1.1.0".equals(version)) {
+                capsTransformer = new CapabilitiesTransformer.WFS1_1(wfs, baseUrl, catalog,
+                        extendedCapabilitiesProviders);
+            } else if ("2.0.0".equals(version)) {
+                capsTransformer = new CapabilitiesTransformer.WFS2_0(wfs, baseUrl, catalog,
+                        extendedCapabilitiesProviders);
+            } else {
+                throw new WFSException(request, "Could not understand version:" + version);
+            }
+        }
+        capsTransformer.setEncoding(Charset.forName(wfs.getGeoServer().getSettings().getCharset()));
         return capsTransformer;
     }
 
-	public static String version(GetCapabilitiesRequest request) {
-		//do the version negotiation dance
+    public static String version(GetCapabilitiesRequest request) {
+        // do the version negotiation dance
         List<String> provided = new ArrayList<String>();
         provided.add("1.0.0");
         provided.add("1.1.0");
