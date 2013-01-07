@@ -1,6 +1,10 @@
+/* Copyright (c) 2012 TOPP - www.openplans.org. All rights reserved.
+ * This code is licensed under the GPL 2.0 license, available at the root
+ * application directory.
+ */
 package org.geoserver.wcs;
 
-import static org.vfny.geoserver.wcs.WcsException.WcsExceptionCode.*;
+import static org.vfny.geoserver.wcs.WcsException.WcsExceptionCode.InvalidParameterValue;
 
 import java.awt.geom.AffineTransform;
 import java.io.IOException;
@@ -45,6 +49,8 @@ import org.geoserver.wcs.kvp.GridCS;
 import org.geoserver.wcs.kvp.GridType;
 import org.geoserver.wcs.response.DescribeCoverageTransformer;
 import org.geoserver.wcs.response.WCSCapsTransformer;
+import org.geoserver.wcs.responses.CoverageResponseDelegate;
+import org.geoserver.wcs.responses.CoverageResponseDelegateFinder;
 import org.geotools.coverage.grid.GeneralGridGeometry;
 import org.geotools.coverage.grid.GridCoverage2D;
 import org.geotools.coverage.grid.GridGeometry2D;
@@ -54,10 +60,14 @@ import org.geotools.geometry.GeneralEnvelope;
 import org.geotools.gml2.bindings.GML2EncodingUtils;
 import org.geotools.parameter.DefaultParameterDescriptor;
 import org.geotools.referencing.CRS;
+import org.geotools.referencing.operation.builder.GridToEnvelopeMapper;
+import org.geotools.referencing.operation.matrix.XAffineTransform;
 import org.geotools.referencing.operation.transform.AffineTransform2D;
 import org.geotools.referencing.operation.transform.IdentityTransform;
 import org.geotools.util.logging.Logging;
 import org.opengis.coverage.grid.GridCoverage;
+import org.opengis.coverage.grid.GridCoverageReader;
+import org.opengis.coverage.grid.GridEnvelope;
 import org.opengis.filter.Filter;
 import org.opengis.geometry.Envelope;
 import org.opengis.parameter.GeneralParameterDescriptor;
@@ -75,8 +85,6 @@ import org.opengis.referencing.operation.MathTransform;
 import org.vfny.geoserver.util.WCSUtils;
 import org.vfny.geoserver.wcs.WcsException;
 import org.vfny.geoserver.wcs.WcsException.WcsExceptionCode;
-import org.vfny.geoserver.wcs.responses.CoverageResponseDelegate;
-import org.vfny.geoserver.wcs.responses.CoverageResponseDelegateFactory;
 
 public class DefaultWebCoverageService111 implements WebCoverageService111 {
     Logger LOGGER = Logging.getLogger(DefaultWebCoverageService111.class);
@@ -85,9 +93,12 @@ public class DefaultWebCoverageService111 implements WebCoverageService111 {
 
 	private GeoServer geoServer;
 
-    public DefaultWebCoverageService111(GeoServer geoServer) {
+    private CoverageResponseDelegateFinder responseFactory;
+
+    public DefaultWebCoverageService111(GeoServer geoServer, CoverageResponseDelegateFinder responseFactory) {
         this.geoServer = geoServer;
         this.catalog = geoServer.getCatalog();
+        this.responseFactory = responseFactory;
     }
     
     public WCSInfo getServiceInfo() {
@@ -120,7 +131,7 @@ public class DefaultWebCoverageService111 implements WebCoverageService111 {
         final String version = request.getVersion();
         if ("1.1.0".equals(version) || "1.1.1".equals(version)) {
             WCSInfo wcs = getServiceInfo();
-            DescribeCoverageTransformer describeTransformer = new DescribeCoverageTransformer(wcs, catalog);
+            DescribeCoverageTransformer describeTransformer = new DescribeCoverageTransformer(wcs, catalog, responseFactory);
             describeTransformer.setEncoding(Charset.forName(wcs.getGeoServer().getSettings().getCharset()));
             return describeTransformer;
         }
@@ -159,9 +170,8 @@ public class DefaultWebCoverageService111 implements WebCoverageService111 {
             final GeneralEnvelope originalEnvelope = reader.getOriginalEnvelope();
             final BoundingBoxType bbox = request.getDomainSubset().getBoundingBox();
             final CoordinateReferenceSystem nativeCRS = originalEnvelope.getCoordinateReferenceSystem();
-            final GeneralEnvelope requestedEnvelopeInSourceCRS;
+            final GeneralEnvelope requestedEnvelopeInNativeCRS;
             final GeneralEnvelope requestedEnvelope;
-            MathTransform bboxToNativeTx=null;
             if (bbox != null) {
                 // first off, parse the envelope corners
                 double[] lowerCorner = new double[bbox.getLowerCorner().size()];
@@ -175,33 +185,33 @@ public class DefaultWebCoverageService111 implements WebCoverageService111 {
                 // if no crs has beens specified, the native one is assumed
                 if (bbox.getCrs() == null) {
                     requestedEnvelope.setCoordinateReferenceSystem(nativeCRS);
-                    requestedEnvelopeInSourceCRS = requestedEnvelope;
+                    requestedEnvelopeInNativeCRS = requestedEnvelope;
                 } else {
                     // otherwise we need to transform
                     final CoordinateReferenceSystem bboxCRS = CRS.decode(bbox.getCrs());
                     requestedEnvelope.setCoordinateReferenceSystem(bboxCRS);
-                    bboxToNativeTx = CRS.findMathTransform(bboxCRS, nativeCRS,true);
-                    if(!bboxToNativeTx.isIdentity()){
-	                    requestedEnvelopeInSourceCRS = CRS.transform(bboxToNativeTx,requestedEnvelope);
-	                    requestedEnvelopeInSourceCRS.setCoordinateReferenceSystem(nativeCRS);
+                    if(!CRS.equalsIgnoreMetadata(bboxCRS, nativeCRS)) {
+                        CoordinateOperationFactory of = CRS.getCoordinateOperationFactory(true);
+                        CoordinateOperation co = of.createOperation(bboxCRS, nativeCRS);
+                        requestedEnvelopeInNativeCRS = CRS.transform(co, requestedEnvelope);
+                    } else { 
+                    	requestedEnvelopeInNativeCRS= new GeneralEnvelope(requestedEnvelope);
                     }
-                    else
-                    	requestedEnvelopeInSourceCRS= new GeneralEnvelope(requestedEnvelope);
                 }
             } else {
-                requestedEnvelopeInSourceCRS = reader.getOriginalEnvelope();
-                requestedEnvelope = requestedEnvelopeInSourceCRS;
+                requestedEnvelopeInNativeCRS = reader.getOriginalEnvelope();
+                requestedEnvelope = requestedEnvelopeInNativeCRS;
             }
             
             final GridCrsType gridCRS = request.getOutput().getGridCRS();
 
-            // Compute the target crs, the crs that the final coverage will be
-            // served into
+            // Compute the crs that the final coverage will be served into
             final CoordinateReferenceSystem targetCRS;
-            if (gridCRS == null)
+            if (gridCRS == null) {
                 targetCRS = reader.getOriginalEnvelope().getCoordinateReferenceSystem();
-            else
+            } else {
                 targetCRS = CRS.decode(gridCRS.getGridBaseCRS());
+            }
 
             //
             // Raster destination size
@@ -210,87 +220,7 @@ public class DefaultWebCoverageService111 implements WebCoverageService111 {
             double[] elevations = null;
             
             // grab the grid to world transformation
-            MathTransform gridToCRS = reader.getOriginalGridToWorld(PixelInCell.CELL_CORNER);
-            if (gridCRS != null) {
-                Double[] origin = (Double[]) gridCRS.getGridOrigin();
-                Double[] offsets = (Double[]) gridCRS.getGridOffsets();
-
-                // from the specification if grid origin is omitted and the crs
-                // is 2d the default it's 0,0
-                if (origin == null) {
-                    origin = new Double[] { 0.0, 0.0 };
-                }
-
-                // if no offsets has been specified we try to default on the
-                // native ones
-                if (offsets == null) {
-                    if (!(gridToCRS instanceof AffineTransform2D)&& !(gridToCRS instanceof IdentityTransform))
-                        throw new WcsException(
-                                "Internal error, the coverage we're playing with does not have an affine transform...");
-
-                    if (gridToCRS instanceof IdentityTransform) {
-                        if (gridCRS.getGridType().equals(GridType.GT2dSimpleGrid.getXmlConstant()) || 
-                                gridCRS.getGridType().equals(GridType.GT2dGridIn2dCrs.getXmlConstant()))
-                            offsets = new Double[] { 1.0, 1.0 };
-                        else
-                            offsets = new Double[] { 1.0, 0.0, 0.0, 0.0, 1.0, 0.0 };
-                    } else {
-                        AffineTransform2D affine = (AffineTransform2D) gridToCRS;
-                        if (gridCRS.getGridType().equals(GridType.GT2dSimpleGrid.getXmlConstant()) || 
-                                gridCRS.getGridType().equals(GridType.GT2dGridIn2dCrs.getXmlConstant()))
-                            offsets = new Double[] { affine.getScaleX(), affine.getScaleY() };
-                        else
-                            offsets = new Double[] { affine.getScaleX(), affine.getShearX(), affine.getShearY(), affine.getScaleY() };
-                    }
-                }
-
-                // building the actual transform for the resulting grid geometry
-                AffineTransform tx;
-                if (gridCRS.getGridType().equals(GridType.GT2dSimpleGrid.getXmlConstant())) {
-                    tx = new AffineTransform(
-                            offsets[0], 0, 
-                            0, offsets[1], 
-                            origin[0], origin[1]
-                    );
-                } else if(gridCRS.getGridType().equals(GridType.GT2dGridIn2dCrs.getXmlConstant())) {
-                    tx = new AffineTransform(
-                            offsets[0], offsets[1], 
-                            offsets[2], offsets[3], 
-                            origin[0], origin[1]
-                    );
-                } else {
-                    tx = new AffineTransform(
-                            offsets[0], offsets[4], 
-                            offsets[1], offsets[3], 
-                            origin[0], origin[1]
-                    );
-                    
-                    if (origin.length != 3 || offsets.length != 6)
-                        throw new WcsException("", InvalidParameterValue, "GridCRS");
-              
-                    //
-                    //  ELEVATIONS
-                    //
-                    
-                    // TODO: draft code ... it needs more study!
-                    elevationLevels = (int) Math.round(requestedEnvelope.getUpperCorner().getOrdinate(2) - requestedEnvelope.getLowerCorner().getOrdinate(2));
-
-                    // compute the elevation levels, we have elevationLevels values
-                    if (elevationLevels > 0) {
-                        elevations=new double[elevationLevels];
-
-                        elevations[0]=requestedEnvelope.getLowerCorner().getOrdinate(2); // TODO put the extrema
-                        elevations[elevationLevels-1]=requestedEnvelope.getUpperCorner().getOrdinate(2);
-                        if(elevationLevels>2){
-                            final int adjustedLevelsNum=elevationLevels-1;
-                            double step = (elevations[elevationLevels-1]-elevations[0])/adjustedLevelsNum;
-                            for(int i=1;i<adjustedLevelsNum;i++)
-                                elevations[i]=elevations[i-1]+step;
-                        }
-                    }
-                }
-                gridToCRS = new AffineTransform2D(tx);
-            }
+            MathTransform gridToCRS = reader.getOriginalGridToWorld(PixelInCell.CELL_CENTER);
             
             //
             //   TIME Values
@@ -319,16 +249,11 @@ public class DefaultWebCoverageService111 implements WebCoverageService111 {
 
             // now we have enough info to read the coverage, grab the parameters
             // and add the grid geometry info
-            final GeneralEnvelope intersectionEnvelopeInSourceCRS = new GeneralEnvelope(requestedEnvelopeInSourceCRS);
+            final GeneralEnvelope intersectionEnvelopeInSourceCRS = new GeneralEnvelope(requestedEnvelopeInNativeCRS);
             intersectionEnvelopeInSourceCRS.intersect(originalEnvelope);
-            final GeneralEnvelope intersectionEnvelope= 
-            	bboxToNativeTx.isIdentity()?
-            			new GeneralEnvelope(intersectionEnvelopeInSourceCRS):
-            			CRS.transform(bboxToNativeTx.inverse(), intersectionEnvelopeInSourceCRS);
-            intersectionEnvelope.setCoordinateReferenceSystem(targetCRS);
             
             
-            final GridGeometry2D requestedGridGeometry = new GridGeometry2D(PixelInCell.CELL_CORNER, gridToCRS, intersectionEnvelopeInSourceCRS, null);
+            final GridGeometry2D requestedGridGeometry = new GridGeometry2D(PixelInCell.CELL_CENTER, gridToCRS, intersectionEnvelopeInSourceCRS, null);
 
             final ParameterValueGroup readParametersDescriptor = reader.getFormat().getReadParameters();
             GeneralParameterValue[] readParameters = CoverageUtils.getParameters(readParametersDescriptor, meta.getParameters());
@@ -416,6 +341,11 @@ public class DefaultWebCoverageService111 implements WebCoverageService111 {
             
             // now that we have read the coverage double check the input size
             WCSUtils.checkInputLimits(wcs, coverage);
+            
+            // some raster sources do not really read less data (arcgrid for example), we may need to crop
+            if(!intersectionEnvelopeInSourceCRS.contains(coverage.getEnvelope2D(), true)) {
+                coverage = WCSUtils.crop(coverage, intersectionEnvelopeInSourceCRS);
+            }
 
             /**
              * Band Select (works on just one field)
@@ -482,34 +412,199 @@ public class DefaultWebCoverageService111 implements WebCoverageService111 {
                     interpolation = Interpolation.getInstance(Interpolation.INTERP_NEAREST);
                 }
             }
+            
+            // adjust the grid geometry to use the final bbox and crs
+            final GeneralEnvelope intersectionEnvelope;
+            boolean reprojectionNeeded = !CRS.equalsIgnoreMetadata(nativeCRS, targetCRS);
+            if(reprojectionNeeded) {
+                CoordinateOperationFactory of = CRS.getCoordinateOperationFactory(true);
+                CoordinateOperation co = of.createOperation(nativeCRS, targetCRS);
+                intersectionEnvelope = CRS.transform(co, intersectionEnvelopeInSourceCRS);
+            } else {
+                intersectionEnvelope = intersectionEnvelopeInSourceCRS;
+            }
+            
+            // compute the output resolution
+            double pixelSizeX;
+            double pixelSizeY;
+            if (gridCRS != null) {
+                Double[] origin = (Double[]) gridCRS.getGridOrigin();
+                Double[] offsets = (Double[]) gridCRS.getGridOffsets();
+
+                // from the specification if grid origin is omitted and the crs
+                // is 2d the default it's 0,0
+                if (origin == null) {
+                    origin = new Double[] { 0.0, 0.0 };
+                }
+
+                // if no offsets has been specified we try to default on the
+                // native ones
+				if (offsets == null) {
+                    offsets = estimateOffsets(reader, gridCRS, gridToCRS,
+							intersectionEnvelope, reprojectionNeeded);
+                }
+
+                // building the actual transform for the resulting grid geometry
+                AffineTransform tx;
+                if (gridCRS.getGridType().equals(GridType.GT2dSimpleGrid.getXmlConstant())) {
+                    tx = new AffineTransform(
+                            offsets[0], 0, 
+                            0, offsets[1], 
+                            origin[0], origin[1]
+                    );
+                } else if(gridCRS.getGridType().equals(GridType.GT2dGridIn2dCrs.getXmlConstant())) {
+                    tx = new AffineTransform(
+                            offsets[0], offsets[1], 
+                            offsets[2], offsets[3], 
+                            origin[0], origin[1]
+                    );
+                } else {
+                    tx = new AffineTransform(
+                            offsets[0], offsets[4], 
+                            offsets[1], offsets[3], 
+                            origin[0], origin[1]
+                    );
+                    
+                    if (origin.length != 3 || offsets.length != 6)
+                        throw new WcsException("", InvalidParameterValue, "GridCRS");
+              
+                    //
+                    //  ELEVATIONS
+                    //
+                    
+                    // TODO: draft code ... it needs more study!
+                    elevationLevels = (int) Math.round(requestedEnvelope.getUpperCorner().getOrdinate(2) - requestedEnvelope.getLowerCorner().getOrdinate(2));
+
+                    // compute the elevation levels, we have elevationLevels values
+                    if (elevationLevels > 0) {
+                        elevations=new double[elevationLevels];
+
+                        elevations[0]=requestedEnvelope.getLowerCorner().getOrdinate(2); // TODO put the extrema
+                        elevations[elevationLevels-1]=requestedEnvelope.getUpperCorner().getOrdinate(2);
+                        if(elevationLevels>2){
+                            final int adjustedLevelsNum=elevationLevels-1;
+                            double step = (elevations[elevationLevels-1]-elevations[0])/adjustedLevelsNum;
+                            for(int i=1;i<adjustedLevelsNum;i++)
+                                elevations[i]=elevations[i-1]+step;
+                        }
+                    }
+                }
+                pixelSizeX = Math.abs(tx.getScaleX());
+                pixelSizeY = Math.abs(tx.getScaleY());
+                gridToCRS = new AffineTransform2D(tx);
+            } else {
+                Double[] offsets = estimateOffsets(reader, gridCRS, gridToCRS, intersectionEnvelope, reprojectionNeeded);
+                if(offsets.length == 2) {
+                    pixelSizeX = Math.abs(offsets[0]);
+                    pixelSizeY = Math.abs(offsets[1]);
+                    AffineTransform tx = new AffineTransform(offsets[0], 0, 
+                            0, offsets[1], 
+                            0, 0);
+                    gridToCRS = new AffineTransform2D(tx);
+                } else {
+                    AffineTransform tx = new AffineTransform(offsets[0], offsets[1], 
+                            offsets[3], offsets[4], 
+                            0, 0);
+                    pixelSizeX = Math.abs(XAffineTransform.getScaleX0(tx));
+                    pixelSizeY = Math.abs(XAffineTransform.getScaleY0(tx));
+                    gridToCRS = new AffineTransform2D(tx);
+                }
+            }
 
             /**
              * Reproject
              */
-            // adjust the grid geometry to use the final bbox and crs
-            final GridGeometry2D destinationGridGeometry = new GridGeometry2D(PixelInCell.CELL_CORNER, gridToCRS, intersectionEnvelope, null);
+            // adjust to have at least one pixel in the output
+            if(intersectionEnvelope.getSpan(0) < Math.abs(pixelSizeX)) {
+                double minX = intersectionEnvelope.getMinimum(0);
+                intersectionEnvelope.setRange(0, minX, minX + pixelSizeX);
+            }
+            if(intersectionEnvelope.getSpan(1) < Math.abs(pixelSizeY)) {
+                double minY = intersectionEnvelope.getMinimum(1);
+                intersectionEnvelope.setRange(1, minY, minY + pixelSizeY);
+            }
+
+            final GridGeometry2D destinationGridGeometry = new GridGeometry2D(PixelInCell.CELL_CENTER, gridToCRS, intersectionEnvelope, null);
             
             // before extracting the output make sure it's not too big
             WCSUtils.checkOutputLimits(wcs, destinationGridGeometry.getGridRange2D(), 
                     bandSelectedCoverage.getRenderedImage().getSampleModel());
             
             // reproject if necessary
-            if(!CRS.equalsIgnoreMetadata(nativeCRS, targetCRS) || !bandSelectedCoverage.getGridGeometry().equals(destinationGridGeometry)) {
+            boolean sameGridGeometry = bandSelectedCoverage.getGridGeometry().equals(destinationGridGeometry);
+            if(reprojectionNeeded || !sameGridGeometry) {
                 final GridCoverage2D reprojectedCoverage = WCSUtils.resample(
                 		bandSelectedCoverage,
                         nativeCRS, targetCRS, destinationGridGeometry,interpolation);
-    
+                
                 return new GridCoverage[] { reprojectedCoverage };
             } else {
                 return new GridCoverage[] { bandSelectedCoverage };
             }
         } catch (Throwable e) {
-            if (e instanceof WcsException)
+        	CoverageCleanerCallback.addCoverages(coverage);
+            if (e instanceof WcsException) {
                 throw (WcsException) e;
-            else
+            } else {
                 throw new WcsException(e);
+            }
         }
 
+    }
+
+    private Double[] estimateOffsets(final AbstractGridCoverage2DReader reader,
+            final GridCrsType gridCRS, MathTransform gridToCRS,
+            final GeneralEnvelope intersectionEnvelope, boolean reprojectionNeeded) {
+        Double[] offsets;
+        if (!(gridToCRS instanceof AffineTransform2D) && !(gridToCRS instanceof IdentityTransform))
+            throw new WcsException(
+                    "Internal error, the coverage we're playing with does not have an affine transform...");
+
+        if (!reprojectionNeeded) {
+            if (gridCRS != null) {
+                if (gridToCRS instanceof IdentityTransform) {
+                    if (gridCRS.getGridType().equals(GridType.GT2dSimpleGrid.getXmlConstant())
+                            || gridCRS.getGridType().equals(
+                                    GridType.GT2dGridIn2dCrs.getXmlConstant()))
+                        offsets = new Double[] { 1.0, -1.0 };
+                    else
+                        offsets = new Double[] { 1.0, 0.0, 0.0, 0.0, -1.0, 0.0 };
+                } else {
+                    AffineTransform2D affine = (AffineTransform2D) gridToCRS;
+                    if (gridCRS.getGridType().equals(GridType.GT2dSimpleGrid.getXmlConstant())
+                            || gridCRS.getGridType().equals(
+                                    GridType.GT2dGridIn2dCrs.getXmlConstant()))
+                        offsets = new Double[] { affine.getScaleX(), affine.getScaleY() };
+                    else
+                        offsets = new Double[] { affine.getScaleX(), affine.getShearX(),
+                                affine.getShearY(), affine.getScaleY() };
+                }
+            } else {
+                AffineTransform2D at = (AffineTransform2D) gridToCRS;
+                offsets = new Double[] { at.getScaleX(), at.getShearX(), 0d, at.getShearY(), at.getScaleY(), 0d};
+            }
+        } else {
+            // the input resolution is going to be completed unrelated to the output one
+            // make an estimate assuming we want to keep the output raster with roughly
+            // the same size as the input one
+            double teWidth = intersectionEnvelope.getSpan(0);
+            double teHeight = intersectionEnvelope.getSpan(1);
+
+            double targetRatio = teWidth / teHeight;
+            GridEnvelope gr = reader.getOriginalGridRange();
+            int targetRasterWidth = gr.getSpan(0);
+            int targetRasterHeight = (int) Math.ceil(targetRasterWidth / targetRatio);
+            double scaleX = teWidth / targetRasterWidth;
+            double scaleY = -teHeight / targetRasterHeight;
+
+            if (gridCRS == null ||  gridCRS.getGridType().equals(GridType.GT2dSimpleGrid.getXmlConstant())
+                    || gridCRS.getGridType().equals(GridType.GT2dGridIn2dCrs.getXmlConstant())) {
+                offsets = new Double[] { scaleX, scaleY };
+            } else {
+                offsets = new Double[] { scaleX, 0.0, 0.0, 0.0, scaleY, 0.0 };
+            }
+        }
+        return offsets;
     }
 
     private void checkDomainSubset(CoverageInfo meta, DomainSubsetType domainSubset, WCSInfo wcs)
@@ -528,7 +623,8 @@ public class DefaultWebCoverageService111 implements WebCoverageService111 {
         }
         
         CoordinateReferenceSystem bboxCRs = CRS.decode(bbox.getCrs());
-        Envelope gridEnvelope = meta.getGridCoverage(null, WCSUtils.getReaderHints(wcs)).getEnvelope();
+        AbstractGridCoverage2DReader reader = (AbstractGridCoverage2DReader) meta.getGridCoverageReader(null, WCSUtils.getReaderHints(wcs));
+        Envelope gridEnvelope = reader.getOriginalEnvelope();
         GeneralEnvelope gridEnvelopeBboxCRS = null;
         if (bboxCRs instanceof GeographicCRS) {
             try {
@@ -737,7 +833,7 @@ public class DefaultWebCoverageService111 implements WebCoverageService111 {
             if (sf.equalsIgnoreCase(format)) {
                 return sf;
             } else {
-                CoverageResponseDelegate delegate = CoverageResponseDelegateFactory.encoderFor(sf);
+                CoverageResponseDelegate delegate = responseFactory.encoderFor(sf);
                 if (delegate != null && delegate.canProduce(format))
                     return sf;
             }

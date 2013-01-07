@@ -1,10 +1,16 @@
+/* Copyright (c) 2012 TOPP - www.openplans.org. All rights reserved.
+ * This code is licensed under the GPL 2.0 license, available at the root
+ * application directory.
+ */
 package org.geoserver.web.data.layergroup;
 
 import org.apache.wicket.PageParameters;
+import org.junit.Test;
 
 
 public class LayerGroupEditPageTest extends LayerGroupBaseTest {
     
+    @Test
     public void testComputeBounds() {
         LayerGroupEditPage page = new LayerGroupEditPage(new PageParameters("group=lakes"));
         tester.startPage(page);

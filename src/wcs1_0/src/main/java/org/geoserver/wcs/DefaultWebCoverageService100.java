@@ -5,7 +5,6 @@
 package org.geoserver.wcs;
 
 import static org.vfny.geoserver.wcs.WcsException.WcsExceptionCode.InvalidParameterValue;
-
 import java.awt.Rectangle;
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -15,9 +14,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import javax.media.jai.Interpolation;
-
 import net.opengis.gml.CodeType;
 import net.opengis.gml.DirectPositionType;
 import net.opengis.gml.RectifiedGridType;
@@ -36,7 +33,6 @@ import net.opengis.wcs10.SpatialSubsetType;
 import net.opengis.wcs10.TimePeriodType;
 import net.opengis.wcs10.TimeSequenceType;
 import net.opengis.wcs10.TypedLiteralType;
-
 import org.eclipse.emf.common.util.EList;
 import org.geoserver.catalog.Catalog;
 import org.geoserver.catalog.CoverageInfo;
@@ -48,6 +44,8 @@ import org.geoserver.data.util.CoverageUtils;
 import org.geoserver.ows.util.RequestUtils;
 import org.geoserver.wcs.response.Wcs10CapsTransformer;
 import org.geoserver.wcs.response.Wcs10DescribeCoverageTransformer;
+import org.geoserver.wcs.responses.CoverageResponseDelegate;
+import org.geoserver.wcs.responses.CoverageResponseDelegateFinder;
 import org.geotools.coverage.grid.GeneralGridGeometry;
 import org.geotools.coverage.grid.GridCoverage2D;
 import org.geotools.coverage.grid.GridEnvelope2D;
@@ -75,8 +73,6 @@ import org.opengis.referencing.operation.MathTransform;
 import org.opengis.referencing.operation.TransformException;
 import org.vfny.geoserver.util.WCSUtils;
 import org.vfny.geoserver.wcs.WcsException;
-import org.vfny.geoserver.wcs.responses.CoverageResponseDelegate;
-import org.vfny.geoserver.wcs.responses.CoverageResponseDelegateFactory;
 
 /**
  * The Default WCS 1.0.0 Service implementation
@@ -89,6 +85,8 @@ public class DefaultWebCoverageService100 implements WebCoverageService100 {
 
     private GeoServer geoServer;
 
+    private CoverageResponseDelegateFinder responseFactory;
+
     private static final Logger LOGGER = org.geotools.util.logging.Logging
             .getLogger(DefaultWebCoverageService100.class);
 
@@ -96,9 +94,10 @@ public class DefaultWebCoverageService100 implements WebCoverageService100 {
      * 
      * @param geoServer
      */
-    public DefaultWebCoverageService100(GeoServer geoServer) {
+    public DefaultWebCoverageService100(GeoServer geoServer, CoverageResponseDelegateFinder responseFactory) {
         this.geoServer = geoServer;
         this.catalog = geoServer.getCatalog();
+        this.responseFactory = responseFactory;
     }
 
     /**
@@ -163,7 +162,7 @@ public class DefaultWebCoverageService100 implements WebCoverageService100 {
             // acquire coverage info
             meta = catalog.getCoverageByName(request.getSourceCoverage());
             if (meta == null)
-                throw new WcsException("Cannot find sourceCoverage on the catalog!");
+                throw new WcsException("Cannot find sourceCoverage " + request.getSourceCoverage() + " in the catalog!");
 
             // first let's run some sanity checks on the inputs
             checkRangeSubset(meta, request.getRangeSubset());
@@ -265,9 +264,10 @@ public class DefaultWebCoverageService100 implements WebCoverageService100 {
                 destinationG2W = new AffineTransform2D(resX, 0d, 0d, resY, (Double) origin_
                         .getValue().get(0), (Double) origin_.getValue().get(1));
 
-            } else
+            } else {
                 throw new WcsException("Invalid Grid value:" + grid.toString(),
                         InvalidParameterValue, null);
+            }
 
             //
             // SETTING COVERAGE READING PARAMS
@@ -296,6 +296,11 @@ public class DefaultWebCoverageService100 implements WebCoverageService100 {
             final ParameterValue<GeneralGridGeometry> requestedGridGeometryParam = new DefaultParameterDescriptor<GeneralGridGeometry>(
                     AbstractGridFormat.READ_GRIDGEOMETRY2D.getName().toString(),
                     GeneralGridGeometry.class, null, requestedGridGeometry).createValue();
+            GeneralParameterValue[] tmpArray = new GeneralParameterValue[readParameters.length+1];
+            System.arraycopy(readParameters, 0, tmpArray, 0, readParameters.length);
+            tmpArray[tmpArray.length-1]=requestedGridGeometryParam;
+            readParameters=tmpArray;
+            
             
             /*
              * Test if the parameter "TIME" is present in the WMS request, and by the way in the
@@ -386,6 +391,33 @@ public class DefaultWebCoverageService100 implements WebCoverageService100 {
                 
                 readParameters = CoverageUtils.mergeParameter(parameterDescriptors, 
                         readParameters, elevations, "ELEVATION", "Elevation");
+            }
+            
+            //
+            // CUSTOM DIMENSION SUPPORT
+            //
+            if (request.getRangeSubset() != null) {
+                EList<?> axisSubset = request.getRangeSubset().getAxisSubset();
+                final int asCount = axisSubset == null ? 0 : axisSubset.size();
+                for (int i = 0; i < asCount; i++) {
+                    AxisSubsetType axis = (AxisSubsetType)axisSubset.get(i);
+                    String axisName = axis.getName();
+                    if (!axisName.equalsIgnoreCase(WCSUtils.ELEVATION)) {
+                        Object dimInfo = meta.getMetadata().get(ResourceInfo.CUSTOM_DIMENSION_PREFIX + axisName);
+                        if (dimInfo instanceof DimensionInfo && dimensions.hasDomain(axisName)) {
+                            int valueCount = axis.getSingleValue().size();
+                            if (valueCount > 0) {
+                                List<String> dimValues = new ArrayList<String>(valueCount);
+                                for (int s = 0; s < valueCount; s++) {
+                                    dimValues.add(((TypedLiteralType) axis
+                                            .getSingleValue().get(s)).getValue());
+                                }
+                                readParameters = CoverageUtils.mergeParameter(parameterDescriptors,
+                                        readParameters, dimValues, axisName.toUpperCase());
+                            }
+                        }
+                    }
+                }    
             }
             
             // 
@@ -511,10 +543,12 @@ public class DefaultWebCoverageService100 implements WebCoverageService100 {
 
             return coverageResults.toArray(new GridCoverage2D[] {});
         } catch (Exception e) {
-            if (e instanceof WcsException)
+        	CoverageCleanerCallback.addCoverages(coverage);
+            if (e instanceof WcsException) {
                 throw (WcsException) e;
-            else
+            } else {
                 throw new WcsException(e);
+            }
         }
 
     }
@@ -756,7 +790,7 @@ public class DefaultWebCoverageService100 implements WebCoverageService100 {
      * @param info
      * @param rangeSubset
      */
-    private static void checkOutput(CoverageInfo meta, OutputType output) {
+    private void checkOutput(CoverageInfo meta, OutputType output) {
         if (output == null)
             return;
 
@@ -788,14 +822,14 @@ public class DefaultWebCoverageService100 implements WebCoverageService100 {
      * @param format
      * @return
      */
-    private static String getDeclaredFormat(List<String> supportedFormats, String format) {
+    private String getDeclaredFormat(List<String> supportedFormats, String format) {
         // supported formats may be setup using old style formats, first scan
         // the configured list
         for (String sf : supportedFormats) {
             if (sf.equalsIgnoreCase(format.trim())) {
                 return sf;
             } else {
-                CoverageResponseDelegate delegate = CoverageResponseDelegateFactory.encoderFor(sf);
+                CoverageResponseDelegate delegate = responseFactory.encoderFor(sf);
                 if (delegate != null && delegate.canProduce(format))
                     return sf;
             }
@@ -813,13 +847,6 @@ public class DefaultWebCoverageService100 implements WebCoverageService100 {
     private static void checkRangeSubset(CoverageInfo info, RangeSubsetType rangeSubset) {
         // quick escape if no range subset has been specified (it's legal)
         if (rangeSubset == null)
-            return;
-
-        // check axis
-        if (rangeSubset.getAxisSubset().size() > 1) {
-            throw new WcsException("Multi axis coverages are not supported yet",
-                    InvalidParameterValue, "RangeSubset");
-        } else if (rangeSubset.getAxisSubset().size() == 0)
             return;
 
         for (int a = 0; a < rangeSubset.getAxisSubset().size(); a++) {

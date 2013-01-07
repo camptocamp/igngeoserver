@@ -54,12 +54,15 @@ import org.geoserver.catalog.event.impl.CatalogAddEventImpl;
 import org.geoserver.catalog.event.impl.CatalogModifyEventImpl;
 import org.geoserver.catalog.event.impl.CatalogPostModifyEventImpl;
 import org.geoserver.catalog.event.impl.CatalogRemoveEventImpl;
+import org.geoserver.catalog.util.CloseableIterator;
 import org.geoserver.ows.util.ClassProperties;
 import org.geoserver.ows.util.OwsUtils;
 import org.geoserver.platform.GeoServerExtensions;
 import org.geoserver.platform.GeoServerResourceLoader;
 import org.geotools.util.logging.Logging;
 import org.opengis.feature.type.Name;
+import org.opengis.filter.Filter;
+import org.opengis.filter.sort.SortBy;
 
 /**
  * A default catalog implementation that is memory based.
@@ -94,6 +97,11 @@ public class CatalogImpl implements Catalog {
     protected ResourcePool resourcePool;
     protected GeoServerResourceLoader resourceLoader;
 
+    /**
+     * extended validation switch
+     */
+    protected boolean extendedValidation = true;
+
     public CatalogImpl() {
         facade = new DefaultCatalogFacade(this);
         resourcePool = new ResourcePool(this);
@@ -101,6 +109,21 @@ public class CatalogImpl implements Catalog {
     
     public CatalogFacade getFacade() {
         return facade;
+    }
+
+    /**
+     * Turn on/off extended validation switch.
+     * <p>
+     * This is not part of the public api, it is used for testing purposes where we have to 
+     * bootstrap catalog contents. 
+     * </p>
+     */
+    public void setExtendedValidation(boolean extendedValidation) {
+        this.extendedValidation = extendedValidation;
+    }
+
+    public boolean isExtendedValidation() {
+        return extendedValidation;
     }
 
     public Iterable<CatalogValidator> getValidators() {
@@ -152,7 +175,7 @@ public class CatalogImpl implements Catalog {
         
         WorkspaceInfo workspace = store.getWorkspace();
         StoreInfo existing = getStoreByName( workspace, store.getName(), StoreInfo.class );
-        if ( existing != null && !existing.getId().equals( store.getId() )) {
+        if ( existing != null && (isNew || !existing.getId().equals( store.getId() )) ) {
             String msg = "Store '"+ store.getName() +"' already exists in workspace '"+workspace.getName()+"'";
             throw new IllegalArgumentException( msg );
         }    
@@ -171,7 +194,7 @@ public class CatalogImpl implements Catalog {
             
             WorkspaceInfo workspace = store.getWorkspace();
             DataStoreInfo defaultStore = getDefaultDataStore(workspace);
-            if (store.equals(defaultStore)) {
+            if (store.equals(defaultStore) || defaultStore == null) {
                 //TODO: this will fire multiple events, we want to fire only one
                 setDefaultDataStore(workspace, null);
                 
@@ -222,7 +245,7 @@ public class CatalogImpl implements Catalog {
         
         T store = facade.getStoreByName(ws, name, clazz);
         if (store == null && workspace == null) {
-            store = facade.getStoreByName(DefaultCatalogFacade.ANY_WORKSPACE, name, clazz);
+            store = facade.getStoreByName(CatalogFacade.ANY_WORKSPACE, name, clazz);
         }
         return store;
     }
@@ -445,7 +468,7 @@ public class CatalogImpl implements Catalog {
         }
         T resource = facade.getResourceByName(namespace, name, clazz);
         if (resource == null && ns == null) {
-            resource = facade.getResourceByName(DefaultCatalogFacade.ANY_NAMESPACE, name, clazz);
+            resource = facade.getResourceByName(CatalogFacade.ANY_NAMESPACE, name, clazz);
         }
         return resource;
     }
@@ -717,7 +740,7 @@ public class CatalogImpl implements Catalog {
         return facade.getLayers(style);
     }
     
-    public List getLayers() {
+    public List<LayerInfo> getLayers() {
         return facade.getLayers();
     }
 
@@ -835,21 +858,26 @@ public class CatalogImpl implements Catalog {
     
     @Override
     public LayerGroupInfo getLayerGroupByName(String name) {
-        //handle prefixed name case
+
+        final LayerGroupInfo layerGroup = getLayerGroupByName((String) null, name);
+
+        if (layerGroup != null)
+            return layerGroup;
+
+        // last chance: checking handle prefixed name case
         String workspaceName = null;
         String layerGroupName = null;
-        
-        int colon = name.indexOf( ':' );
-        if(colon == -1){
+
+        int colon = name.indexOf(':');
+        if (colon == -1) {
             layerGroupName = name;
-        }if ( colon != -1 ) {
-            workspaceName = name.substring( 0, colon );
-            layerGroupName = name.substring( colon + 1 );
+        }
+        if (colon != -1) {
+            workspaceName = name.substring(0, colon);
+            layerGroupName = name.substring(colon + 1);
         }
 
-
-        LayerGroupInfo layerGroup = getLayerGroupByName(workspaceName, layerGroupName);
-        return layerGroup;
+        return getLayerGroupByName(workspaceName, layerGroupName);
     }
 
     @Override
@@ -1245,6 +1273,16 @@ public class CatalogImpl implements Catalog {
     public void removeListener(CatalogListener listener) {
         listeners.remove(listener);
     }
+    
+    @Override
+    public void removeListeners(Class listenerClass) {
+        for (Iterator it = listeners.iterator(); it.hasNext();) {
+            CatalogListener listener = (CatalogListener) it.next();
+            if(listenerClass.isInstance(listener)) {
+                it.remove();
+            }
+        }
+    }
 
     public Iterator search(String cql) {
         // TODO Auto-generated method stub
@@ -1266,9 +1304,8 @@ public class CatalogImpl implements Catalog {
         this.resourceLoader = resourceLoader;
     }
     public void dispose() {
-        facade.dispose();
-        if ( listeners != null ) listeners.clear();
         if ( resourcePool != null ) resourcePool.dispose();
+        facade.dispose();
     }
     
     protected void added(CatalogInfo object) {
@@ -1489,6 +1526,11 @@ public class CatalogImpl implements Catalog {
     
     protected List<RuntimeException> postValidate(CatalogInfo info, boolean isNew) {
         List<RuntimeException> errors = new ArrayList<RuntimeException>();
+
+        if (!extendedValidation) {
+            return errors; 
+        }
+
         for (CatalogValidator constraint : getValidators()) {
             try {
                 info.accept(new CatalogValidatorVisitor(constraint, isNew));
@@ -1571,5 +1613,72 @@ public class CatalogImpl implements Catalog {
     public void accept(CatalogVisitor visitor) {
         visitor.visit(this);
     }
-    
+
+    public void resolve(CatalogInfo info) {
+        if (info instanceof LayerGroupInfo) {
+            resolve((LayerGroupInfo) info);
+        } else if (info instanceof LayerInfo) {
+            resolve((LayerInfo) info);
+        } else if (info instanceof MapInfo) {
+            resolve((MapInfo) info);
+        } else if (info instanceof NamespaceInfo) {
+            resolve((NamespaceInfo) info);
+        } else if (info instanceof ResourceInfo) {
+            resolve((ResourceInfo) info);
+        } else if (info instanceof StoreInfo) {
+            resolve((StoreInfo) info);
+        } else if (info instanceof StyleInfo) {
+            resolve((StyleInfo) info);
+        } else if (info instanceof WorkspaceInfo) {
+            resolve((WorkspaceInfo) info);
+        } else {
+            throw new IllegalArgumentException("Unknown resource type: " + info);
+        }
+    }
+
+    @Override
+    public <T extends CatalogInfo> int count(final Class<T> of,
+            final Filter filter) {
+        final CatalogFacade facade = getFacade();
+        return facade.count(of, filter);
+    }
+
+    @Override
+    public <T extends CatalogInfo> CloseableIterator<T> list(final Class<T> of,
+            final Filter filter) {
+        return list(of, filter, null, null, null);
+    }
+
+    @Override
+    public <T extends CatalogInfo> CloseableIterator<T> list(final Class<T> of,
+            final Filter filter, Integer offset, Integer count, SortBy sortOrder) {
+        CatalogFacade facade = getFacade();
+        if (sortOrder != null && !facade.canSort(of, sortOrder.getPropertyName().getPropertyName())) {
+            // TODO: use GeoTools' merge-sort code to provide sorting anyways
+            throw new UnsupportedOperationException("Catalog backend can't sort on property "
+                    + sortOrder.getPropertyName() + " in-process sorting is pending implementation");
+        }
+        return facade.list(of, filter, offset, count, sortOrder);
+    }
+
+    @Override
+    public <T extends CatalogInfo> T get(Class<T> type, Filter filter)
+            throws IllegalArgumentException {
+
+        final Integer limit = Integer.valueOf(2);
+        CloseableIterator<T> it = list(type, filter, null, limit, null);
+        T result = null;
+        try {
+            if (it.hasNext()) {
+                result = it.next();
+                if (it.hasNext()) {
+                    throw new IllegalArgumentException(
+                            "Specified query predicate resulted in more than one object");
+                }
+            }
+        } finally {
+            it.close();
+        }
+        return result;
+    }
 }

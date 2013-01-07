@@ -1,6 +1,11 @@
+/* Copyright (c) 2012 TOPP - www.openplans.org. All rights reserved.
+ * This code is licensed under the GPL 2.0 license, available at the root
+ * application directory.
+ */
 package org.geoserver.wfs.v1_1;
 
 import static org.custommonkey.xmlunit.XMLAssert.assertXpathEvaluatesTo;
+import static org.junit.Assert.assertTrue;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -19,6 +24,7 @@ import org.geoserver.wfs.CapabilitiesTransformer;
 import org.geoserver.wfs.WFSExtendedCapabilitiesProvider;
 import org.geoserver.wfs.WFSTestSupport;
 import org.geoserver.wfs.xml.v1_1_0.WFS;
+import org.junit.Test;
 import org.w3c.dom.Document;
 
 public class CapabilitiesTransformerTest extends WFSTestSupport {
@@ -31,6 +37,7 @@ public class CapabilitiesTransformerTest extends WFSTestSupport {
         return type;
     }
 
+    @Test
     public void test() throws Exception {
     	GetCapabilitiesType request = request();
         CapabilitiesTransformer tx = new CapabilitiesTransformer.WFS1_1(getWFS(), request.getBaseUrl(), getCatalog(), Collections.<WFSExtendedCapabilitiesProvider>emptyList());
@@ -57,6 +64,7 @@ public class CapabilitiesTransformerTest extends WFSTestSupport {
     /**
      * see GEOS-2461
      */
+    @Test
     public void testDefaultOutputFormat() throws Exception {
     	GetCapabilitiesType request = request();
         CapabilitiesTransformer tx = new CapabilitiesTransformer.WFS1_1(getWFS(), request.getBaseUrl(), getCatalog(), Collections.<WFSExtendedCapabilitiesProvider>emptyList());

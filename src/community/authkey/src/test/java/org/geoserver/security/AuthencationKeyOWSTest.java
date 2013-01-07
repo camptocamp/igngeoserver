@@ -1,5 +1,10 @@
+/* Copyright (c) 2012 TOPP - www.openplans.org. All rights reserved.
+ * This code is licensed under the GPL 2.0 license, available at the root
+ * application directory.
+ */
 package org.geoserver.security;
 
+import static junit.framework.Assert.*;
 import static org.custommonkey.xmlunit.XMLAssert.*;
 
 import java.io.File;
@@ -11,27 +16,29 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.UUID;
 
-import junit.framework.Test;
-
+import org.apache.commons.io.FileUtils;
 import org.custommonkey.xmlunit.SimpleNamespaceContext;
 import org.custommonkey.xmlunit.XMLUnit;
 import org.custommonkey.xmlunit.XpathEngine;
 import org.geoserver.config.GeoServer;
 import org.geoserver.data.test.MockData;
+import org.geoserver.data.test.SystemTestData;
 import org.geoserver.platform.GeoServerExtensions;
-import org.geoserver.test.GeoServerTestSupport;
+import org.geoserver.test.GeoServerSystemTestSupport;
 import org.geoserver.wms.WMSInfo;
+import org.junit.Test;
 import org.w3c.dom.Document;
 
-public class AuthencationKeyOWSTest extends GeoServerTestSupport {
+public class AuthencationKeyOWSTest extends GeoServerSystemTestSupport {
 
     private static String adminKey;
 
     private static String citeKey;
 
+
     @Override
-    protected void oneTimeSetUp() throws Exception {
-        super.oneTimeSetUp();
+    protected void onSetUp(SystemTestData testData) throws Exception {
+        super.onSetUp(testData);
 
         Map<String, String> namespaces = new HashMap<String, String>();
         namespaces.put("wms", "http://www.opengis.net/wms");
@@ -52,11 +59,14 @@ public class AuthencationKeyOWSTest extends GeoServerTestSupport {
     }
 
     @Override
-    protected void populateDataDirectory(MockData dataDirectory) throws Exception {
-        super.populateDataDirectory(dataDirectory);
+    protected void setUpTestData(SystemTestData testData) throws Exception {
+        super.setUpTestData(testData);
+        
+        // remove the default security dir
+        File security = new File(testData.getDataDirectoryRoot(), "security");
+        FileUtils.deleteDirectory(security);
 
         // setup some users
-        File security = new File(dataDirectory.getDataDirectoryRoot(), "security");
         security.mkdir();
 
         File users = new File(security, "users.properties");
@@ -88,13 +98,6 @@ public class AuthencationKeyOWSTest extends GeoServerTestSupport {
     }
 
     /**
-     * This is a READ ONLY TEST so we can use one time setup
-     */
-    public static Test suite() {
-        return new OneTimeTestSetup(new AuthencationKeyOWSTest());
-    }
-
-    /**
      * Enable the Spring Security authentication filters, we want the test to be complete and
      * realistic
      */
@@ -107,6 +110,7 @@ public class AuthencationKeyOWSTest extends GeoServerTestSupport {
         return Arrays.asList(springSecurityFilters, authKeyFilter);
     }
 
+    @Test
     public void testAnonymousCapabilities() throws Exception {
         Document doc = getAsDOM("wms?request=GetCapabilities&version=1.1.0");
         // print(doc);
@@ -121,6 +125,7 @@ public class AuthencationKeyOWSTest extends GeoServerTestSupport {
                 .getLength());
     }
 
+    @Test
     public void testAdminCapabilities() throws Exception {
         Document doc = getAsDOM("wms?request=GetCapabilities&version=1.1.0&authkey=" + adminKey);
         // print(doc);
@@ -139,6 +144,7 @@ public class AuthencationKeyOWSTest extends GeoServerTestSupport {
         assertTrue(url.contains("&authkey=" + adminKey));
     }
 
+    @Test
     public void testCiteCapabilities() throws Exception {
         Document doc = getAsDOM("wms?request=GetCapabilities&version=1.1.0&authkey=" + citeKey);
         // print(doc);
@@ -157,12 +163,14 @@ public class AuthencationKeyOWSTest extends GeoServerTestSupport {
         assertTrue(url.contains("&authkey=" + citeKey));
     }
 
+    @Test
     public void testAnonymousGetFeature() throws Exception {
         Document doc = getAsDOM("wfs?service=WFS&version=1.0.0&request=GetFeature&typeName="
                 + getLayerId(MockData.PONDS));
         assertEquals("ServiceExceptionReport", doc.getDocumentElement().getLocalName());
     }
 
+    @Test
     public void testAdminGetFeature() throws Exception {
         Document doc = getAsDOM("wfs?service=WFS&version=1.0.0&request=GetFeature&typeName="
                 + getLayerId(MockData.PONDS) + "&authkey=" + adminKey);
@@ -174,6 +182,7 @@ public class AuthencationKeyOWSTest extends GeoServerTestSupport {
         assertTrue(url.contains("&authkey=" + adminKey));
     }
 
+    @Test
     public void testCiteGetFeature() throws Exception {
         Document doc = getAsDOM("wfs?service=WFS&version=1.0.0&request=GetFeature&typeName="
                 + getLayerId(MockData.PONDS) + "&authkey=" + citeKey);

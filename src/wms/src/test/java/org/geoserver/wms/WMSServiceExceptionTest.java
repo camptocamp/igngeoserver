@@ -4,8 +4,14 @@
  */
 package org.geoserver.wms;
 
+import static org.junit.Assert.*;
 import java.io.ByteArrayInputStream;
 
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
+import org.geoserver.wfs.json.JSONType;
+import org.junit.Test;
 import org.w3c.dom.Document;
 
 import com.mockrunner.mock.web.MockHttpServletResponse;
@@ -13,10 +19,12 @@ import com.mockrunner.mock.web.MockHttpServletResponse;
 
 public class WMSServiceExceptionTest extends WMSTestSupport {
 
+    @Test
     public void testException111() throws Exception {
         assertResponse111("wms?version=1.1.1&request=getmap&layers=foobar");
     }
     
+    @Test
     public void testException110() throws Exception {
         assertResponse111("wms?version=1.1.0&request=getmap&layers=foobar");
     }
@@ -26,6 +34,7 @@ public class WMSServiceExceptionTest extends WMSTestSupport {
      * see http://jira.codehaus.org/browse/GEOS-3018
      * @throws Exception
      */
+    @Test
     public void testPng8InImageFormat111() throws Exception {
         MockHttpServletResponse response = getAsServletResponse("wms?bbox=-130,24,-66,50&styles=I_DONT_EXIST"
                 + "&layers=states&Format=image/png8&request=GetMap&width=550"
@@ -39,6 +48,7 @@ public class WMSServiceExceptionTest extends WMSTestSupport {
      * see http://jira.codehaus.org/browse/GEOS-3018
      * @throws Exception
      */
+    @Test
     public void testPng8InImageFormat130() throws Exception {
         MockHttpServletResponse response = getAsServletResponse("wms?bbox=-130,24,-66,50&styles=I_DONT_EXIST"
                 + "&layers=states&Format=image/png8&request=GetMap&width=550"
@@ -59,6 +69,7 @@ public class WMSServiceExceptionTest extends WMSTestSupport {
         assertEquals("1.1.1", dom.getDocumentElement().getAttribute("version"));
     }
     
+    @Test
     public void testException130() throws Exception {
         assertResponse130("wms?version=1.3.0&request=getmap&layers=foobar");
     }
@@ -74,4 +85,48 @@ public class WMSServiceExceptionTest extends WMSTestSupport {
         assertEquals("ServiceExceptionReport", dom.getDocumentElement().getNodeName());
         assertEquals("1.3.0", dom.getDocumentElement().getAttribute("version"));
     }
+
+    @Test
+    public void testJsonException130() throws Exception {
+        String path = "wms?version=1.3.0&request=getmap&layers=foobar&EXCEPTIONS=" + JSONType.jsonp
+                + "&format_options=callback:myMethod";
+        JSONType.setJsonpEnabled(true);
+        MockHttpServletResponse response = getAsServletResponse(path);
+        JSONType.setJsonpEnabled(false);
+        String content = response.getOutputStreamContent();
+        testJson(testJsonP(content));
+        
+    }
+
+    /**
+     * @param content Matches: myMethod( ... )
+     * @return trimmed string
+     */
+    private static String testJsonP(String content) {
+        assertTrue(content.startsWith("myMethod("));
+        assertTrue(content.endsWith(")"));
+        content = content.substring("myMethod(".length(), content.length() - 1);
+        return content;
+    }
+
+    /**
+     * @param path
+     * @throws Exception
+     * 
+     */
+    private static void testJson(String content) {
+
+        JSONObject jsonException = JSONObject.fromObject(content);
+        assertEquals(jsonException.getString("version"), "1.3.0");
+        JSONArray exceptions = jsonException.getJSONArray("exceptions");
+        JSONObject exception = exceptions.getJSONObject(0);
+        assertNotNull(exception);
+        assertNotNull(exception.getString("code"));
+        assertNotNull(exception.getString("locator"));
+        String exceptionText = exception.getString("text");
+        assertNotNull(exceptionText);
+        assertEquals(exceptionText, "Could not find layer foobar");
+
+    }
+
 }

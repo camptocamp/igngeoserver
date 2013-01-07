@@ -1,4 +1,10 @@
+/* Copyright (c) 2012 TOPP - www.openplans.org. All rights reserved.
+ * This code is licensed under the GPL 2.0 license, available at the root
+ * application directory.
+ */
 package org.geoserver.security.web.data;
+
+import static org.junit.Assert.*;
 
 import java.lang.reflect.Method;
 import java.util.Collections;
@@ -16,6 +22,7 @@ import org.geoserver.security.impl.DataAccessRule;
 import org.geoserver.security.impl.DataAccessRuleDAO;
 import org.geoserver.security.web.AbstractListPageTest;
 import org.geoserver.web.wicket.GeoServerDataProvider.Property;
+import org.junit.Test;
 
 public class DataSecurityPageTest extends AbstractListPageTest<DataAccessRule> {
 
@@ -72,6 +79,7 @@ public class DataSecurityPageTest extends AbstractListPageTest<DataAccessRule> {
         assertEquals(0,DataAccessRuleDAO.get().getRules().size());        
     }
 
+    @Test
     public void testDefaultCatalogMode() throws Exception {
         tester.startPage(DataSecurityPage.class);
         tester.assertRenderedPage(DataSecurityPage.class);
@@ -79,6 +87,7 @@ public class DataSecurityPageTest extends AbstractListPageTest<DataAccessRule> {
                 .getDefaultModelObject().toString());
     }
 
+    @Test
     public void testEditCatalogMode() throws Exception {
         tester.startPage(DataSecurityPage.class);
         tester.assertRenderedPage(DataSecurityPage.class);

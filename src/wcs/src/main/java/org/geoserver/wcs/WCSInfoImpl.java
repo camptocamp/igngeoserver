@@ -1,3 +1,7 @@
+/* Copyright (c) 2012 TOPP - www.openplans.org. All rights reserved.
+ * This code is licensed under the GPL 2.0 license, available at the root
+ * application directory.
+ */
 package org.geoserver.wcs;
 
 import org.geoserver.config.impl.ServiceInfoImpl;
@@ -24,7 +28,6 @@ public class WCSInfoImpl extends ServiceInfoImpl implements WCSInfo {
     OverviewPolicy overviewPolicy;
 
     public WCSInfoImpl() {
-        setId("wcs");
     }
 
     public boolean isGMLPrefixing() {

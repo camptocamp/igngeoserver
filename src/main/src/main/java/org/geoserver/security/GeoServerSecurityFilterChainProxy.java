@@ -1,3 +1,7 @@
+/* Copyright (c) 2012 TOPP - www.openplans.org. All rights reserved.
+ * This code is licensed under the GPL 2.0 license, available at the root
+ * application directory.
+ */
 package org.geoserver.security;
 
 import java.io.IOException;
@@ -115,6 +119,7 @@ public class GeoServerSecurityFilterChainProxy extends FilterChainProxy
 
         if (!securityManager.isInitialized()) {
             //nothing to do
+            return;
         }
 
         SecurityManagerConfig config = securityManager.getSecurityConfig(); 
@@ -139,11 +144,6 @@ public class GeoServerSecurityFilterChainProxy extends FilterChainProxy
                     if (filter == null) {
                         throw new NullPointerException("No filter named " + filterName +" could " +
                             "be found");
-                    }
-
-                    //check for anonymous auth flag
-                    if (filter instanceof GeoServerAnonymousAuthenticationFilter && !config.isAnonymousAuth()) {
-                        continue;
                     }
                     filters.add(filter);
                 }

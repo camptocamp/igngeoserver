@@ -1,3 +1,7 @@
+/* Copyright (c) 2012 TOPP - www.openplans.org. All rights reserved.
+ * This code is licensed under the GPL 2.0 license, available at the root
+ * application directory.
+ */
 package org.geoserver.wfs;
 
 import org.geoserver.config.GeoServer;
@@ -30,9 +34,9 @@ public class WFSXStreamLoader extends XStreamServiceLoader<WFSInfo> {
     
     protected WFSInfo createServiceFromScratch(GeoServer gs) {
         WFSInfoImpl wfs = new WFSInfoImpl();
-        wfs.setId( "wfs" );
         wfs.setName("WFS");
-        
+        wfs.setMaxFeatures(1000000);
+
         //gml2
         GMLInfoImpl gml2 = new GMLInfoImpl();
         gml2.setSrsNameStyle( GMLInfo.SrsNameStyle.XML );

@@ -11,6 +11,7 @@ import java.net.URLDecoder;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,6 +23,7 @@ import org.geoserver.catalog.CatalogBuilder;
 import org.geoserver.catalog.CatalogFactory;
 import org.geoserver.catalog.LayerGroupInfo;
 import org.geoserver.catalog.LayerInfo;
+import org.geoserver.config.GeoServerLoader;
 import org.geoserver.data.test.MockData;
 import org.geoserver.ows.Dispatcher;
 import org.geoserver.platform.ServiceException;
@@ -33,6 +35,7 @@ import org.geoserver.wms.WMS;
 import org.geoserver.wms.kvp.PaletteManager;
 import org.geotools.factory.CommonFactoryFinder;
 import org.geotools.styling.Style;
+import org.geotools.util.DateRange;
 import org.opengis.filter.FilterFactory;
 import org.opengis.filter.Id;
 import org.opengis.filter.PropertyIsEqualTo;
@@ -62,6 +65,13 @@ public class GetMapKvpRequestReaderTest extends KvpRequestReaderTestSupport {
         gi.getStyles().add(getCatalog().getStyleByName("polygon"));
         cb.calculateLayerGroupBounds(gi);
         getCatalog().add(gi);
+    }
+    
+    @Override
+    protected void oneTimeTearDown() throws Exception {
+        super.oneTimeTearDown();
+        // reset the legacy flag so that other tests are not getting affected by it
+        GeoServerLoader.setLegacy(false);
     }
 
     protected void setUpInternal() throws Exception {
@@ -138,12 +148,12 @@ public class GetMapKvpRequestReaderTest extends KvpRequestReaderTestSupport {
         assertEquals(PaletteManager.safePalette, request.getPalette());
         assertEquals(Arrays.asList(4.0), request.getElevation());
 
-        Calendar cal = Calendar.getInstance();
-        cal.setTimeZone(TimeZone.getTimeZone("UTC"));
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("UTC"));
+        cal.clear();
         cal.set(2006, 1, 27, 22, 8, 12);
         List<Object> times = request.getTime();
         assertEquals(1, request.getTime().size());
-        assertEquals(cal.getTime().toString(), times.get(0).toString());
+        assertEquals(cal.getTime(), ((DateRange)times.get(0)).getMinValue());
     }
 
     public void testDefaultStyle() throws Exception {

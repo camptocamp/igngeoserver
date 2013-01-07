@@ -39,11 +39,13 @@ import org.geotools.data.wms.WebMapServer;
 import org.geotools.factory.GeoTools;
 import org.geotools.gce.imagemosaic.ImageMosaicFormat;
 import org.geotools.geometry.GeneralEnvelope;
+import org.geotools.geometry.jts.JTS;
 import org.geotools.geometry.jts.ReferencedEnvelope;
 import org.geotools.referencing.CRS;
 import org.geotools.referencing.CRS.AxisOrder;
 import org.geotools.referencing.crs.DefaultGeographicCRS;
 import org.geotools.resources.image.ImageUtilities;
+import org.geotools.util.NumberRange;
 import org.geotools.util.Version;
 import org.geotools.util.logging.Logging;
 import org.opengis.coverage.grid.Format;
@@ -466,14 +468,23 @@ public class CatalogBuilder {
     public void setupMetadata(FeatureTypeInfo ftinfo, FeatureSource featureSource) 
         throws IOException {
 
-        org.geotools.data.ResourceInfo rinfo = featureSource.getInfo();
+        org.geotools.data.ResourceInfo rinfo = null;
+        try {
+            rinfo = featureSource.getInfo();
+        }
+        catch(Exception ignore) {
+            if (LOGGER.isLoggable(Level.FINE)) {
+                LOGGER.log(Level.FINE, "Unable to get resource info from feature source", ignore);
+            }
+        }
+
         if (ftinfo.getTitle() == null) {
             ftinfo.setTitle(rinfo != null ? rinfo.getTitle() : ftinfo.getName());
         }
         if (rinfo != null && ftinfo.getDescription() == null) {
             ftinfo.setDescription(rinfo.getDescription());
         }
-        if (rinfo != null && ftinfo.getKeywords() == null || ftinfo.getKeywords().isEmpty()) {
+        if (rinfo != null && (ftinfo.getKeywords() == null || ftinfo.getKeywords().isEmpty())) {
             if (rinfo.getKeywords() != null) {
                 if (ftinfo.getKeywords() == null) {
                     ((FeatureTypeInfoImpl)ftinfo).setKeywords(new ArrayList());
@@ -504,8 +515,7 @@ public class CatalogBuilder {
             if (!CRS.equalsIgnoreMetadata(DefaultGeographicCRS.WGS84, declaredCRS)) {
                 // transform
                 try {
-                    ReferencedEnvelope bounds = new ReferencedEnvelope(nativeBounds, declaredCRS);
-                    return bounds.transform(DefaultGeographicCRS.WGS84, true);
+                	return JTS.toGeographic( nativeBounds );
                 } catch (Exception e) {
                     throw (IOException) new IOException("transform error").initCause(e);
                 }
@@ -1014,16 +1024,23 @@ public class CatalogBuilder {
                 label.append(")".intern());
             }
 
+            GridSampleDimension sd = sampleDimensions[i];
             label.append("[".intern());
-            label.append(sampleDimensions[i].getMinimumValue());
+            label.append(sd.getMinimumValue());
             label.append(",".intern());
-            label.append(sampleDimensions[i].getMaximumValue());
+            label.append(sd.getMaximumValue());
             label.append("]".intern());
 
             dim.setDescription(label.toString());
-            dim.setRange(sampleDimensions[i].getRange());
 
-            final List<Category> categories = sampleDimensions[i].getCategories();
+            if (sd.getRange() != null) {
+                dim.setRange(sd.getRange());    
+            }
+            else {
+                dim.setRange(NumberRange.create(sd.getMinimumValue(), sd.getMaximumValue()));
+            }
+            
+            final List<Category> categories = sd.getCategories();
             if (categories != null) {
                 for (Category cat : categories) {
 

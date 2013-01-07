@@ -6,6 +6,7 @@ package org.geoserver.wcs.response;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.Collections;
 import java.util.HashMap;
 
 import net.opengis.wcs10.GetCoverageType;
@@ -14,12 +15,12 @@ import org.geoserver.catalog.Catalog;
 import org.geoserver.ows.Response;
 import org.geoserver.platform.Operation;
 import org.geoserver.platform.ServiceException;
+import org.geoserver.wcs.responses.CoverageResponseDelegate;
+import org.geoserver.wcs.responses.CoverageResponseDelegateFinder;
 import org.geotools.coverage.grid.GridCoverage2D;
 import org.geotools.factory.Hints;
 import org.opengis.coverage.grid.GridCoverage;
 import org.vfny.geoserver.wcs.WcsException;
-import org.vfny.geoserver.wcs.responses.CoverageResponseDelegate;
-import org.vfny.geoserver.wcs.responses.CoverageResponseDelegateFactory;
 
 /**
  * Response object for the store=true path, that is, one that stores the coverage on disk and
@@ -47,14 +48,24 @@ public class Wcs10GetCoverageResponse extends Response {
 
     Catalog catalog;
 
-    /**
-     * 
-     */
-    CoverageResponseDelegate delegate;
+    private CoverageResponseDelegateFinder responseFactory;
 
-    public Wcs10GetCoverageResponse(Catalog catalog) {
+    public Wcs10GetCoverageResponse(Catalog catalog, CoverageResponseDelegateFinder responseFactory) {
         super(GridCoverage[].class);
         this.catalog = catalog;
+        this.responseFactory = responseFactory;
+    }
+    
+    @Override
+    public String getAttachmentFileName(Object value, Operation operation) {
+        if (!(operation.getParameters()[0] instanceof GetCoverageType))
+            throw new WcsException("Cannot handle object of type: "
+                    + operation.getParameters()[0].getClass());
+
+        GetCoverageType getCoverage = (GetCoverageType) operation.getParameters()[0];
+        String outputFormat = getCoverage.getOutput().getFormat().getValue();
+        CoverageResponseDelegate delegate = getResponseDelegate(outputFormat);
+        return getCoverage.getSourceCoverage() + "." + delegate.getFileExtension(outputFormat);
     }
 
     @Override
@@ -65,13 +76,17 @@ public class Wcs10GetCoverageResponse extends Response {
 
         GetCoverageType getCoverage = (GetCoverageType) operation.getParameters()[0];
         String outputFormat = getCoverage.getOutput().getFormat().getValue();
-        if (delegate == null)
-            this.delegate = CoverageResponseDelegateFactory.encoderFor(outputFormat);
+        CoverageResponseDelegate delegate = getResponseDelegate(outputFormat);
 
-        if (delegate == null)
+        return delegate.getMimeType(outputFormat);
+    }
+
+    private CoverageResponseDelegate getResponseDelegate(String outputFormat) {
+        CoverageResponseDelegate delegate = responseFactory.encoderFor(outputFormat);
+        if (delegate == null) {
             throw new WcsException("Could not find encoder for output format " + outputFormat);
-
-        return delegate.getMimeFormatFor(outputFormat);
+        }
+        return delegate;
     }
 
     @Override
@@ -81,11 +96,7 @@ public class Wcs10GetCoverageResponse extends Response {
 
         GetCoverageType getCoverage = (GetCoverageType) operation.getParameters()[0];
         String outputFormat = getCoverage.getOutput().getFormat().getValue();
-        if (delegate == null)
-            this.delegate = CoverageResponseDelegateFactory.encoderFor(outputFormat);
-
-        if (delegate == null)
-            throw new WcsException("Could not find encoder for output format " + outputFormat);
+        CoverageResponseDelegate delegate = getResponseDelegate(outputFormat);
 
         return delegate.canProduce(outputFormat);
     }
@@ -98,11 +109,7 @@ public class Wcs10GetCoverageResponse extends Response {
         // grab the delegate for coverage encoding
         GetCoverageType request = (GetCoverageType) operation.getParameters()[0];
         String outputFormat = request.getOutput().getFormat().getValue();
-        if (delegate == null)
-            delegate = CoverageResponseDelegateFactory.encoderFor(outputFormat);
-
-        if (delegate == null)
-            throw new WcsException("Could not find encoder for output format " + outputFormat);
+        CoverageResponseDelegate delegate = getResponseDelegate(outputFormat);
 
         // grab the coverage info for Coverages document encoding
         final GridCoverage2D coverage = (GridCoverage2D) coverages[0];
@@ -110,8 +117,7 @@ public class Wcs10GetCoverageResponse extends Response {
 
         // write the coverage
         try {
-            delegate.prepare(outputFormat, coverage);
-            delegate.encode(output);
+            delegate.encode(coverage, outputFormat,Collections.EMPTY_MAP, output);
             output.flush();
         } finally {
             // if(output != null) output.close();

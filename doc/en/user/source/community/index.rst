@@ -23,4 +23,6 @@ officially part of the GeoServer releases. They are however built along with the
    monitoring/index
    printing/index
    python/index
+   scripting/index
    spatialite/index
+   xslt/index

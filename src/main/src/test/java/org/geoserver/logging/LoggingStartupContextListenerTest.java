@@ -1,4 +1,13 @@
+/* Copyright (c) 2012 TOPP - www.openplans.org. All rights reserved.
+ * This code is licensed under the GPL 2.0 license, available at the root
+ * application directory.
+ */
 package org.geoserver.logging;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 
@@ -7,15 +16,21 @@ import javax.servlet.ServletContextEvent;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Appender;
 import org.apache.log4j.FileAppender;
+import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import org.geoserver.platform.GeoServerExtensions;
+import org.junit.Before;
+import org.junit.Test;
 
 import com.mockrunner.mock.web.MockServletContext;
 
-import junit.framework.TestCase;
+public class LoggingStartupContextListenerTest {
 
-public class LoggingStartupContextListenerTest extends TestCase {
-
+    @Before
+    public void cleanupLoggers() {
+        LogManager.resetConfiguration();
+    }
+    
+    @Test
     public void testLogLocationFromServletContext() throws Exception {
         File tmp = File.createTempFile("log", "tmp", new File("target"));
         tmp.delete();
@@ -39,7 +54,7 @@ public class LoggingStartupContextListenerTest extends TestCase {
             new LoggingStartupContextListener().contextInitialized(new ServletContextEvent(context));
         }
         finally {
-            System.setProperty(LoggingUtils.RELINQUISH_LOG4J_CONTROL, rel);
+            System.setProperty(LoggingUtils.RELINQUISH_LOG4J_CONTROL, "rel");
         }
 
         Appender appender = logger.getAppender("geoserverlogfile"); 

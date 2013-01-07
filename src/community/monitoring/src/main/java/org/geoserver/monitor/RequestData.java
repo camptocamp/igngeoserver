@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 import org.geoserver.platform.ServiceException;
+import org.opengis.geometry.BoundingBox;
+
 
 /**
  * The request object, a simple java bean that gathers all the information and data that is 
@@ -204,7 +206,17 @@ public class RequestData implements Serializable {
     /**
      * The response status
      */
-    int responseStatus;
+    Integer responseStatus;
+    
+    /**
+     *  The Referer of the HTTP request, if any
+     */
+    private String httpReferer;
+    
+    /**
+     * A bounding box for the region the request covers if any (May be approximate)
+     */
+    private BoundingBox bbox;
 
     public long getId() {
         return id;
@@ -246,6 +258,12 @@ public class RequestData implements Serializable {
         this.queryString = queryString;
     }
 
+    /**
+     * The body of the HTTP request
+     * 
+     * May be trimmed to a maximum length.  If so, check getBodyContentLength for the length of the
+     * untrimmed body.
+     */
     public byte[] getBody() {
         return body;
     }
@@ -497,6 +515,8 @@ public class RequestData implements Serializable {
         clone.setErrorMessage(errorMessage);
         clone.setError(error);
         clone.setResponseStatus(responseStatus);
+        clone.setHttpReferer(httpReferer);
+        clone.setBbox(bbox);
      
         return clone;
     }
@@ -506,11 +526,29 @@ public class RequestData implements Serializable {
         return "Request (" + String.valueOf(id) + ")";
     }
 
-    public int getResponseStatus() {
+    public Integer getResponseStatus() {
         return responseStatus;
     }
 
-    public void setResponseStatus(int httpStatus) {
+    public void setResponseStatus(Integer httpStatus) {
         this.responseStatus = httpStatus;
     }
+    
+    public String getHttpReferer() {
+        return httpReferer;
+    }
+    
+    public void setHttpReferer(String httpReferer){
+        this.httpReferer = httpReferer;
+    }
+
+    public BoundingBox getBbox() {
+        return bbox;
+    }
+
+    public void setBbox(BoundingBox bbox) {
+        this.bbox = bbox;
+    }
+    
+    
 }

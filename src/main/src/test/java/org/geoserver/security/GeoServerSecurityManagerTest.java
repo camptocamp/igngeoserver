@@ -1,4 +1,10 @@
+/* Copyright (c) 2012 TOPP - www.openplans.org. All rights reserved.
+ * This code is licensed under the GPL 2.0 license, available at the root
+ * application directory.
+ */
 package org.geoserver.security;
+
+import static org.junit.Assert.*;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -9,10 +15,15 @@ import java.util.Properties;
 
 import org.geoserver.security.impl.GeoServerRole;
 import org.geoserver.security.impl.GeoServerUser;
+import org.geoserver.test.SystemTest;
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.springframework.security.authentication.TestingAuthenticationToken;
 
+@Category(SystemTest.class)
 public class GeoServerSecurityManagerTest extends GeoServerSecurityTestSupport {
 
+    @Test
     public void testAdminRole() throws Exception {
         GeoServerSecurityManager secMgr = getSecurityManager();
 
@@ -20,10 +31,9 @@ public class GeoServerSecurityManagerTest extends GeoServerSecurityTestSupport {
             (List) Arrays.asList(GeoServerRole.ADMIN_ROLE));
         auth.setAuthenticated(true);
         assertTrue(secMgr.checkAuthenticationForAdminRole(auth));
-
-
     }
     
+    @Test
     public void testMasterPasswordForMigration() throws Exception {
         
         // simulate no user.properties file

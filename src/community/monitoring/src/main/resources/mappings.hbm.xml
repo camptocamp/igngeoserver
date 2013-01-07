@@ -10,6 +10,10 @@
   </typedef>
   <typedef name="Error" class='org.geoserver.monitor.hib.ErrorUserType'>
   </typedef>
+  <typedef class="org.geoserver.monitor.hib.BoundingBoxType" name="BoundingBox"/>
+  <typedef class="org.geoserver.monitor.hib.BoundingBoxType" name="NativeBoundingBox">
+     <param name="storeCRSAsWKT">true</param>
+  </typedef>
 
   <!-- TODO specify which attributes are not null -->
   <class name="org.geoserver.monitor.RequestData" table="REQUEST">
@@ -20,7 +24,11 @@
     <property column="CATEGORY" name="category" type="Category" index="REQ_CATEGORY_IDX"/>
     
     <property column="PATH" name="path"/>
+    
     <property column="BODY" name="body" length="1024"/>
+    <!-- Use this instead for an unbounded body field -->
+    <!-- <property column="BODY" name="body"/>-->
+    
     <property column="QUERY_STRING" name="queryString" length="4096"/>
     <property column="BODY_CONTENT_TYPE" name="bodyContentType"/>
     <property column="BODY_CONTENT_LENGTH" name="bodyContentLength"/>
@@ -50,6 +58,18 @@
     
     <property column="ERROR_MESSAGE" name="errorMessage" length="1024"/>
     <property column="EXCEPTION_STACK_TRACE" name="error" type="Error"/>
+    
+    <property column="RESPONSE_STATUS" name="responseStatus" />
+    
+    <property column="HTTP_REFERER" name="httpReferer" length="4096"/>
+    
+    <property  name="bbox" type="BoundingBox">
+      <column name="MINX"/>
+      <column name="MINY"/>
+      <column name="MAXX"/>
+      <column name="MAXY"/>
+      <column name="CRS"/>
+    </property>
     
     <list name="resources" table="REQUEST_RESOURCES">
       <key column="REQUEST_ID" not-null="true"/>

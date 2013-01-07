@@ -21,6 +21,7 @@ import java.util.logging.Logger;
 
 import org.geoserver.ows.KvpParser;
 import org.geoserver.platform.GeoServerExtensions;
+import org.geoserver.platform.ServiceException;
 import org.geotools.util.Version;
 
 /**
@@ -328,18 +329,26 @@ public class KvpUtils {
         for (Iterator itr = kvp.entrySet().iterator(); itr.hasNext();) {
             Map.Entry entry = (Map.Entry) itr.next();
             String key = (String) entry.getKey();
-            String value = null;
+            Object value = null;
 
             if (entry.getValue() instanceof String) {
-                value = (String) entry.getValue();
+                value = trim((String) entry.getValue());
             } else if (entry.getValue() instanceof String[]) {
-                //TODO: perhaps handle multiple values for a key
-                value = (String) ((String[]) entry.getValue())[0];
-            }
-
-            //trim the string
-            if ( value != null ) {
-                value = value.trim(); 
+                String[] values = (String[]) entry.getValue();
+                List<String> normalized = new ArrayList<String>();
+                for (String v : values) {
+                    v = trim(v);
+                    if(v != null) {
+                        normalized.add(v);
+                    }
+                }
+                if(normalized.size() == 0) {
+                    value = null;
+                } else if(normalized.size() == 1) {
+                    value = normalized.get(0);
+                } else {
+                    value = (String[]) normalized.toArray(new String[normalized.size()]);
+                }
             }
             
             //convert key to lowercase 
@@ -347,6 +356,14 @@ public class KvpUtils {
         }
         
         return normalizedKvp;
+    }
+
+    private static String trim(String value) {
+        // trim the string
+        if ( value != null ) {
+            value = value.trim(); 
+        }
+        return value;
     }
     
     /**
@@ -374,9 +391,9 @@ public class KvpUtils {
         Collection parsers = GeoServerExtensions.extensions(KvpParser.class);
        
         //strip out parsers which do not match current service/request/version
-        String service = (String) kvp.get( "service" );
-        String version = (String) kvp.get( "version" );
-        String request = (String) kvp.get( "request" );
+        String service = KvpUtils.getSingleValue(kvp, "service");
+        String version = KvpUtils.getSingleValue(kvp, "version");
+        String request = KvpUtils.getSingleValue(kvp, "request");
         for (Iterator p = parsers.iterator(); p.hasNext(); ) {
             KvpParser parser = (KvpParser) p.next();
             
@@ -400,19 +417,15 @@ public class KvpUtils {
         for (Iterator itr = kvp.entrySet().iterator(); itr.hasNext();) {
             Map.Entry entry = (Map.Entry) itr.next();
             String key = (String) entry.getKey();
-            String value = (String) entry.getValue();
             
-            //find the parser for this key value pair
-            Object parsed = null;
-
+            // find the parser for this key value pair
             KvpParser parser = null;
-            for (Iterator pitr = parsers.iterator(); pitr.hasNext() && parsed == null;) {
+            for (Iterator pitr = parsers.iterator(); pitr.hasNext();) {
                 KvpParser candidate = (KvpParser) pitr.next();
                 if (key.equalsIgnoreCase(candidate.getKey())) {
                     if (parser == null) {
                         parser = candidate;
-                    }
-                    else {
+                    } else {
                         String curService = parser.getService();
                         Version curVersion = parser.getVersion();
 
@@ -448,9 +461,21 @@ public class KvpUtils {
                 }
             }
 
+            // parse the value
+            Object parsed = null;
             if (parser != null) {
                 try {
-                    parsed = parser.parse(value);
+                    if(entry.getValue() instanceof String) {
+                        String value = (String) entry.getValue();
+                        parsed = parser.parse(value);
+                    } else {
+                        String[] values = (String[]) entry.getValue();
+                        List result = new ArrayList();
+                        for (String v : values) {
+                            result.add(parser.parse(v));
+                        }
+                        parsed = result;
+                    }
                 } catch (Throwable t) {
                     //dont throw any exceptions yet, befor the service is
                     // known
@@ -468,6 +493,37 @@ public class KvpUtils {
     }
     
     /**
+     * Returns a single value for the specified key, or throws an exception if multiple different
+     * values are found
+     * 
+     * @param kvp
+     * @param key
+     * @return
+     */
+    public static String getSingleValue(Map kvp, String key) {
+        Object value = kvp.get(key);
+        if(value == null) {
+            return null;
+        } else if(value instanceof String) {
+            return (String) value;
+        } else {
+            String[] strings = (String[]) value;
+            if(strings.length == 0) {
+                return null;
+            }
+            String result = strings[0];
+            for (int i = 1; i < strings.length; i++) {
+                if(!result.equals(strings[i])) {
+                    throw new ServiceException("Single value expected for request parameter " 
+                            + key + " but instead found: " + Arrays.toString(strings));
+                }
+            }
+            
+            return result;
+        }
+    }
+
+    /**
      * Parses the parameters in the path query string. Normally this is done by the
      * servlet container but in a few cases (testing for example) we need to emulate the container
      * instead.
@@ -475,7 +531,7 @@ public class KvpUtils {
      * @param path a url in the form path?k1=v1&k2=v2&,,,
      * @return
      */
-    public static Map<String, String> parseQueryString(String path) {
+    public static Map<String, Object> parseQueryString(String path) {
         int index = path.indexOf('?');
 
         if (index == -1) {
@@ -484,7 +540,7 @@ public class KvpUtils {
 
         String queryString = path.substring(index + 1);
         StringTokenizer st = new StringTokenizer(queryString, "&");
-        Map<String, String> result = new HashMap<String, String>();
+        Map<String, Object> result = new HashMap<String, Object>();
         while (st.hasMoreTokens()) {
             String token = st.nextToken();
             String[] keyValuePair;
@@ -511,7 +567,25 @@ public class KvpUtils {
                 
             }
          
-            result.put(keyValuePair[0], keyValuePair.length > 1 ?  keyValuePair[1] : "");
+            String key = keyValuePair[0];
+            String value = keyValuePair.length > 1 ?  keyValuePair[1] : "";
+            if(result.get(key) == null) {
+                result.put(key, value);
+            } else {
+                String[] array;
+                Object oldValue = result.get(key);
+                if(oldValue instanceof String) {
+                    array = new String[2];
+                    array[0] = (String) oldValue;
+                    array[1] = value;
+                } else {
+                    String[] oldArray = (String[]) oldValue;
+                    array = new String[oldArray.length + 1];
+                    System.arraycopy(oldArray, 0, array, 0, oldArray.length);
+                    array[oldArray.length] = value;
+                }
+                result.put(key, array);
+            }
         }
         
         return result;
@@ -636,5 +710,28 @@ public class KvpUtils {
             else
                 options.put(entry.getKey(), entry.getValue());
         }
+    }
+
+    /**
+     * Extracts the first value for the specified parameter (the kvp can contain either a single
+     * string, or an array of values)
+     * @param kvp
+     * @param param
+     */
+    public static String firstValue(Map kvp, String param) {
+        Object o = kvp.get(param);
+        if(o == null) {
+            return null;
+        } else if(o instanceof String) {
+            return (String) o;
+        } else {
+            String[] values = (String[]) o;
+            if(values.length >= 0) {
+                return values[0];
+            } else {
+                return null;
+            }
+        }
+        
     }
 }

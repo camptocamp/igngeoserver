@@ -147,7 +147,66 @@ This job will rsync all the artifacts located at::
      http://gridlock.opengeo.org/geoserver/release/<RELEASE>
 
 to the SourceForge FRS server. Navigate to `Sourceforge <http://sourceforge.net/projects/geoserver/>`__ and verify that the artifacts have been uploaded properly. Set the necessary flags on the ``.exe``, ``.dmg`` and ``.bin`` artifacts so that they show up as the appropriate default for users downloading on the Windows, OSX, and Linux platforms.
-   
+
+Create the download page
+------------------------
+
+Get the JIRA version for this release:
+
+* Go to `JIRA <http://jira.codehaus.org/display/GEOS/>`_
+* Select "Change log"
+* Open the release notes for the version being released
+* The version will be in the url, e.g. ``http://jira.codehaus.org/secure/ReleaseNote.jspa?projectId=10311&version=18700`` -> 18700
+
+Create the new download page:
+
+* Go to `GeoServer web site <http://geoserver.org/>`_ and make sure you are logged in.
+* Select the "New page" link in the menu
+* Click "select a page template to start from"
+* Choose the "Download" template
+* Fill in the version, release date (e.g., May 17th, 2012) and the jira version
+* Set the page title to the version being released (e.g. "GeoServer 2.2-RC3")
+* Save and check all the links are working
+
+If you are releasing a stable version, edit the `Stable version <http://geoserver.org/display/GEOS/Stable>`_ page and make it include the newly created release page.
+If you are instead releasing a beta/RC, edit the `Latest version <http://geoserver.org/display/GEOS/Latest>`_ page and make it include the newly created release page.
+
+Post the Documentation
+----------------------
+
+.. note:: For now, this requires a user account on the OpenGeo server ``wedge.opengeo.org``.
+
+.. note:: This content will likely move to GitHub in the near future.
+
+#. Open a connection to ``wedge.opengeo.org``.
+
+#. Create the following new directories::
+
+     /var/www/docs.geoserver.org/htdocs/a.b.c
+     /var/www/docs.geoserver.org/htdocs/a.b.c/developer
+     /var/www/docs.geoserver.org/htdocs/a.b.c/user
+
+   where ``a.b.c`` is the full release number.
+
+#. Download the HTML documentation archive from the GeoServer download page, and extract the contents of both user manuals to the appropriate directory::
+
+    cd /var/www/docs.geoserver.org/htdocs/a.b.c/
+    sudo wget http://downloads.sourceforge.net/geoserver/geoserver-a.b.c-htmldoc.zip
+    sudo unzip geoserver-a.b.c-htmldoc.zip
+    sudo rm geoserver-a.b.c-htmldoc.zip
+
+#. Open the file :file:`/var/www/docs.geoserver.org/htdocs/index.html` in a text editor.
+
+#. Add a new entry in the table for the most recent release::
+
+    <tr>
+      <td><strong><a href="http://geoserver.org/display/GEOS/GeoServer a.b.c">a.b.c</a></strong></td>
+      <td><a href="a.b.c/user/">User Manual</a></td>
+      <td><a href="a.b.c/developer/">Developer Manual</a></td>
+    </tr>
+
+#. Save and close this file. 
+
 Announce the Release
 --------------------
 
@@ -234,6 +293,27 @@ GeoServer Blog
 	* Edit the page location to correctly reflect where the page should reside.
 
 #. Finally, update the wiki link on http://geoserver.org/display/GEOS/Latest to your new page.
+
+Update GeoServer homepage
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+#. Navigate to http://geoserver.org.
+
+#. Click :guilabel:`Log In` in the top right corner.
+
+#. Enter your Confluence user name and password and click :guilabel:`Log In`.
+
+#. Navigate back to http://geoserver.org.
+
+#. At the bottom of the page, click :guilabel:`Edit`.
+
+#. Change the links at the top of the page to include the new GeoServer download page and the blog post.  For example::
+
+      h6. December 32, 2086: [GeoServer 3.1.1] released\!  [See what's new...|http://blog.geoserver.org/2086/12/32/geoserver-3.1.1-released/]
+
+#. When finished, click :guilabel:`Save`.
+
+#. Verify that the links work on the homepage.
 
 SlashGeo
 ^^^^^^^^
