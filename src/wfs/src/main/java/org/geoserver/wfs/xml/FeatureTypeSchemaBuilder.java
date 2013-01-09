@@ -379,11 +379,19 @@ public abstract class FeatureTypeSchemaBuilder {
             schema.getQNamePrefixToNamespaceMap().put("wfs", getWfsSchema().getTargetNamespace());
             XSDImport wfsImport = factory.createXSDImport();
             wfsImport.setNamespace(getWfsSchema().getTargetNamespace());
-            wfsImport.setSchemaLocation(getWfsSchema().getSchemaLocation());
+            final String wfsSchemaLocation;
+            
+            if(this instanceof FeatureTypeSchemaBuilder.GML32) {
+                wfsSchemaLocation = WFS.CANONICAL_SCHEMA_LOCATION;
+            } else {
+                wfsSchemaLocation = getWfsSchema().getSchemaLocation();
+            }
+            
+            wfsImport.setSchemaLocation(wfsSchemaLocation);
             wfsImport.setResolvedSchema(getWfsSchema());
             schema.getContents().add(wfsImport);
             ((XSDSchemaImpl)getWfsSchema()).imported(wfsImport);
-            imports.put(getWfsSchema().getTargetNamespace(), getWfsSchema().getSchemaLocation());
+            imports.put(getWfsSchema().getTargetNamespace(), wfsSchemaLocation);
         }
         if (namespace.equals(schema.getTargetNamespace())) {
             if (includes.contains(schemaLocation)) {
